@@ -1,0 +1,15 @@
+<form class="form-contact js-contact-form" method="POST" action="#">
+    <div class="form-row no-gutters">
+        <div class="col-md-6">
+            <input class="au-input" type="text" name="name" placeholder="Họ & tên" required="required">
+            <input class="au-input" type="email" name="email" placeholder="Địa chỉ email" required="required" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+            <input class="au-input" type="text" name="phone" placeholder="Số điện thoại" required="required">
+        </div>
+        <div class="col-md-6 p-r-0">
+            <textarea class="au-textarea" name="message" placeholder="Nội dung lời nhắn*" required="required"></textarea>
+            <div class="text-right">
+                <button class="au-btn au-btn--solid" type="submit">Gửi lời nhắn</button>
+            </div>
+        </div>
+    </div>
+</form>

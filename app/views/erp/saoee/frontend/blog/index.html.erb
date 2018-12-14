@@ -1,0 +1,77 @@
+<!-- PAGE HEADING-->
+<section class="section breadcrumb p-t-65 p-b-35">
+    <div class="container">
+        <div class="page-heading">
+            <h2 class="title-2">Tin tức</h2>
+            <h4 class="title-sub title-sub--c8 m-b-15">
+                <%= link_to "Trang chủ", erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= 'Tin tức' %>
+            </h4>
+        </div>
+    </div>
+</section>
+<!-- END PAGE HEADING-->
+
+<!-- BLOG-->
+<section class="p-t-20 p-b-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9">
+                <% if @blogs.count > 0 %>
+                    <div class="row">
+                        <% @blogs.each do |blog| %>
+                            <div class="col-md-6">
+                                <article class="blog">
+                                    <figure class="entry-image">
+                                        <%= link_to image_tag(article_image(blog.image.thumb_420_236, '420_236'), alt: blog.name), blog_link(blog) %>
+                                    </figure>
+                                    <div class="entry-summary">
+                                        <h4 class="entry-title">
+                                            <%= link_to blog.name, blog_link(blog) %>
+                                        </h4>
+                                        <span class="entry-meta"><%= relative_time(blog.created_at) %></span>
+                                        <p class="entry-excerpt"><%= short_text(blog.content, 25) %>...</p>
+                                    </div>
+                                </article>
+                            </div>
+                        <% end %>
+                    </div>
+    
+                    <nav class="navigation blog-navigation">
+                        <div class="container">
+                            <div class="nav-links">
+                                <ul class="page-numbers">
+                                    <li>
+                                        <a class="page-number prev" href="#">
+                                            <span class="ti-arrow-left"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="page-number current">01</span>
+                                    </li>
+                                    <li>
+                                        <a class="page-number" href="#">02</a>
+                                    </li>
+                                    <li>
+                                        <a class="page-number next" href="#">
+                                            <span class="ti-arrow-right"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                <% else %>
+                    <div class="alert alert-warning">
+                        <i class="fa fa-warning"></i> Không tìm thấy danh sách bài viết.
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <%= render "erp/saoee/frontend/modules/blog/sidebar" %>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END BLOG-->

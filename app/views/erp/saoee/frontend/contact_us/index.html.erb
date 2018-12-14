@@ -1,0 +1,29 @@
+<!-- PAGE HEADING-->
+<section class="section breadcrumb p-t-65 p-b-35">
+    <div class="container">
+        <div class="page-heading">
+            <h2 class="title-2">Liên hệ</h2>
+            <h4 class="title-sub title-sub--c8 m-b-15">
+                <%= link_to "Trang chủ", erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= 'Liên hệ' %>
+            </h4>
+        </div>
+    </div>
+</section>
+<!-- END PAGE HEADING-->
+
+<!-- CONTACT-->
+<section class="section p-b-80">
+    <div class="container">
+        <div class="row no-gutters m-t-60">
+            <div class="col-lg-5">
+                <%= render "erp/saoee/frontend/modules/contact_us/contact_info" %>
+            </div>
+            <div class="col-lg-7">
+                <%= render "erp/saoee/frontend/modules/contact_us/contact_form" %>
+            </div>
+        </div>
+        <%= render "erp/saoee/frontend/modules/contact_us/google_map" %>
+    </div>
+</section>
+<!-- END CONTACT-->

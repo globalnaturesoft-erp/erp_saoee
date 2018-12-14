@@ -1,0 +1,43 @@
+<!-- PAGE HEADING-->
+<section class="section breadcrumb p-t-65 p-b-35">
+    <div class="container">
+        <div class="page-heading">
+            <h2 class="title-2">Dịch vụ</h2>
+            <h4 class="title-sub title-sub--c8 m-b-15">
+                <%= link_to "Trang chủ", erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= link_to "Dịch vụ", erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= @current_menu.name %>
+            </h4>
+        </div>
+    </div>
+</section>
+<!-- END PAGE HEADING-->
+
+<!-- SERVICE DETAI-->
+<section class="section p-t-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9">
+                <% if @service.present? %>
+                    <article class="blog-detail-1">
+                        <header class="entry-header">
+                            <h2 class="entry-title"><%= @service.name %></h2>
+                        </header>
+                        <div class="entry-content">
+                            <%= (image_tag @service.image.thumb_870_489, alt: @service.name, class: 'wp-post-image') if @service.image.thumb_870_489.present? %>
+                            <%= @service.content.html_safe %>
+                        </div>
+                    </article>
+                <% else %>
+                    <div class="alert alert-warning">
+                        <i class="fa fa-warning"></i> Nội dung đang được cập nhật.
+                    </div>
+                <% end %>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <%= render "erp/saoee/frontend/modules/service/sidebar" %>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SERVICE DETAIL-->

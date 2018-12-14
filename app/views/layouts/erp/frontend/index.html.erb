@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en,vi">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Hung Nguyen">
+    <meta name="keywords" content="">
+
+    <!-- Title Page-->
+    <title>Trang chủ | SAO-EE.VN</title>
+    
+    <%= render "erp/saoee/frontend/modules/stylesheet" %>
+    
+    <%= render "erp/saoee/frontend/modules/favicons_link" %>
+</head>
+
+<body class="animsition js-preloader">
+    <div class="page-wrapper">
+        
+        <%= render "erp/saoee/frontend/modules/header" %>
+
+        <!-- MAIN-->
+        <main id="main">
+            
+            <%= yield %>
+            
+        </main>
+        <!-- END MAIN-->
+        
+        <%= render "erp/saoee/frontend/modules/footer" %>
+    </div>
+    
+    <%= render "erp/saoee/frontend/modules/javascripts" %>
+
+</body>
+
+<script>
+    'undefined' === typeof _trfq || (window._trfq = []);
+    'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({
+        'tccl.baseHost': 'secureserver.net'
+    }), _trfd.push({
+        'ap': 'cpsh'
+    }, {
+        'server': 'a2plcpnl0422'
+    }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.
+</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+
+</html>
+<!-- end document-->
