@@ -123,3 +123,45 @@ li.menu-item.menu-item-has-children > a::after {
 article.blog-detail-1 .entry-content ul {
     padding-left: 20px;
 }
+.media-about .media__body .slogan.title-1 {
+    margin-bottom: 15px;
+}
+.media-about .media__body .slogan.title-sub {
+    font-size: 20px;
+    color: #000;
+}
+.media-about .media__body .slogan.title-1 span:nth-child(1) {
+    color: #fe0000;
+}
+.media-about .media__body .slogan.title-1 span:nth-child(2) {
+    color: #00aff0;
+}
+.media-about .media__body .slogan.title-1 span:nth-child(3) {
+    color: #6fac45;
+}
+/*.rev-spacer {
+    height: 80px;
+}*/
+.media-about .media__text {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.footer {
+    padding: 0;
+}
+footer .footer-bottom {
+    background: rgb(0, 17, 17) !important;
+    border-top: 1px solid #fff;
+}
+footer .footer-bottom p {
+    line-height: 1.5;
+}
+.font-12 {
+    font-size: 12px;
+}
+.text-gray {
+    color: #808080 !important;
+}
+.text-color {
+    color: #457c90 !important;
+}

@@ -11,7 +11,7 @@
                 <article class="blog">
                     <figure class="entry-image">
                         <a href="#">
-                            <img src="/frontend/images/blog-01.jpg" alt="the  villa overlooks dramatic mountainous scenery" />
+                            <%= link_to image_tag(article_image(blog.image.thumb_357_201, '357_201'), alt: blog.name), blog_link(blog) %>
                         </a>
                     </figure>
                     <div class="entry-summary">
