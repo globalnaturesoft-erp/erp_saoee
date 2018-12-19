@@ -25,6 +25,11 @@ module Erp
         erp_saoee.blog_detail_path(blog.id, title: url_friendly(blog.name))
       end
       
+      # project link
+      def project_link(project)
+        erp_saoee.project_detail_path(project.id, title: url_friendly(project.name))
+      end
+      
       # article image
       def article_image(thumb, size)
         if size == '960_540'

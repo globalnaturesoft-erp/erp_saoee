@@ -5,12 +5,26 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
     <meta name="author" content="Hung Nguyen">
-    <meta name="keywords" content="">
+    <% if @meta_description.present? %>
+	<meta name="description" content="<%= @meta_description %>">
+	<% else %>
+	<meta name="description" content="Công ty Cổ phần Tư vấn Thiết kế SAO">
+	<% end %>
+	<% if @meta_keywords.present? %>
+	<meta name="keywords" content="<%= @meta_keywords %>">
+	<% else %>
+	<meta name="keywords" content="tu van, thiet ke, kien truc, mo hinh nang luong, he thong co dien, tư vấn, thiết kế, kiến trúc, mô hình năng lượng, hệ thống cơ điện, sao">
+	<% end %>
 
     <!-- Title Page-->
-    <title>Trang chủ | SAO-EE.VN</title>
+    <title>
+        <% if content_for?(:title) %>
+            <%= yield(:title) %> | SAO-EE.VN
+        <% else %>
+            Công ty Cổ phần Tư vấn Thiết kế SAO | SAO-EE.VN
+        <% end %>
+    </title>
     
     <%= render "erp/saoee/frontend/modules/stylesheet" %>
     

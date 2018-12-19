@@ -1,3 +1,4 @@
+<% title @project.name %>
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
     <div class="container">
@@ -6,7 +7,7 @@
             <h4 class="title-sub title-sub--c8 m-b-15">
                 <%= link_to "Trang chủ", erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
                 <%= link_to "Dự án", erp_saoee.service_path %> <i class="ti-angle-double-right"></i>
-                <%= 'Công trình nhà máy Heineken - Cambodia' %>
+                <%= @project.name %>
             </h4>
         </div>
     </div>
@@ -15,30 +16,48 @@
 
 <!-- PROJECT DETAIL-->
 <div class="container p-b-30">
-    <h2 class="title-1 p-t-20">Công trình nhà máy Heineken - Cambodia</h2>
+    <h2 class="title-1 p-t-20"><%= @project.name %></h2>
     <article class="project-style-4 p-t-10">
         <div class="row m-t-20 m-b-20">
             <div class="col-lg-5">
                 <div class="entry-meta">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="entry-meta__item">
-                                <h4 class="key">Thời gian:</h4>
-                                <span class="value">May - 21 - 2018</span>
+                                <h4 class="key">Khách hàng:</h4>
+                                <span class="value">N/A</span>
                             </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="entry-meta__item">
+                                <h4 class="key">Vị trí:</h4>
+                                <span class="value"><%= @project.location %></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="entry-meta__item">
+                                <h4 class="key">Diện tích:</h4>
+                                <span class="value"><%= @project.area.present? ? "#{@project.area}m<sup>2</sup>".html_safe : "N/A" %></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="entry-meta__item">
+                                <h4 class="key">Bắt đầu:</h4>
+                                <span class="value"><%= @project.start_date.present? ? @project.start_date.strftime('%d/%m/%Y') : "N/A" %></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="entry-meta__item">
+                                <h4 class="key">Kết thúc:</h4>
+                                <span class="value"><%= @project.completion_date.present? ? @project.completion_date.strftime('%d/%m/%Y') : "N/A" %></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
                             <div class="entry-meta__item">
                                 <h4 class="key">Tình trạng:</h4>
                                 <span class="value">Hoàn thành</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="entry-meta__item">
-                                <h4 class="key">Khách hàng:</h4>
-                                <span class="value">Domingo Norton</span>
-                            </div>
-                            <div class="entry-meta__item">
-                                <h4 class="key">Vị trí:</h4>
-                                <span class="value">Perth , Australia</span>
                             </div>
                         </div>
                     </div>
@@ -46,13 +65,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="entry-content">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam remaperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-                        sit
-                    </p>
+                    <%= @project.description.html_safe %>
                 </div>
                 <div class="entry-share">
                     <span class="key">Share :</span>
@@ -86,28 +99,19 @@
                 </div>
             </div>
         </div>
-        <div class="masonry-row js-isotope-wrapper">
-            <div class="row isotope-content">
-                <div class="col-md-6 col-lg-4 isotope-item isotope-item-sizer">
-                    <img class="wp-post-image" src="/frontend/images/post-05.jpg" alt="Post 1">
-                </div>
-                <div class="col-md-6 col-lg-4 isotope-item">
-                    <img class="wp-post-image" src="/frontend/images/post-06.jpg" alt="Post 2">
-                </div>
-                <div class="col-md-6 col-lg-4 isotope-item">
-                    <img class="wp-post-image" src="/frontend/images/post-05.jpg" alt="Post 3">
-                </div>
-                <div class="col-md-6 col-lg-4 isotope-item">
-                    <img class="wp-post-image" src="/frontend/images/post-06.jpg" alt="Post 4">
-                </div>
-                <div class="col-md-6 col-lg-4 isotope-item">
-                    <img class="wp-post-image" src="/frontend/images/post-05.jpg" alt="Post 5">
-                </div>
-                <div class="col-md-6 col-lg-4 isotope-item">
-                    <img class="wp-post-image" src="/frontend/images/post-05.jpg" alt="Post 5">
+        <% if !@project.project_images.empty? %>
+            <div class="masonry-row js-isotope-wrapper">
+                <div class="row isotope-content">
+                    <% @project.project_images.each do |project_image| %>
+                        <div class="col-md-6 col-lg-4 isotope-item isotope-item-sizer">                            
+                            <a href="<%= project_image.image_url %>" data-fancybox="images" data-caption="<%= project_image.name %>">
+                                <%= image_tag(project_image.image_url.thumb_640_467, alt: project_image.name, class: 'wp-post-image') %>
+                            </a>
+                        </div>
+                    <% end %>
                 </div>
             </div>
-        </div>
+        <% end %>
     </article>
 </div>
 <!-- END PROJECT DETAIL-->
@@ -119,146 +123,61 @@
             <h2 class="title-1">Các dự án khác</h2>
             <h5 class="title-sub">Có thể bạn muốn xem?</h5>
         </div>
-        <div class="container-fluid">
-            <div class="slick-wrap slick-project js-slick-wrapper" data-slick-xs="1" data-slick-sm="1" data-slick-md="3" data-slick-lg="4" data-slick-xl="4" data-slick-dots="false" data-slick-customnav="true" data-slick-autoplay="true">
-                <div class="slick-wrap-content">
-                    <div class="slick-content js-slick-content">
-                        <div class="slick-item">
-                            <article class="media media-project">
-                                <figure class="media__img">
-                                    <img src="/frontend/images/project-01.jpg" alt="luxury villa" />
-                                </figure>
-                                <div class="bg-overlay"></div>
-                                <span class="line"></span>
-                                <span class="line line--bottom"></span>
-                                <div class="media__body">
-                                    <h3 class="title">
-                                        <a href="project-detail-1.html">Fusion House - Ny'Ah Binh Tay</a>
-                                    </h3>
-                                    <div class="address">Perth, Australia</div>
+        <% if @newest_projects.count > 4 %>
+            <div class="container-fluid">
+                <div class="slick-wrap slick-project js-slick-wrapper" data-slick-xs="1" data-slick-sm="1" data-slick-md="3" data-slick-lg="4" data-slick-xl="4" data-slick-dots="false" data-slick-customnav="true" data-slick-autoplay="true">
+                    <div class="slick-wrap-content">
+                        <div class="slick-content js-slick-content">
+                            <% @newest_projects.each do |project| %>
+                                <div class="slick-item">
+                                    <article class="media media-project">
+                                        <figure class="media__img">
+                                            <%= image_tag project.image.thumb_960_600, alt: project.name %>
+                                        </figure>
+                                        <div class="bg-overlay"></div>
+                                        <span class="line"></span>
+                                        <span class="line line--bottom"></span>
+                                        <div class="media__body">
+                                            <h3 class="title">
+                                                <%= link_to project.name, project_link(project) %>
+                                            </h3>
+                                            <div class="address"><%= project.location %></div>
+                                        </div>
+                                    </article>
                                 </div>
-                            </article>
-                        </div>
-                        <div class="slick-item">
-                            <article class="media media-project">
-                                <figure class="media__img">
-                                    <img src="/frontend/images/project-02.jpg" alt="wooden villa" />
-                                </figure>
-                                <div class="bg-overlay"></div>
-                                <span class="line"></span>
-                                <span class="line line--bottom"></span>
-                                <div class="media__body">
-                                    <h3 class="title">
-                                        <a href="project-detail-1.html">Công trình nhà máy Heineken</a>
-                                    </h3>
-                                    <div class="address">Phnom Penh - Cambodia</div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="slick-item">
-                            <article class="media media-project">
-                                <figure class="media__img">
-                                    <img src="/frontend/images/project-03.jpg" alt="Skyline" />
-                                </figure>
-                                <div class="bg-overlay"></div>
-                                <span class="line"></span>
-                                <span class="line line--bottom"></span>
-                                <div class="media__body">
-                                    <h3 class="title">
-                                        <a href="project-detail-1.html">Mercedes Factory</a>
-                                    </h3>
-                                    <div class="address">Quang Trung, Go Vap, HCMC</div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="slick-item">
-                            <article class="media media-project">
-                                <figure class="media__img">
-                                    <img src="/frontend/images/project-04.jpg" alt="Frozen house" />
-                                </figure>
-                                <div class="bg-overlay"></div>
-                                <span class="line"></span>
-                                <span class="line line--bottom"></span>
-                                <div class="media__body">
-                                    <h3 class="title">
-                                        <a href="project-detail-1.html">Academy AEC Center </a>
-                                    </h3>
-                                    <div class="address">Mexico</div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="slick-item">
-                            <article class="media media-project">
-                                <figure class="media__img">
-                                    <img src="/frontend/images/project-29.jpg" alt="luxury villa" />
-                                </figure>
-                                <div class="bg-overlay"></div>
-                                <span class="line"></span>
-                                <span class="line line--bottom"></span>
-                                <div class="media__body">
-                                    <h3 class="title">
-                                        <a href="project-detail-1.html">Khách sạn Côn Đảo</a>
-                                    </h3>
-                                    <div class="address">Bà Rịa - Vũng Tàu</div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="slick-item">
-                            <article class="media media-project">
-                                <figure class="media__img">
-                                    <img src="/frontend/images/project-30.jpg" alt="wooden villa" />
-                                </figure>
-                                <div class="bg-overlay"></div>
-                                <span class="line"></span>
-                                <span class="line line--bottom"></span>
-                                <div class="media__body">
-                                    <h3 class="title">
-                                        <a href="project-detail-1.html">Nhà xưởng Ruby</a>
-                                    </h3>
-                                    <div class="address">Myanmar</div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="slick-item">
-                            <article class="media media-project">
-                                <figure class="media__img">
-                                    <img src="/frontend/images/project-31.jpg" alt="wooden villa" />
-                                </figure>
-                                <div class="bg-overlay"></div>
-                                <span class="line"></span>
-                                <span class="line line--bottom"></span>
-                                <div class="media__body">
-                                    <h3 class="title">
-                                        <a href="project-detail-1.html">Công trình Alpes</a>
-                                    </h3>
-                                    <div class="address">Việt Nam</div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="slick-item">
-                            <article class="media media-project">
-                                <figure class="media__img">
-                                    <img src="/frontend/images/project-32.jpg" alt="Skyline" />
-                                </figure>
-                                <div class="bg-overlay"></div>
-                                <span class="line"></span>
-                                <span class="line line--bottom"></span>
-                                <div class="media__body">
-                                    <h3 class="title">
-                                        <a href="project-detail-1.html">Nghi's house</a>
-                                    </h3>
-                                    <div class="address">Michigan, USA</div>
-                                </div>
-                            </article>
+                            <% end %>
                         </div>
                     </div>
-                </div>
-                <div class="slick__nav arrows-1">
-                    <i class="slick-prev slick-arrow js-slick-prev ti-angle-left"></i>
-                    <i class="slick-next slick-arrow js-slick-next ti-angle-right"></i>
+                    <div class="slick__nav arrows-1">
+                        <i class="slick-prev slick-arrow js-slick-prev ti-angle-left"></i>
+                        <i class="slick-next slick-arrow js-slick-next ti-angle-right"></i>
+                    </div>
                 </div>
             </div>
-        </div>
+        <% else %>
+            <div class="container">
+                <div class="row gutter-xl">
+                    <% @newest_projects.each do |project| %>
+                        <div class="col-md-3">
+                            <article class="media media-project m-b-50">
+                                <figure class="media__img">
+                                    <%= image_tag project.image.thumb_960_600, alt: project.name %> <!-- image_natural_size: 960x600px -->
+                                </figure>
+                                <div class="bg-overlay"></div>
+                                <span class="line"></span>
+                                <span class="line line--bottom"></span>
+                                <div class="media__body">
+                                    <h3 class="title">
+                                        <%= link_to project.name, project_link(project) %>
+                                    </h3>
+                                    <div class="address"><%= project.location %></div>
+                                </div>
+                            </article>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
     </div>
 </section>
 <!-- END LASTEST PROJECT-->

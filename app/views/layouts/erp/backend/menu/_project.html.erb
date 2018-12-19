@@ -1,0 +1,34 @@
+<li class="nav-item <%= "active open" if ["erp/projects/backend/projects",
+                                          "erp/projects/backend/categories"].include?(params[:controller]) %>">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="glyphicon glyphicon-equalizer"></i>
+        <span class="title">Danh sách dự án</span>
+        <% if ["erp/projects/backend/projects",
+               "erp/projects/backend/categories"].include?(params[:controller]) %>
+            <span class="selected"></span>
+            <span class="arrow open"></span>
+        <% else %>
+            <span class="arrow"></span>
+        <% end %>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item <%= "active open" if ["erp/projects/backend/projects"].include?(params[:controller]) %>">
+            <a href="<%= erp_projects.backend_projects_path %>" class="nav-link ">
+                <i class="fa fa-cubes"></i>
+                <span class="title">Tất cả dự án</span>
+                <% if ["erp/projects/backend/projects"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+        <li class="nav-item <%= "active open" if ["erp/projects/backend/categories"].include?(params[:controller]) %>">
+            <a href="<%= erp_projects.backend_categories_path %>" class="nav-link ">
+                <i class="fa fa-reorder"></i>
+                <span class="title">Chuyên mục</span>
+                <% if ["erp/projects/backend/categories"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+    </ul>
+</li>

@@ -40,3 +40,37 @@
 
 <!-- Main JS-->
 <script src="/frontend/js/global.js"></script>
+<script src="/frontend/js/main.js"></script>
+
+<!-- fancybox JS -->
+<!--<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>-->
+<script src="/frontend/fancybox/jquery.fancybox.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if (window.screen.width > 1024) {
+            $('#callme a').attr('href', 'javascript:void(0)');
+            $('#callme').on('click', function () {
+                $(this).toggleClass('active');
+            })
+        }
+        
+        $( '[data-fancybox="images"]' ).fancybox({
+            infobar : false,
+            caption : function( instance, item ) {
+              var caption = $(this).data('caption') || '';
+              
+              return ( caption.length ? caption + '<br />' : '' ) + '<span data-fancybox-index></span> / <span data-fancybox-count></span>';
+            },
+            buttons: [
+                "zoom",
+                //"share",
+                "slideShow",
+                "fullScreen",
+                //"download",
+                "thumbs",
+                "close"
+            ],
+        });
+    })
+</script>

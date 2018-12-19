@@ -1,0 +1,15 @@
+vi:
+  erp:
+    banners:
+      backend:
+        banners:
+          form:
+            caption_1: "Tiêu đề/chú thích (1)"
+            placeholder_caption_1: "Nhập tiêu đề (1)"
+            help_caption_1: "Tiêu đề/chú thích của slideshow (1)"
+            caption_2: "Tiêu đề/chú thích (2)"
+            placeholder_caption_2: "Nhập tiêu đề (2)"
+            help_caption_2: "Tiêu đề/chú thích của slideshow (2)"
+            btn_text: "Tên nút liên kết"
+            placeholder_btn_text: "Nhập tên của nút liên kết"
+            link_url: "Liên kết URL"

@@ -1,15 +1,23 @@
-<form class="form-contact js-contact-form" method="POST" action="#">
+<!--<form class="form-contact js-contact-form" method="POST" action="#">-->
+<%= form_for '', url: erp_saoee.contact_us_path, html: {class: "form-contact", id: "ajax-contact-form",  autocomplete: "off"} do |f| %>
     <div class="form-row no-gutters">
         <div class="col-md-6">
-            <input class="au-input" type="text" name="name" placeholder="Họ & tên" required="required">
-            <input class="au-input" type="email" name="email" placeholder="Địa chỉ email" required="required" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
-            <input class="au-input" type="text" name="phone" placeholder="Số điện thoại" required="required">
+            <input class="au-input" type="text" name="contact[name]" placeholder="Họ & tên">
+            <input class="au-input" type="email" name="contact[email]" placeholder="Địa chỉ email" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+            <input class="au-input" type="text" name="contact[phone]" placeholder="Số điện thoại">
         </div>
         <div class="col-md-6 p-r-0">
-            <textarea class="au-textarea" name="message" placeholder="Nội dung lời nhắn*" required="required"></textarea>
+            <textarea class="au-textarea" name="msg[message]" placeholder="Nội dung lời nhắn*"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="form-notice"></div>
+        </div>
+        <div class="col-md-3">
             <div class="text-right">
                 <button class="au-btn au-btn--solid" type="submit">Gửi lời nhắn</button>
             </div>
         </div>
     </div>
-</form>
+<% end %>

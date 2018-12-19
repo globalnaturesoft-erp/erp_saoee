@@ -165,3 +165,21 @@ footer .footer-bottom p {
 .text-color {
     color: #457c90 !important;
 }
+.fade.in {
+    opacity: 1;
+}
+#ajax-contact-form .form-notice .alert {
+    padding: .40rem 1.25rem;
+}
+.project-style-4 .entry-meta {
+    padding: 45px 25px 10px;
+}
+.project-style-4 .entry-meta__item .key {
+    font-size: 15px;
+}
+.entry-share {
+    padding-top: 0;
+}
+.wp-post-image {
+    border: 1px solid #6fac45;
+}
