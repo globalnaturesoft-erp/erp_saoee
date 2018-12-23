@@ -2,12 +2,12 @@
 <%= form_for '', url: erp_saoee.contact_us_path, html: {class: "form-contact", id: "ajax-contact-form",  autocomplete: "off"} do |f| %>
     <div class="form-row no-gutters">
         <div class="col-md-6">
-            <input class="au-input" type="text" name="contact[name]" placeholder="Họ & tên">
-            <input class="au-input" type="email" name="contact[email]" placeholder="Địa chỉ email" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
-            <input class="au-input" type="text" name="contact[phone]" placeholder="Số điện thoại">
+            <input class="au-input" type="text" name="contact[name]" placeholder="<%= t('.placeholder_name') %>">
+            <input class="au-input" type="email" name="contact[email]" placeholder="<%= t('.placeholder_email') %>" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+            <input class="au-input" type="text" name="contact[phone]" placeholder="<%= t('.placeholder_phone') %>">
         </div>
         <div class="col-md-6 p-r-0">
-            <textarea class="au-textarea" name="msg[message]" placeholder="Nội dung lời nhắn*"></textarea>
+            <textarea class="au-textarea" name="msg[message]" placeholder="<%= t('.placeholder_message') %>"></textarea>
         </div>
     </div>
     <div class="row">
@@ -16,7 +16,7 @@
         </div>
         <div class="col-md-3">
             <div class="text-right">
-                <button class="au-btn au-btn--solid" type="submit">Gửi lời nhắn</button>
+                <button class="au-btn au-btn--solid" type="submit"><%= t('.send_message') %></button>
             </div>
         </div>
     </div>

@@ -9,120 +9,55 @@
             </form>
         </div>
     <% end %>
-    <div class="widget widget_recent_entries">
-        <h4 class="widget-title">Bài viết mới nhất</h4>
-        <ul>
-            <li>
-                <a href="#">Eight eye-catching homes made from bamboo</a>
-            </li>
-            <li>
-                <a href="#">Nine home interiors furnished around statement rug</a>
-            </li>
-            <li>
-                <a href="#">Zooco Estudio creates cave-like wine shop in Spain</a>
-            </li>
-            <li>
-                <a href="#">Will Bruder clads a mountain home in Aspen</a>
-            </li>
-        </ul>
-    </div>
-    <div class="widget widget_categories">
-        <h4 class="widget-title">Chủ đề</h4>
-        <ul>
-            <li class="cat-item">
-                <a href="#">Architecture</a>
-                <span class="cat-count">(10)</span>
-            </li>
-            <li class="cat-item">
-                <a href="#">Decor</a>
-                <span class="cat-count">(22)</span>
-            </li>
-            <li class="cat-item">
-                <a href="#">Design</a>
-                <span class="cat-count">(23)</span>
-            </li>
-            <li class="cat-item">
-                <a href="#">Interior</a>
-                <span class="cat-count">(34)</span>
-            </li>
-        </ul>
-    </div>
-    <div class="widget widget_tag_cloud">
-        <h4 class="widget-title">Từ khóa</h4>
-        <div class="tagcloud">
-            <ul class="wp-tag-cloud">
-                <li>
-                    <a href="#">Architecture</a>
-                </li>
-                <li>
-                    <a href="#">Minimalist</a>
-                </li>
-                <li>
-                    <a href="#">Interior</a>
-                </li>
-                <li>
-                    <a href="#">Villa</a>
-                </li>
-                <li>
-                    <a href="#">Studio</a>
-                </li>
-                <li>
-                    <a href="#">Mic drop</a>
-                </li>
-                <li>
-                    <a href="#">Restaurant</a>
-                </li>
+    <% if !@categories.empty? %>
+        <div class="widget widget_categories">
+            <h4 class="widget-title"><%= t('.categories') %></h4>
+            <ul>
+                <% @categories.each do |cat| %>
+                    <li class="cat-item">
+                        <%= link_to cat.name, erp_saoee.blog_with_category_path(url_friendly(cat.name), cat.id) %>
+                        <span class="cat-count">(<%= cat.get_articles.count %>)</span>
+                    </li>
+                <% end %>
             </ul>
         </div>
-    </div>
-    <div class="widget widget_instagram">
-        <h4 class="widget-title">Dự án gần đây</h4>
-        <ul class="widget_instagram_list">
-            <li>
-                <a href="#">
-                    <img src="/frontend/images/insta-01.jpg" alt="Insta 1">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/frontend/images/insta-02.jpg" alt="Insta 2">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/frontend/images/insta-03.jpg" alt="Insta 3">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/frontend/images/insta-04.jpg" alt="Insta 4">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/frontend/images/insta-05.jpg" alt="Insta 5">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/frontend/images/insta-06.jpg" alt="Insta 6">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/frontend/images/insta-07.jpg" alt="Insta 7">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/frontend/images/insta-08.jpg" alt="Insta 8">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/frontend/images/insta-09.jpg" alt="Insta 9">
-                </a>
-            </li>
+    <% end %>
+    <div class="widget widget_recent_entries">
+        <h4 class="widget-title"><%= t('.newest_blogs') %></h4>
+        <ul>
+            <% @newest_blogs.each do |post| %>
+                <li>
+                    <%= link_to "<i class=\"zmdi zmdi-collection-text zmdi-hc-fw\"></i> #{post.name}".html_safe, blog_link(post) %>
+                </li>
+            <% end %>
         </ul>
     </div>
+    <% projects = Erp::Projects::Project.newest_projects(9) %>
+    <% if projects.count >= 3 %>
+        <div class="widget widget_instagram">
+            <h4 class="widget-title"><%= t('.latest_projects') %></h4>
+            <ul class="widget_instagram_list">
+                <% projects.each do |project| %>
+                    <li>
+                        <%= link_to (image_tag project.image.small), project_link(project), title: project.name %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <% if false %>
+        <div class="widget widget_tag_cloud">
+            <h4 class="widget-title"><%= t('tags') %></h4>
+            <div class="tagcloud">
+                <ul class="wp-tag-cloud">
+                    <li>
+                        <a href="#">a</a>
+                    </li>
+                    <li>
+                        <a href="#">b</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <% end %>
 </aside>

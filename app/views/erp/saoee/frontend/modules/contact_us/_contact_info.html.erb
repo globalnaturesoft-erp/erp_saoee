@@ -4,16 +4,16 @@
             <h5 class="title--sm2"><%= @company_info.contact_name %></h5>
         </div>
         <div class="contact-info__item m-b-10">
-            <p class="value"><strong>Địa chỉ:</strong> <%= display_contact_address(@company_info) %></p>
+            <p class="value"><strong><%= t('.address') %>:</strong> <%= display_contact_address(@company_info) %></p>
         </div>
         <div class="contact-info__item m-b-10">
-            <p class="value"><strong>Điện thoại:</strong> <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></p>
+            <p class="value"><strong><%= t('.phone_number') %>:</strong> <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></p>
         </div>
         <div class="contact-info__item m-b-10">
-            <p class="value"><strong>Hotline:</strong> 090 369 9323</p>
+            <p class="value"><strong><%= t('.hotline') %>:</strong> 090 369 9323</p>
         </div>
         <div class="contact-info__item m-b-10">
-            <p class="value"><strong>Email:</strong> <%= mail_to @company_info.email, @company_info.email %></p>
+            <p class="value"><strong><%= t('.email') %>:</strong> <%= mail_to @company_info.email, @company_info.email %></p>
         </div>
     <% end %>
 </div>

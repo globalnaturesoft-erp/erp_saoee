@@ -43,7 +43,7 @@
 <script src="/frontend/js/main.js"></script>
 
 <!-- fancybox JS -->
-<!--<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>-->
+<script src="/frontend/fancybox/jquery.fancybox.js"></script>
 <script src="/frontend/fancybox/jquery.fancybox.min.js"></script>
 
 <script>
@@ -68,9 +68,16 @@
                 "slideShow",
                 "fullScreen",
                 //"download",
-                "thumbs",
+                //"thumbs",
                 "close"
             ],
+            //thumbs : {
+            //    autoStart : true
+            //}
+        });
+        
+        $( '[data-fancybox="images"]' ).click(function() {
+            return false;
         });
     })
 </script>

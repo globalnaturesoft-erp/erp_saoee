@@ -1,2 +1,106 @@
 en:
+  home: "Home"
+  about_us: "About"
+  service: "Service"
+  project: "Project"
+  blog: "Blog"
+  contact_us: "Contact"
+  #--
+  share: "Share"
+  tags: "Tags"
   
+  erp:
+    # Frontend
+    saoee:
+      frontend:
+        about_us:
+          index:
+            about_us: "About Us"
+            no_matching_records_found: "No matching records found"
+        service:
+          index:
+            service: "Service"
+            our_services_title: "Our services"
+            our_services_title_sub: "Can we help you?" 
+          detail:
+            service: "Service"
+            no_matching_records_found: "Updating..."
+        project:
+          index:
+            project: "Project"
+            our_work: "What is our work?"
+            our_projects: "Our projects"
+          detail:
+            project: "Project"
+            client_name: "Client"
+            location: "Location"
+            area: "Area"
+            start_date: "Start date"
+            completion_date: "Finish date"
+            status: "Status"
+            latest_project_title_sub: "Can you need?"
+            latest_project_title: "Latest projects"
+        blog:
+          index:
+            blog: "Blog"
+            no_matching_records_found: "No matching records found"
+          detail:
+            blog: "Blog"
+        contact_us:
+          index:
+            contact_us: "Contact Us"
+        modules:
+          home:
+            about_us:
+              media_img_desc: "Architects with years of experience"
+          blog:
+            sidebar:
+              tags: "Tags"
+              newest_blogs: "Newest posts"
+              categories: "Categories"
+              latest_projects: "Latest projects"
+          contact_us:
+            contact_form:
+              placeholder_name: "Full name"
+              placeholder_email: "Email address"
+              placeholder_phone: "Phone number"
+              placeholder_message: "Please leave a message..."
+              send_message: "Send Message"
+            contact_info:
+              address: "Address"
+              phone_number: "Phone"
+              hotline: "Hotline"
+              email: "Email"
+            google_map:
+              saoee_name: "SAO DESIGN CONSULTANCY JOINT STOCK COMPANY"
+              address: "Address"
+              address_info: "Room No.901, 9th Floor, 68 Nguyen Hue Street, Ben Nghe Ward, Dist.1, HCMC, VN"
+              phone: "Phone"
+          service:
+            sidebar:
+              other_services: "Other services"
+              newest_projects: "Newest projects"
+          footer:
+            service: "Service"
+            link: "Link"
+            socials: "Social"
+            about_us: "About Us"
+            project: "Project"
+            blog: "Blog"
+            recruiting: "Recruiting"
+            contact_us: "Contact Us"
+    
+    # Backend Decorator
+    banners:
+      backend:
+        banners:
+          form:
+            caption_1: "Caption (1)"
+            placeholder_caption_1: "Enter caption (1)"
+            help_caption_1: "Caption on the slideshow (1)"
+            caption_2: "Caption (2)"
+            placeholder_caption_2: "Enter caption (2)"
+            help_caption_2: "Caption on the slideshow (2)"
+            btn_text: "Button text"
+            placeholder_btn_text: "Enter button text"
+            link_url: "Link (redirect URL)"

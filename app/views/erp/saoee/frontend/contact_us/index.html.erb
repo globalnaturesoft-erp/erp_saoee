@@ -1,12 +1,13 @@
-<% title "Liên hệ & góp ý" %>
+<% title t('.contact_us') %>
+
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
     <div class="container">
         <div class="page-heading">
-            <h2 class="title-2">Liên hệ</h2>
+            <h2 class="title-2"><%= t('.contact_us') %></h2>
             <h4 class="title-sub title-sub--c8 m-b-15">
-                <%= link_to "Trang chủ", erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
-                <%= 'Liên hệ' %>
+                <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= t('contact_us') %>
             </h4>
         </div>
     </div>

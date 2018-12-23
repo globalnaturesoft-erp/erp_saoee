@@ -9,14 +9,19 @@
                 <div class="nav-custom">
                     <div class="mod-languages">
                         <ul class="lang-inline">
-                            <% if false %>
+                            <% if I18n.locale == :vi %>
                                 <li class="lang">
-                                    <a href="#"> <img title="Tiếng Việt" alt="Vietnames" src="/frontend/images/icon/flags/vn.svg"> </a>
+                                    <%= link_to url_for(locale: :en) do %>
+                                        <img title="English" alt="English" src="/frontend/images/icon/flags/gb.svg">
+                                    <% end %>
+                                </li>
+                            <% else %>
+                                <li class="lang">
+                                    <%= link_to url_for(locale: :vi) do %>
+                                        <img title="Tiếng Việt" alt="Vietnames" src="/frontend/images/icon/flags/vn.svg">
+                                    <% end %>
                                 </li>
                             <% end %>
-                            <li class="lang">
-                                <a href="#"> <img title="English" alt="English" src="/frontend/images/icon/flags/gb.svg"> </a>
-                            </li>
                         </ul>
                     </div>
                     <button class="hamburger hamburger--slider float-right" type="button">
@@ -32,13 +37,13 @@
         <div class="container-fluid">
             <ul class="menu nav-menu menu-mobile">
                 <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/home' %>">
-                    <a href="<%= erp_saoee.root_path %>">Trang chủ</a>
+                    <a href="<%= erp_saoee.root_path %>"><%= t('home') %></a>
                 </li>
                 <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/about_us' %>">
-                    <a href="<%= erp_saoee.about_us_path %>">Về chúng tôi</a>
+                    <a href="<%= erp_saoee.about_us_path %>"><%= t('about_us') %></a>
                 </li>
                 <li class="menu-item menu-item-has-children <%= 'active' if params[:controller] == 'erp/saoee/frontend/service' %>">
-                    <a href="<%= erp_saoee.service_path %>">Dịch vụ</a>
+                    <a href="<%= erp_saoee.service_path %>"><%= t('service') %></a>
                     <ul class="sub-menu">
                         <%
                             @service_menus = Erp::Articles::Category.get_categories_by_alias_service
@@ -53,13 +58,13 @@
                     </ul>
                 </li>
                 <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/project' %>">
-                    <a href="<%= erp_saoee.project_path %>">Dự án</a>
+                    <a href="<%= erp_saoee.project_path %>"><%= t('project') %></a>
                 </li>
                 <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/blog' %>">
-                    <a href="<%= erp_saoee.blog_path %>">Tin tức</a>
+                    <a href="<%= erp_saoee.blog_path %>"><%= t('blog') %></a>
                 </li>
                 <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/contact_us' %>">
-                    <a href="<%= erp_saoee.contact_us_path %>">Liên hệ</a>
+                    <a href="<%= erp_saoee.contact_us_path %>"><%= t('contact_us') %></a>
                 </li>
             </ul>
         </div>

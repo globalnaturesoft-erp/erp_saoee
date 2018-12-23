@@ -183,3 +183,33 @@ footer .footer-bottom p {
 .wp-post-image {
     border: 1px solid #6fac45;
 }
+.widget_recent_entries ul li a {
+    text-transform: none;
+}
+.au-rev-arrow-1.tp-rightarrow, .au-rev-arrow-2.tp-rightarrow, .au-rev-arrow-3.tp-rightarrow, .au-rev-arrow-4.tp-rightarrow {
+    margin-right: 0;
+}
+.au-rev-arrow-1.tp-leftarrow, .au-rev-arrow-2.tp-leftarrow, .au-rev-arrow-3.tp-leftarrow, .au-rev-arrow-4.tp-leftarrow {
+    margin-left: 0;
+}
+.au-rev-bullet-1 .tp-bullet:nth-child(4) .tp-bullet-title:before {
+    content:'04';
+}
+.au-rev-bullet-1 .tp-bullet:nth-child(5) .tp-bullet-title:before {
+    content:'05';
+}
+.au-rev-bullet-1 .tp-bullet:nth-child(6) .tp-bullet-title:before {
+    content:'06';
+}
+.au-rev-bullet-1 .tp-bullet:nth-child(7) .tp-bullet-title:before {
+    content:'07';
+}
+.au-rev-bullet-1 .tp-bullet:nth-child(8) .tp-bullet-title:before {
+    content:'08';
+}
+.au-rev-bullet-1 .tp-bullet:nth-child(9) .tp-bullet-title:before {
+    content:'09';
+}
+.au-rev-bullet-1 .tp-bullet:nth-child(10) .tp-bullet-title:before {
+    content:'10';
+}

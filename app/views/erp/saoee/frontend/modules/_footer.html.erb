@@ -26,7 +26,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-col p-l-70 p-md-l-0">
                     <div class="widget widget_pages">
-                        <h4 class="widget-title">Dịch vụ</h4>
+                        <h4 class="widget-title"><%= t('.service') %></h4>
                         <ul>
                             <%
                                 @service_menus = Erp::Articles::Category.get_categories_by_alias_service
@@ -45,22 +45,22 @@
             <div class="col-lg-2 col-md-6">
                 <div class="footer-col p-l-70 p-md-l-0">
                     <div class="widget widget_pages">
-                        <h4 class="widget-title">Liên kết</h4>
+                        <h4 class="widget-title"><%= t('.link') %></h4>
                         <ul>
                             <li>
-                                <a href="<%= erp_saoee.about_us_path %>">Về chúng tôi</a>
+                                <a href="<%= erp_saoee.about_us_path %>"><%= t('.about_us') %></a>
                             </li>
                             <li>
-                                <a href="<%= erp_saoee.project_path %>">Dự án</a>
+                                <a href="<%= erp_saoee.project_path %>"><%= t('.project') %></a>
                             </li>
                             <li>
-                                <a href="<%= erp_saoee.blog_path %>">Tin tức</a>
+                                <a href="<%= erp_saoee.blog_path %>"><%= t('.blog') %></a>
                             </li>
                             <li>
-                                <a href="#">Tuyển dụng</a>
+                                <a href="#"><%= t('.recruiting') %></a>
                             </li>
                             <li>
-                                <a href="<%= erp_saoee.contact_us_path %>">Liên hệ</a>
+                                <a href="<%= erp_saoee.contact_us_path %>"><%= t('.contact_us') %></a>
                             </li>
                         </ul>
                     </div>
@@ -68,7 +68,7 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-col p-l-70 p-md-l-0">
-                    <h4 class="widget-title">Kết nối</h4>
+                    <h4 class="widget-title"><%= t('.socials') %></h4>
                     <div class="widget widget_socials">
                         <ul class="list-social list-social-2">
                             <li class="list-social__item">

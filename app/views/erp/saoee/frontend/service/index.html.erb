@@ -1,12 +1,13 @@
-<% title "Dịch vụ" %>
+<% title t('service') %>
+
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
     <div class="container">
         <div class="page-heading">
-            <h2 class="title-2">Dịch vụ</h2>
+            <h2 class="title-2"><%= t('.service') %></h2>
             <h4 class="title-sub title-sub--c8 m-b-15">
-                <%= link_to "Trang chủ", erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
-                <%= 'Dịch vụ' %>
+                <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= t('service') %>
             </h4>
         </div>
     </div>
@@ -17,8 +18,8 @@
 <section class="p-t-60 p-b-55">
     <div class="container">
         <div class="section-title">
-            <h5 class="title-sub">Chúng tôi có thể giúp gì cho bạn?</h5>
-            <h2 class="title-1">Các dịch vụ của chúng tôi</h2>
+            <h5 class="title-sub"><%= t('.our_services_title_sub') %></h5>
+            <h2 class="title-1"><%= t('.our_services_title_sub') %></h2>
         </div>
         <div class="row no-gutters">
             <% @service_menus.each_with_index do |service,index| %>

@@ -1,5 +1,104 @@
 vi:
+  home: "Trang chủ"
+  about_us: "Về chúng tôi"
+  service: "Dịch vụ"
+  project: "Dự án"
+  blog: "Tin tức"
+  contact_us: "Liên hệ"
+  #--
+  share: "Chia sẻ"
+  tags: "Từ khóa"
+  
   erp:
+    # Frontend
+    saoee:
+      frontend:
+        about_us:
+          index:
+            about_us: "Về chúng tôi"
+            no_matching_records_found: "Nội dung đang được cập nhật"
+        service:
+          index:
+            service: "Dịch vụ"
+            our_services_title: "Các dịch vụ của chúng tôi"
+            our_services_title_sub: "Chúng tôi có thể giúp gì cho bạn?" 
+          detail:
+            service: "Dịch vụ"
+            no_matching_records_found: "Nội dung đang được cập nhật"
+        project:
+          index:
+            project: "Dự án"
+            our_work: "Chúng tôi đã làm gì?"
+            our_projects: "Các dự án của chúng tôi"
+          detail:
+            project: "Dự án"
+            client_name: "Khách hàng"
+            location: "Vị trí"
+            area: "Diện tích"
+            start_date: "Bắt đầu"
+            completion_date: "Kết thúc"
+            status: "Trạng thái"
+            latest_project_title_sub: "Có thể bạn muốn xem?"
+            latest_project_title: "Các dự án khác"
+        blog:
+          index:
+            blog: "Tin tức"
+            no_matching_records_found: "Không tìm thấy danh sách bài viết"
+            tags: "Từ khóa"
+            newest_blogs: "Bài viết mới nhất"
+            categories: "Chủ đề"
+            latest_projects: "Dự án gần đây"
+          detail:
+            blog: "Tin tức"
+            tags: "Từ khóa"
+            newest_blogs: "Bài viết mới nhất"
+            categories: "Chủ đề"
+            latest_projects: "Dự án gần đây"
+        contact_us:
+          index:
+            contact_us: "Liên hệ & Góp ý"
+        modules:
+          home:
+            about_us:
+              media_img_desc: "Đội ngũ kiến trúc sư giàu kinh nghiệm"
+          blog:
+            sidebar:
+              tags: "Từ khóa"
+              newest_blogs: "Bài viết mới nhất"
+              categories: "Chủ đề"
+              latest_projects: "Dự án gần đây"
+          contact_us:
+            contact_form:
+              placeholder_name: "Họ và tên"
+              placeholder_email: "Địa chỉ email"
+              placeholder_phone: "Số điện thọai"
+              placeholder_message: "Vui lòng để lại lời nhắn..."
+              send_message: "Gửi tin nhắn"
+            contact_info:
+              address: "Địa chỉ"
+              phone_number: "Điện thoại"
+              hotline: "Hotline"
+              email: "Email"
+            google_map:
+              saoee_name: "CÔNG TY CỔ PHẦN TƯ VẤN THIẾT KẾ SAO"
+              address: "Địa chỉ"
+              address_info: "P.901, Lầu 9, 68 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh"
+              phone: "Điện thoại"
+          service:
+            sidebar:
+              other_services: "Dịch vụ khác"
+              newest_projects: "Dự án gần đây"
+          footer:
+            service: "Dịch vụ"
+            link: "Liên kết"
+            socials: "Kết nối"
+            about_us: "Về chúng tôi"
+            project: "Dự án"
+            blog: "Tin tức"
+            recruiting: "Tuyển dụng"
+            contact_us: "Liên hệ"
+    
+    # Backend Decorator
     banners:
       backend:
         banners:

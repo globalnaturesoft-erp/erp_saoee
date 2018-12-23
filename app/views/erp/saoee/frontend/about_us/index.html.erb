@@ -3,10 +3,10 @@
 <section class="section breadcrumb p-t-65 p-b-35">
     <div class="container">
         <div class="page-heading">
-            <h2 class="title-2">Về chúng tôi</h2>
+            <h2 class="title-2"><%= t('.about_us') %></h2>
             <h4 class="title-sub title-sub--c8 m-b-15">
-                <%= link_to "Trang chủ", erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
-                <%= 'Về chúng tôi' %>
+                <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= t('about_us') %>
             </h4>
         </div>
     </div>
@@ -24,7 +24,7 @@
                     </div>
                 <% else %>
                     <div class="alert alert-warning">
-                        <i class="fa fa-warning"></i> Nội dung đang được cập nhật.
+                        <i class="fa fa-warning"></i> <%= t('.no_matching_records_found') %>
                     </div>
                 <% end %>
             </div>

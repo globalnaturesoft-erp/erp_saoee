@@ -1,12 +1,13 @@
 <% title @blog.name %>
+
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
     <div class="container">
         <div class="page-heading">
-            <h2 class="title-2">Tin tức</h2>
+            <h2 class="title-2"><%= t('.blog') %></h2>
             <h4 class="title-sub title-sub--c8 m-b-15">
-                <%= link_to "Trang chủ", erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
-                <%= link_to "Tin tức", erp_saoee.blog_path %> <i class="ti-angle-double-right"></i>
+                <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= link_to t('blog'), erp_saoee.blog_path %> <i class="ti-angle-double-right"></i>
                 <%= @blog.name %>
             </h4>
         </div>
@@ -30,18 +31,21 @@
                     </div>
                     <footer class="entry-footer">
                         <div class="entry-tags">
-                            <span class="title-6">Từ khóa:</span>
+                            <span class="title-6"><%= t('.tags') %>:</span>
                             <ul class="wp-tag-cloud">
                                 <li>
                                     <a href="#">Architecture</a>
                                 </li>
                                 <li>
-                                    <a href="#">Minimalist</a>
+                                    <a href="#">MEP</a>
+                                </li>
+                                <li>
+                                    <a href="#">Energy</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="entry-share">
-                            <span class="title-6">Chia sẻ:</span>
+                            <span class="title-6"><%= t('share') %>:</span>
                             <ul class="list-social list-social--light2">
                                 <li class="list-social__item">
                                     <a class="ic-fb" href="#">

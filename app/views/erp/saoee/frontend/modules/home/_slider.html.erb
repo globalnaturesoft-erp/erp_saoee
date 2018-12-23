@@ -4,7 +4,7 @@
         <div class="rev_slider fullwidthabanner js-rev" data-version="5.4.4" style="display:none" data-rev-layout="fullscreen" data-rev-stylearrow="au-rev-arrow-1" data-rev-bullets="true" data-rev-stylebullet="au-rev-bullet-1" data-rev-voffbullet="55">
             <ul>
                 <% @sliders.each do |slider| %>
-                    <% transition = ['crossfade', 'slotslide-horizontal', 'papercut'].sample %>
+                    <% transition = ['crossfade', 'slotslide-horizontal', 'papercut', 'fadetoleftfadefromright'].sample %>
                     <li class="rev-item rev-item-1" data-transition="<%= transition %>">
                         <%= image_tag(slider.image_url, class: 'rev-slidebg', alt: slider.name) %>
                         <% if slider.caption_1.present? %>
