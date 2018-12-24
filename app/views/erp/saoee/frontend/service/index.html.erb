@@ -19,7 +19,7 @@
     <div class="container">
         <div class="section-title">
             <h5 class="title-sub"><%= t('.our_services_title_sub') %></h5>
-            <h2 class="title-1"><%= t('.our_services_title_sub') %></h2>
+            <h2 class="title-1"><%= t('.our_services_title') %></h2>
         </div>
         <div class="row no-gutters">
             <% @service_menus.each_with_index do |service,index| %>
@@ -28,13 +28,24 @@
                         <figure class="media__img">
                             <!--image_tag article_image(service.image.thumb_116_99, '116_99'), alt: service.name %>-->
                         </figure>
+                        <%
+                            display_service_name = ''
+                            display_service_desc = ''
+                            if I18n.locale == :vi
+                                display_service_name = service.name
+                                display_service_desc = service.description
+                            else
+                                display_service_name = service.en_name
+                                display_service_desc = service.en_description
+                            end
+                        %>
                         <div class="media__title">
                             <h3 class="title">
-                                <%= link_to service.name, service_link(service) %>
+                                <%= link_to display_service_name, service_link(service) %>
                             </h3>
                             <span class="number"><%= format('%02d', index + 1) %></span>
                         </div>
-                        <!--<p class="media__text"></p>-->
+                        <p class="media__text"><%= display_service_desc %></p>
                     </article>
                 </div>
             <% end %>

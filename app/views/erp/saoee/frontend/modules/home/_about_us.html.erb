@@ -12,7 +12,11 @@
                         </h2>
                         <h5 class="slogan title-sub">Energy Efficiency</h5>
                         <div class="media__text">
-                            <%= @home_about.content.html_safe %>
+                            <% if I18n.locale == :vi %>
+                                <%= @home_about.content.html_safe %>
+                            <% else %>
+                                <%= @home_about.en_content.html_safe %>
+                            <% end %>
                         </div>
                         <% if false %>
                             <a class="au-btn au-btn--arrow" href="#">Xem thêm
@@ -23,13 +27,20 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="media__img js-line">
-                        <img src="/frontend/images/about-01.jpg" alt="About">
-                        <span class="line"></span>
-                        <span class="line line-bottom"></span>
-                        <div class="media__img-inner wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                            <!--<span class="number"></span>-->
-                            <span class="desc"><%= t('.media_img_desc') %></span>
-                        </div>
+                        <% if I18n.locale == :vi %>
+                            <%= image_tag(article_image(@home_about.image.thumb_960_960, '960_960'), alt: @home_about.name) %>
+                        <% else %>
+                            <%= image_tag(article_image(@home_about.en_image.thumb_960_960, '960_960'), alt: @home_about.en_name) %>
+                        <% end %>
+                        
+                        <% if false %>
+                            <span class="line"></span>
+                            <span class="line line-bottom"></span>
+                            <div class="media__img-inner wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                                <span class="number"></span>
+                                <span class="desc"><%= t('.media_img_desc') %></span>
+                            </div>
+                        <% end %>
                     </div>
                 </div>
             </div>

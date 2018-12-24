@@ -1,4 +1,25 @@
-<% title @project.name %>
+<%
+    project_name = @project.name
+    if @project.name.present? and @project.en_name.present?
+        if I18n.locale == :vi
+            project_name = @project.name
+        else
+            project_name = @project.en_name
+        end
+    end
+%>
+<%
+    project_location = @project.location
+    if @project.location.present? and @project.en_location.present?
+        if I18n.locale == :vi
+            project_location = @project.location
+        else
+            project_location = @project.en_location
+        end
+    end
+%>
+
+<% title project_name %>
 
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
@@ -8,7 +29,7 @@
             <h4 class="title-sub title-sub--c8 m-b-15">
                 <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
                 <%= link_to t('project'), erp_saoee.service_path %> <i class="ti-angle-double-right"></i>
-                <%= @project.name %>
+                <%= project_name %>
             </h4>
         </div>
     </div>
@@ -17,7 +38,7 @@
 
 <!-- PROJECT DETAIL-->
 <div class="container p-b-30">
-    <h2 class="title-1 p-t-20"><%= @project.name %></h2>
+    <h2 class="title-1 p-t-20"><%= project_name %></h2>
     <article class="project-style-4 p-t-10">
         <div class="row m-t-20 m-b-20">
             <div class="col-lg-5">
@@ -32,7 +53,7 @@
                         <div class="col-sm-4">
                             <div class="entry-meta__item">
                                 <h4 class="key"><%= t('.location') %>:</h4>
-                                <span class="value"><%= @project.location %></span>
+                                <span class="value"><%= project_location %></span>
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -66,7 +87,17 @@
             </div>
             <div class="col-lg-7">
                 <div class="entry-content">
-                    <%= @project.description.html_safe %>
+                    <%
+                        project_description = @project.description
+                        if @project.description.present? and @project.en_description.present?
+                            if I18n.locale == :vi
+                                project_description = @project.description
+                            else
+                                project_description = @project.en_description
+                            end
+                        end
+                    %>
+                    <%= project_description.html_safe %>
                 </div>
                 <div class="entry-share">
                     <span class="key"><%= t('share') %>:</span>
@@ -104,9 +135,19 @@
             <div class="masonry-row js-isotope-wrapper">
                 <div class="row isotope-content">
                     <% @project.project_images.each do |project_image| %>
+                        <%
+                            project_image_name = project_image.name
+                            if project_image.name.present? and project_image.en_name.present?
+                                if I18n.locale == :vi
+                                    project_image_name = project_image.name
+                                else
+                                    project_image_name = project_image.en_name
+                                end
+                            end
+                        %>
                         <div class="col-md-6 col-lg-4 isotope-item isotope-item-sizer">                            
-                            <a href="<%= project_image.image_url %>" data-fancybox="images" data-caption="<%= project_image.name %>">
-                                <%= image_tag(project_image.image_url.thumb_640_467, alt: project_image.name, class: 'wp-post-image') %>
+                            <a href="<%= project_image.image_url %>" data-fancybox="images" data-caption="<%= project_image_name %>">
+                                <%= image_tag(project_image.image_url.thumb_640_467, alt: project_image_name, class: 'wp-post-image') %>
                             </a>
                         </div>
                     <% end %>
@@ -130,19 +171,39 @@
                     <div class="slick-wrap-content">
                         <div class="slick-content js-slick-content">
                             <% @newest_projects.each do |project| %>
+                                <%
+                                    project_name = project.name
+                                    if project.name.present? and project.en_name.present?
+                                        if I18n.locale == :vi
+                                            project_name = project.name
+                                        else
+                                            project_name = project.en_name
+                                        end
+                                    end
+                                %>
+                                <%
+                                    project_location = project.location
+                                    if project.location.present? and project.en_location.present?
+                                        if I18n.locale == :vi
+                                            project_location = project.namlocatione
+                                        else
+                                            project_location = project.en_location
+                                        end
+                                    end
+                                %>
                                 <div class="slick-item">
                                     <article class="media media-project">
                                         <figure class="media__img">
-                                            <%= image_tag project.image.thumb_960_600, alt: project.name %>
+                                            <%= image_tag project.image.thumb_960_600, alt: project_name %>
                                         </figure>
                                         <div class="bg-overlay"></div>
                                         <span class="line"></span>
                                         <span class="line line--bottom"></span>
                                         <div class="media__body">
                                             <h3 class="title">
-                                                <%= link_to project.name, project_link(project) %>
+                                                <%= link_to project_name, project_link(project) %>
                                             </h3>
-                                            <div class="address"><%= project.location %></div>
+                                            <div class="address"><%= project_location %></div>
                                         </div>
                                     </article>
                                 </div>
@@ -159,19 +220,29 @@
             <div class="container">
                 <div class="row gutter-xl">
                     <% @newest_projects.each do |project| %>
+                        <%
+                            project_name = project.name
+                            if project.name.present? and project.en_name.present?
+                                if I18n.locale == :vi
+                                    project_name = project.name
+                                else
+                                    project_name = project.en_name
+                                end
+                            end
+                        %>
                         <div class="col-md-3">
                             <article class="media media-project m-b-50">
                                 <figure class="media__img">
-                                    <%= image_tag project.image.thumb_960_600, alt: project.name %> <!-- image_natural_size: 960x600px -->
+                                    <%= image_tag project.image.thumb_960_600, alt: project_name %> <!-- image_natural_size: 960x600px -->
                                 </figure>
                                 <div class="bg-overlay"></div>
                                 <span class="line"></span>
                                 <span class="line line--bottom"></span>
                                 <div class="media__body">
                                     <h3 class="title">
-                                        <%= link_to project.name, project_link(project) %>
+                                        <%= link_to project_name, project_link(project) %>
                                     </h3>
-                                    <div class="address"><%= project.location %></div>
+                                    <div class="address"><%= project_location %></div>
                                 </div>
                             </article>
                         </div>

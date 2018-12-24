@@ -23,19 +23,39 @@
         </div>
         <div class="row gutter-xl">
             <% @projects.each do |project| %>
+                <%
+                    project_name = project.name
+                    if project.name.present? and project.en_name.present?
+                        if I18n.locale == :vi
+                            project_name = project.name
+                        else
+                            project_name = project.en_name
+                        end
+                    end
+                %>
+                <%
+                    project_location = project.location
+                    if project.location.present? and project.en_location.present?
+                        if I18n.locale == :vi
+                            project_location = project.namlocatione
+                        else
+                            project_location = project.en_location
+                        end
+                    end
+                %>
                 <div class="col-md-4">
                     <article class="media media-project m-b-50">
                         <figure class="media__img">
-                            <%= image_tag project.image.thumb_960_600, alt: project.name %> <!-- image_natural_size: 960x600px -->
+                            <%= image_tag project.image.thumb_960_600, alt: project_name %> <!-- image_natural_size: 960x600px -->
                         </figure>
                         <div class="bg-overlay"></div>
                         <span class="line"></span>
                         <span class="line line--bottom"></span>
                         <div class="media__body">
                             <h3 class="title">
-                                <%= link_to project.name, project_link(project) %>
+                                <%= link_to project_name, project_link(project) %>
                             </h3>
-                            <div class="address"><%= project.location %></div>
+                            <div class="address"><%= project_location %></div>
                         </div>
                     </article>
                 </div>

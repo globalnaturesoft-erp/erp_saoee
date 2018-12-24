@@ -2,8 +2,8 @@
 <section class="p-t-60 p-b-55">
     <div class="container">
         <div class="section-title">
-            <h5 class="title-sub">chúng tôi làm gì</h5>
-            <h2 class="title-1">DỊCH VỤ CỦA CHÚNG TÔI</h2>
+            <h5 class="title-sub"><%= t('.service_title_sub') %></h5>
+            <h2 class="title-1"><%= t('.service_title') %></h2>
         </div>
         <div class="row no-gutters">
             <%
@@ -20,12 +20,25 @@
                         </figure>
                         <% end %>
                         <div class="media__title">
+                            <%
+                                display_service_name = ''
+                                display_service_desc = ''
+                                if I18n.locale == :vi
+                                    display_service_name = service.name
+                                    display_service_desc = service.description
+                                else
+                                    display_service_name = service.en_name
+                                    display_service_desc = service.en_description
+                                end
+                            %>
                             <h3 class="title">
-                                <%= link_to service.name, service_link(service) %>
+                                <%= link_to display_service_name, service_link(service) %>
                             </h3>
                             <span class="number"><%= format('%02d', index + 1) %></span>
                         </div>
-                        <p class="media__text">Lorem ipsum dolor sit amet, consectetur adipist pricing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="media__text">
+                            <%= display_service_desc %>
+                        </p>
                     </article>
                 </div>
             <% end %>

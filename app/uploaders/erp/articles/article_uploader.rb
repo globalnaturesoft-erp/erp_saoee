@@ -21,6 +21,10 @@ module Erp
         process resize_to_fill: [150, 150]
       end
       
+      version :thumb_960_960 do
+        process resize_to_fill: [960, 960]
+      end
+      
       version :thumb_960_540 do
         process resize_to_fill: [960, 540]
       end

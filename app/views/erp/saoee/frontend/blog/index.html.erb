@@ -22,47 +22,69 @@
                 <% if @blogs.count > 0 %>
                     <div class="row">
                         <% @blogs.each do |blog| %>
+                            <%
+                                blog_name = blog.name
+                                if blog.name.present? and blog.en_name.present?
+                                    if I18n.locale == :vi
+                                        blog_name = blog.name
+                                    else
+                                        blog_name = blog.en_name
+                                    end
+                                end
+                            %>
                             <div class="col-md-6">
                                 <article class="blog">
                                     <figure class="entry-image">
-                                        <%= link_to image_tag(article_image(blog.image.thumb_420_236, '420_236'), alt: blog.name), blog_link(blog) %>
+                                        <% if I18n.locale == :vi %>
+                                            <%= link_to image_tag(article_image(blog.image.thumb_420_236, '420_236'), alt: blog.name), blog_link(blog) %>
+                                        <% else %>
+                                            <%= link_to image_tag(article_image(blog.en_image.thumb_420_236, '420_236'), alt: blog.en_name), blog_link(blog) %>
+                                        <% end %>
                                     </figure>
                                     <div class="entry-summary">
                                         <h4 class="entry-title">
-                                            <%= link_to blog.name, blog_link(blog) %>
+                                            <%= link_to blog_name, blog_link(blog) %>
                                         </h4>
                                         <span class="entry-meta"><%= relative_time(blog.created_at) %></span>
-                                        <p class="entry-excerpt"><%= short_text(blog.content, 25) %>...</p>
+                                        <p class="entry-excerpt">
+                                            <% if I18n.locale == :vi %>
+                                                <%= short_text(blog.content, 25) + '...' if blog.content.present? %>
+                                            <% else %>
+                                                <%= short_text(blog.en_content, 25) + '...' if blog.en_content.present? %>
+                                            <% end %>
+                                        </p>
                                     </div>
                                 </article>
                             </div>
                         <% end %>
                     </div>
     
-                    <nav class="navigation blog-navigation">
-                        <div class="container">
-                            <div class="nav-links">
-                                <ul class="page-numbers">
-                                    <li>
-                                        <a class="page-number prev" href="#">
-                                            <span class="ti-arrow-left"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <span class="page-number current">01</span>
-                                    </li>
-                                    <li>
-                                        <a class="page-number" href="#">02</a>
-                                    </li>
-                                    <li>
-                                        <a class="page-number next" href="#">
-                                            <span class="ti-arrow-right"></span>
-                                        </a>
-                                    </li>
-                                </ul>
+                    <% if false %>
+                        <nav class="navigation blog-navigation">
+                            <div class="container">
+                                <div class="nav-links">
+                                    <ul class="page-numbers">
+                                        <li>
+                                            <a class="page-number prev" href="#">
+                                                <span class="ti-arrow-left"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <span class="page-number current">01</span>
+                                        </li>
+                                        <li>
+                                            <a class="page-number" href="#">02</a>
+                                        </li>
+                                        <li>
+                                            <a class="page-number next" href="#">
+                                                <span class="ti-arrow-right"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </nav>
+                        </nav>
+                    <% end %>
                 <% else %>
                     <div class="alert alert-warning">
                         <i class="fa fa-warning"></i> <%= t('.no_matching_records_found') %>

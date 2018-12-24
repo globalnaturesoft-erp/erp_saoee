@@ -9,9 +9,13 @@ module Erp
       # display full address
       def full_address(contact)
         str = []
-        str << contact.address if contact.address.present?
-        str << contact.district_name if contact.district_name.present?
-        str << contact.state_name if contact.state_name.present?
+        if I18n.locale == :vi
+          str << contact.address if contact.address.present?
+        else
+          str << contact.en_address if contact.en_address.present?
+        end
+        #str << contact.district_name if contact.district_name.present?
+        #str << contact.state_name if contact.state_name.present?
         str.join(", ")
       end
       
@@ -32,7 +36,9 @@ module Erp
       
       # article image
       def article_image(thumb, size)
-        if size == '960_540'
+        if size == '960_960'
+          thumb.present? ? thumb : url_for('/frontend/images/noimage/960_960.png')
+        elsif size == '960_540'
           thumb.present? ? thumb : url_for('/frontend/images/noimage/960_540.png')
         elsif size == '870_489'
           thumb.present? ? thumb : url_for('/frontend/images/noimage/870_489.png')

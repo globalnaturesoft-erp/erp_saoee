@@ -1,16 +1,22 @@
 <div class="contact-info">
     <% if !@company_info.nil? %>
         <div class="contact-info__item">
-            <h5 class="title--sm2"><%= @company_info.contact_name %></h5>
+            <h5 class="title--sm2">
+                <% if I18n.locale == :vi %>
+                    <%= @company_info.name %>
+                <% else %>
+                    <%= @company_info.en_name %>
+                <% end %>
+            </h5>
         </div>
         <div class="contact-info__item m-b-10">
-            <p class="value"><strong><%= t('.address') %>:</strong> <%= display_contact_address(@company_info) %></p>
+            <p class="value"><strong><%= t('.address') %>:</strong> <%= full_address(@company_info) %></p>
         </div>
         <div class="contact-info__item m-b-10">
             <p class="value"><strong><%= t('.phone_number') %>:</strong> <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></p>
         </div>
         <div class="contact-info__item m-b-10">
-            <p class="value"><strong><%= t('.hotline') %>:</strong> 090 369 9323</p>
+            <p class="value"><strong><%= t('.hotline') %>:</strong> <%= link_to @company_info.hotline, "tel:#{@company_info.hotline}" %></p>
         </div>
         <div class="contact-info__item m-b-10">
             <p class="value"><strong><%= t('.email') %>:</strong> <%= mail_to @company_info.email, @company_info.email %></p>

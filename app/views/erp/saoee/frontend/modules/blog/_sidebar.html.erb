@@ -14,8 +14,18 @@
             <h4 class="widget-title"><%= t('.categories') %></h4>
             <ul>
                 <% @categories.each do |cat| %>
+                    <%
+                        cat_name = cat.name
+                        if cat.name.present? and cat.en_name.present?
+                            if I18n.locale == :vi
+                                cat_name = cat.name
+                            else
+                                cat_name = cat.en_name
+                            end
+                        end
+                    %>
                     <li class="cat-item">
-                        <%= link_to cat.name, erp_saoee.blog_with_category_path(url_friendly(cat.name), cat.id) %>
+                        <%= link_to cat_name, erp_saoee.blog_with_category_path(url_friendly(cat.name), cat.id) %>
                         <span class="cat-count">(<%= cat.get_articles.count %>)</span>
                     </li>
                 <% end %>
@@ -26,8 +36,18 @@
         <h4 class="widget-title"><%= t('.newest_blogs') %></h4>
         <ul>
             <% @newest_blogs.each do |post| %>
+                <%
+                    post_name = post.name
+                    if post.name.present? and post.en_name.present?
+                        if I18n.locale == :vi
+                            post_name = post.name
+                        else
+                            post_name = post.en_name
+                        end
+                    end
+                %>
                 <li>
-                    <%= link_to "<i class=\"zmdi zmdi-collection-text zmdi-hc-fw\"></i> #{post.name}".html_safe, blog_link(post) %>
+                    <%= link_to "<i class=\"zmdi zmdi-collection-text zmdi-hc-fw\"></i> #{post_name}".html_safe, blog_link(post) %>
                 </li>
             <% end %>
         </ul>
@@ -38,8 +58,18 @@
             <h4 class="widget-title"><%= t('.latest_projects') %></h4>
             <ul class="widget_instagram_list">
                 <% projects.each do |project| %>
+                    <%
+                        project_name = project.name
+                        if project.name.present? and project.en_name.present?
+                            if I18n.locale == :vi
+                                project_name = project.name
+                            else
+                                project_name = project.en_name
+                            end
+                        end
+                    %>
                     <li>
-                        <%= link_to (image_tag project.image.small), project_link(project), title: project.name %>
+                        <%= link_to (image_tag project.image.small), project_link(project), title: project_name %>
                     </li>
                 <% end %>
             </ul>

@@ -1,4 +1,8 @@
 vi:
+  vietnames: "Tiếng Việt"
+  english: "English"
+  vi_content: "Nội dung tiếng Việt"
+  en_content: "English Content"
   home: "Trang chủ"
   about_us: "Về chúng tôi"
   service: "Dịch vụ"
@@ -61,6 +65,15 @@ vi:
           home:
             about_us:
               media_img_desc: "Đội ngũ kiến trúc sư giàu kinh nghiệm"
+            newest_blog:
+              blog_title_sub: "Tin tức mới nhất"
+              blog_title: "BÀI VIẾT"
+            service:
+              service_title_sub: "Chúng tôi cung cấp những gì?"
+              service_title: "DỊCH VỤ"
+            project:
+              project_title_sub: "Chúng tôi đã làm những gì?"
+              project_title: "DỰ ÁN GẦN ĐÂY"
           blog:
             sidebar:
               tags: "Từ khóa"
@@ -112,3 +125,25 @@ vi:
             btn_text: "Tên nút liên kết"
             placeholder_btn_text: "Nhập tên của nút liên kết"
             link_url: "Liên kết URL"
+    articles:
+      backend:
+        categories:
+          form:
+            description: "Mô tả / Ghi chú"
+    projects:
+      backend:
+        projects:
+          form:
+            en_description: "Mô tả chi tiết (ENG)"
+        project_images:
+          form_line:
+            image_name: "Tên ảnh (VIE)"
+            image_en_name: "Tên ảnh (ENG)"
+            placeholder_image_name: "Nhập tên cho ảnh (VIE)"
+            placeholder_image_en_name: "Nhập tên cho ảnh (ENG)"
+    contacts:
+      backend:
+        contacts:
+          form:
+            hotline: "Số hotline"
+            enter_hotline_numbers: "Nhập số hotline"

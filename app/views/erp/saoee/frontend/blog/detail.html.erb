@@ -1,4 +1,13 @@
-<% title @blog.name %>
+<%
+    display_blog_name = ''
+    if I18n.locale == :vi
+        display_blog_name = @blog.name
+    else
+        display_blog_name = @blog.en_name
+    end
+%>
+
+<% title display_blog_name %>
 
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
@@ -8,7 +17,7 @@
             <h4 class="title-sub title-sub--c8 m-b-15">
                 <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
                 <%= link_to t('blog'), erp_saoee.blog_path %> <i class="ti-angle-double-right"></i>
-                <%= @blog.name %>
+                <%= display_blog_name %>
             </h4>
         </div>
     </div>
@@ -22,28 +31,41 @@
             <div class="col-md-8 col-lg-9">
                 <article class="blog-detail-1">
                     <header class="entry-header">
-                        <h2 class="entry-title"><%= @blog.name %></h2>
+                        <h2 class="entry-title"><%= display_blog_name %></h2>
                         <span class="entry-date"><%= relative_time(@blog.created_at) %></span>
                     </header>
                     <div class="entry-content">
-                        <%= (image_tag @blog.image.thumb_870_489, alt: @blog.name, class: 'wp-post-image') if @blog.image.thumb_870_489.present? %>
-                        <%= @blog.content.html_safe %>
+                        <%= (image_tag @blog.image.thumb_870_489, alt: display_blog_name, class: 'wp-post-image') if @blog.image.thumb_870_489.present? %>
+                        <%
+                            blog_content = @blog.content
+                            if @blog.content.present? and @blog.en_content.present?
+                                if I18n.locale == :vi
+                                    blog_content = @blog.content
+                                else
+                                    blog_content = @blog.en_content
+                                end
+                            end
+                        %>
+                        <%= blog_content.html_safe %>
                     </div>
-                    <footer class="entry-footer">
-                        <div class="entry-tags">
-                            <span class="title-6"><%= t('.tags') %>:</span>
-                            <ul class="wp-tag-cloud">
-                                <li>
-                                    <a href="#">Architecture</a>
-                                </li>
-                                <li>
-                                    <a href="#">MEP</a>
-                                </li>
-                                <li>
-                                    <a href="#">Energy</a>
-                                </li>
-                            </ul>
-                        </div>
+                    
+                    <% if false %>
+                        <footer class="entry-footer">
+                            <div class="entry-tags">
+                                <span class="title-6"><%= t('.tags') %>:</span>
+                                <ul class="wp-tag-cloud">
+                                    <li>
+                                        <a href="#">Architecture</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">MEP</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Energy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        <% end %>
                         <div class="entry-share">
                             <span class="title-6"><%= t('share') %>:</span>
                             <ul class="list-social list-social--light2">

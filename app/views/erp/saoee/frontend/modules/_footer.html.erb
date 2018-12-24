@@ -35,7 +35,11 @@
                             %>
                             <% @service_menus.each do |menu| %>
                                 <li>
-                                    <%= link_to menu.name, service_link(menu) %>
+                                    <% if I18n.locale == :vi %>
+                                        <%= link_to menu.name, service_link(menu) %>
+                                    <% else %>
+                                        <%= link_to menu.en_name, service_link(menu) %>
+                                    <% end %>
                                 </li>
                             <% end %>
                         </ul>

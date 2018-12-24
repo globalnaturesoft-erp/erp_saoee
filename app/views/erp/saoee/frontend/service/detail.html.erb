@@ -1,4 +1,13 @@
-<% title @current_menu.name %>
+<%
+    display_service_name = ''
+    if I18n.locale == :vi
+        display_service_name = @current_menu.name
+    else
+        display_service_name = @current_menu.en_name
+    end
+%>
+
+<% title display_service_name %>
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
     <div class="container">
@@ -7,7 +16,7 @@
             <h4 class="title-sub title-sub--c8 m-b-15">
                 <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
                 <%= link_to t('service'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
-                <%= @current_menu.name %>
+                <%= display_service_name %>
             </h4>
         </div>
     </div>
@@ -22,11 +31,16 @@
                 <% if @service.present? %>
                     <article class="blog-detail-1">
                         <header class="entry-header">
-                            <h2 class="entry-title"><%= @service.name %></h2>
+                            <h2 class="entry-title"><%= (I18n.locale == :vi) ? @service.name : @service.en_name %></h2>
                         </header>
                         <div class="entry-content">
-                            <%= (image_tag @service.image.thumb_870_489, alt: @service.name, class: 'wp-post-image') if @service.image.thumb_870_489.present? %>
-                            <%= @service.content.html_safe %>
+                            <% if I18n.locale == :vi %>
+                                <%= (image_tag @service.image.thumb_870_489, alt: @service.name, class: 'wp-post-image') if @service.image.thumb_870_489.present? %>
+                                <%= @service.content.html_safe if @service.content.present? %>
+                            <% else %>
+                                <%= (image_tag @service.en_image.thumb_870_489, alt: @service.en_name, class: 'wp-post-image') if @service.en_image.thumb_870_489.present? %>
+                                <%= @service.en_content.html_safe if @service.en_content.present? %>
+                            <% end %>
                         </div>
                     </article>
                 <% else %>

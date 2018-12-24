@@ -53,6 +53,15 @@ en:
           home:
             about_us:
               media_img_desc: "Architects with years of experience"
+            newest_blog:
+              blog_title_sub: "newest blog"
+              blog_title: "NEWS"
+            service:
+              service_title_sub: "Everything you need?"
+              service_title: "SERVICES"
+            project:
+              project_title_sub: "What is our work?"
+              project_title: "PROJECTS"
           blog:
             sidebar:
               tags: "Tags"

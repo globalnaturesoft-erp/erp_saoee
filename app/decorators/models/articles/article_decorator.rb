@@ -1,5 +1,7 @@
 Erp::Articles::Article.class_eval do
   
+  mount_uploader :en_image, Erp::Articles::ArticleUploader
+  
   # Count article views
   def increase_visit(by = 1)
     self.views ||= 0

@@ -3,8 +3,16 @@
         <h4 class="widget-title"><%= t('.other_services') %></h4>
         <ul>
             <% @categories.each do |category| %>
+                <%
+                    display_service_name = ''
+                    if I18n.locale == :vi
+                        display_service_name = category.name
+                    else
+                        display_service_name = category.en_name
+                    end
+                %>
                 <li>
-                    <%= link_to category.name, service_link(category) %>
+                    <%= link_to display_service_name, service_link(category) %>
                 </li>
             <% end %>
         </ul>
@@ -16,8 +24,18 @@
             <h4 class="widget-title"><%= t('.newest_projects') %></h4>
             <ul class="widget_instagram_list">
                 <% projects.each do |project| %>
+                    <%
+                        project_name = project.name
+                        if project.name.present? and project.en_name.present?
+                            if I18n.locale == :vi
+                                project_name = project.name
+                            else
+                                project_name = project.en_name
+                            end
+                        end
+                    %>
                     <li>
-                        <%= link_to (image_tag project.image.small), project_link(project), title: project.name %>
+                        <%= link_to (image_tag project.image.small), project_link(project), title: project_name %>
                     </li>
                 <% end %>
             </ul>
