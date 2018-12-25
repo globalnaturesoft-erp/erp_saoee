@@ -61,6 +61,8 @@ vi:
         contact_us:
           index:
             contact_us: "Liên hệ & Góp ý"
+            success: "Yêu cầu của bạn đã được gửi thành công."
+            error: "Lỗi! Yêu cầu của bạn chưa được gửi. Vui lòng kiểm tra và thử lại."
         modules:
           home:
             about_us:

@@ -15,10 +15,10 @@ module Erp
               @msg.to_contact_id = Erp::Contacts::Contact.first.id
               if @msg.save
                 #Erp::Contacts::ContactMailer.sending_email_contact(@msg).deliver_now
-                  render :json => {status: 'success', notice: 'Yêu cầu của bạn đã được gửi thành công.'}
+                  render :json => {status: 'success', notice: t('.success')}
               end
             else
-              render :json => {status: 'error', notice: 'Lỗi! Yêu cầu của bạn chưa được gửi. Vui lòng kiểm tra và thử lại.'}
+              render :json => {status: 'error', notice: t('.error')}
             end
           end
         end
