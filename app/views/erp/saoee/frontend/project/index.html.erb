@@ -37,7 +37,7 @@
                     project_location = project.location
                     if project.location.present? and project.en_location.present?
                         if I18n.locale == :vi
-                            project_location = project.namlocatione
+                            project_location = project.location
                         else
                             project_location = project.en_location
                         end

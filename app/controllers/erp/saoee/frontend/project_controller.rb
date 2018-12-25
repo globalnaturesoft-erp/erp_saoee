@@ -3,7 +3,7 @@ module Erp
     module Frontend
       class ProjectController < Erp::Frontend::FrontendController
         def index
-          @projects = Erp::Projects::Project.all
+          @projects = Erp::Projects::Project.all.order('erp_projects_projects.created_at DESC')
         end
         
         def detail
