@@ -21,5 +21,10 @@
         <div class="contact-info__item m-b-10">
             <p class="value"><strong><%= t('.email') %>:</strong> <%= mail_to @company_info.email, @company_info.email %></p>
         </div>
+        <% if @company_info.tax_code.present? %>
+            <div class="contact-info__item m-b-10">
+                <p class="value"><strong><%= t('.tax_code') %>:</strong> <%= @company_info.tax_code %></p>
+            </div>
+        <% end %>
     <% end %>
 </div>

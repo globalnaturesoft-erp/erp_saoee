@@ -14,10 +14,19 @@
                     <% if !@company_info.nil? %>
                         <div class="widget widget-address">
                             <ul>
-                                <li class="text-uppercase"><strong><%= @company_info.contact_name %></strong></li>
-                                <li>Địa chỉ: <%= display_contact_address(@company_info) %></li>
-                                <li>Điện thoại: <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></li>
-                                <li>Email: <%= mail_to @company_info.email, @company_info.email %></li>
+                                <li class="text-uppercase">
+                                    <strong>
+                                        <% if I18n.locale == :vi %>
+                                            <%= @company_info.name %>
+                                        <% else %>
+                                            <%= @company_info.en_name %>
+                                        <% end %>
+                                    </strong>
+                                </li>
+                                <li><%= t('.address') %>: <%= full_address(@company_info) %></li>
+                                <li><%= t('.phone_number') %>: <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></li>
+                                <li><%= t('.hotline') %>: <%= link_to @company_info.hotline, "tel:#{@company_info.hotline}" %></li>
+                                <li><%= t('.email') %>: <%= mail_to @company_info.email, @company_info.email %></li>
                             </ul>
                         </div>
                     <% end %>

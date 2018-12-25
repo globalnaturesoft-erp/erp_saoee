@@ -92,6 +92,7 @@ vi:
               phone_number: "Điện thoại"
               hotline: "Hotline"
               email: "Email"
+              tax_code: "Mã số thuế"
             google_map:
               saoee_name: "CÔNG TY CỔ PHẦN TƯ VẤN THIẾT KẾ SAO"
               address: "Địa chỉ"
@@ -102,6 +103,11 @@ vi:
               other_services: "Dịch vụ khác"
               newest_projects: "Dự án gần đây"
           footer:
+            address: "Địa chỉ"
+            phone_number: "Điện thoại"
+            hotline: "Hotline"
+            email: "Email"
+            tax_code: "Mã số thuế"
             service: "Dịch vụ"
             link: "Liên kết"
             socials: "Kết nối"

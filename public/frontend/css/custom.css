@@ -171,6 +171,18 @@ footer .footer-bottom p {
 #ajax-contact-form .form-notice .alert {
     padding: .40rem 1.25rem;
 }
+.contact-info__item a {
+    color: #222;
+}
+.contact-info__item a:hover {
+    color: #0056b3;
+}
+.footer-col .widget-address ul li a {
+    color: #ebebeb;
+}
+.footer-col .widget-address ul li a:hover {
+    color: #0056b3;
+}
 .project-style-4 .entry-meta {
     padding: 45px 25px 10px;
 }
