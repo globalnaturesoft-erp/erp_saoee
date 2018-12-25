@@ -35,7 +35,7 @@
                         <span class="entry-date"><%= relative_time(@blog.created_at) %></span>
                     </header>
                     <div class="entry-content">
-                        <%= (image_tag @blog.image.thumb_870_489, alt: display_blog_name, class: 'wp-post-image') if @blog.image.thumb_870_489.present? %>
+                        <% (image_tag @blog.image.thumb_870_489, alt: display_blog_name, class: 'wp-post-image') if @blog.image.thumb_870_489.present? %>
                         <%
                             blog_content = @blog.content
                             if @blog.content.present? and @blog.en_content.present?

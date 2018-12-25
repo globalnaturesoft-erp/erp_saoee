@@ -225,3 +225,9 @@ footer .footer-bottom p {
 .au-rev-bullet-1 .tp-bullet:nth-child(10) .tp-bullet-title:before {
     content:'10';
 }
+.media-project .media__body .title a {
+    font-size: 20px;
+}
+article.blog-detail-1 .entry-content img {
+    border: 1px solid #6fac45;
+}
