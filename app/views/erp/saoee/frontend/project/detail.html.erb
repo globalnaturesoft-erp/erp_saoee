@@ -20,6 +20,43 @@
 %>
 
 <% title project_name %>
+<% full_domain_path = request.env['rack.url_scheme'] + '://' + request.host_with_port %>
+
+<% content_for :metas do %>
+    
+    <!-- Facebook Open Graph -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:type" content="object" />
+    <meta property="og:title" content="<%= project_name %>"/>
+    <% if @meta_description.present? %>
+    <meta property="og:description" content="<%= @meta_description %>"/>
+    <% else %>
+    <meta property="og:description" content="<%= project_name %>"/>
+    <% end %>
+    <meta property="og:site_name" content="SAO-EE.VN">
+    <meta property="og:image" content="<%= full_domain_path %><%= @project.image %>" />
+    <meta property="og:locale" content="<%= (I18n.locale == :vi) ? 'vi_VN' : 'en_US' %>">
+    
+    <!-- Google+ Open Graph -->
+    <meta itemprop="name" content="<%= project_name %>">
+    <% if @meta_description.present? %>
+    <meta itemprop="description" content="<%= @meta_description %>">
+    <% else %>
+    <meta itemprop="description" content="<%= project_name %>">
+    <% end %>
+    <meta itemprop="image" content="<%= full_domain_path %><%= @project.image %>">
+    
+    <!-- Twitter Open Graph -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@SAOEE">
+    <meta name="twitter:title" content="<%= project_name %>">
+    <% if @meta_description.present? %>
+    <meta name="twitter:description" content="<%= @meta_description %>"/>
+    <% else %>
+    <meta name="twitter:description" content="<%= project_name %>"/>
+    <% end %>
+    <meta name="twitter:image" content="<%= full_domain_path %><%= @project.image %>">
+<% end %>
 
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
@@ -101,33 +138,35 @@
                 </div>
                 <div class="entry-share">
                     <span class="key"><%= t('share') %>:</span>
-                    <ul class="list-social list-social--md">
-                        <li class="list-social__item">
-                            <a class="ic-fb" href="#">
-                                <i class="zmdi zmdi-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-social__item">
-                            <a class="ic-insta" href="#">
-                                <i class="zmdi zmdi-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-social__item">
-                            <a class="ic-twi" href="#">
-                                <i class="zmdi zmdi-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-social__item">
-                            <a class="ic-pinterest" href="#">
-                                <i class="zmdi zmdi-pinterest"></i>
-                            </a>
-                        </li>
-                        <li class="list-social__item">
-                            <a class="ic-google" href="#">
-                                <i class="zmdi zmdi-google"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    
+                    <div id="share-buttons" class="list-social list-social--md">
+                     
+                        <!-- Facebook -->
+                        <a href="http://www.facebook.com/sharer.php?u=<%= request.url %>" target="_blank">
+                            <img src="/frontend/images/icon/socials/facebook.png" alt="Facebook" title="Share a link to this page on Facebook" />
+                        </a>
+                         
+                        <!-- Twitter -->
+                        <a href="https://twitter.com/share?url=<%= request.url %>&amp;text=<%= project_name %>&amp;hashtags=sao_ee" target="_blank">
+                            <img src="/frontend/images/icon/socials/twitter.png" alt="Twitter" title="Share a link to this page on Twitter" />
+                        </a>
+                        
+                        <!-- Google+ -->
+                        <a href="https://plus.google.com/share?url=<%= request.url %>" target="_blank">
+                            <img src="/frontend/images/icon/socials/google.png" alt="Google" title="Share a link to this page on Google Plus" />
+                        </a>
+                        
+                        <!-- LinkedIn -->
+                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<%= request.url %>" target="_blank">
+                            <img src="/frontend/images/icon/socials/linkedin.png" alt="LinkedIn" title="Share a link to this page on LinkedIn" />
+                        </a>
+                        
+                        <!-- Email -->
+                        <a href="mailto:?Subject=<%= project_name %>&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 <%= request.url %>">
+                            <img src="/frontend/images/icon/socials/email.png" alt="Email" title="Share a link to this page on Email" />
+                        </a>
+                    
+                    </div>
                 </div>
             </div>
         </div>

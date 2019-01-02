@@ -26,6 +26,17 @@
         <% end %>
     </title>
     
+    <!-- Geo meta -->
+    <meta name="DC.title" content="SAO DESIGN CONSULTANCY JOINT STOCK COMPANY" />
+    <meta name="geo.region" content="VN-SG" />
+    <meta name="geo.placename" content="68 Nguyen Hue Street, Ben Nghe Ward, Dist. 1, HCMC" />
+    <meta name="geo.position" content="10.774775;106.703539" />
+    <meta name="ICBM" content="10.774775, 106.703539" />
+    <%= yield(:metas) %>
+    <meta property="og:image:width" content="1000" />
+	<meta property="og:image:height" content="660" />
+    <meta property="fb:app_id" content="2213517668921463"/>
+    
     <%= render "erp/saoee/frontend/modules/stylesheet" %>
     
     <%= render "erp/saoee/frontend/modules/favicons_link" %>
@@ -40,6 +51,14 @@
         <main id="main">
             
             <%= yield %>
+            
+            <% @company_info = Erp::Contacts::Contact.get_main_contact %>
+            <div id="callme">
+                <div id="callmeMain">
+                    <a href="tel:<%= @company_info.hotline %>" title="<%= @company_info.hotline %>"></a>
+                    <span><%= @company_info.hotline %></span>
+                </div>
+            </div>
             
         </main>
         <!-- END MAIN-->

@@ -8,6 +8,43 @@
 %>
 
 <% title display_blog_name %>
+<% full_domain_path = request.env['rack.url_scheme'] + '://' + request.host_with_port %>
+
+<% content_for :metas do %>
+    
+    <!-- Facebook Open Graph -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="<%= display_blog_name %>"/>
+    <% if @meta_description.present? %>
+    <meta property="og:description" content="<%= @meta_description %>"/>
+    <% else %>
+    <meta property="og:description" content="<%= display_blog_name %>"/>
+    <% end %>
+    <meta property="og:site_name" content="SAO-EE.VN">
+    <meta property="og:image" content="<%= full_domain_path %><%= @blog.image %>" />
+    <meta property="og:locale" content="<%= (I18n.locale == :vi) ? 'vi_VN' : 'en_US' %>">
+    
+    <!-- Google+ Open Graph -->
+    <meta itemprop="name" content="<%= display_blog_name %>">
+    <% if @meta_description.present? %>
+    <meta itemprop="description" content="<%= @meta_description %>">
+    <% else %>
+    <meta itemprop="description" content="<%= display_blog_name %>">
+    <% end %>
+    <meta itemprop="image" content="<%= full_domain_path %><%= @blog.image %>">
+    
+    <!-- Twitter Open Graph -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@SAOEE">
+    <meta name="twitter:title" content="<%= display_blog_name %>">
+    <% if @meta_description.present? %>
+    <meta name="twitter:description" content="<%= @meta_description %>"/>
+    <% else %>
+    <meta name="twitter:description" content="<%= project_name %>"/>
+    <% end %>
+    <meta name="twitter:image" content="<%= full_domain_path %><%= @blog.image %>">
+<% end %>
 
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
