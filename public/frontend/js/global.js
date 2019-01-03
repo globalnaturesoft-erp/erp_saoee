@@ -14,7 +14,7 @@
             outClass: 'fade-out',
             inDuration: 800,
             outDuration: 800,
-            linkElement: 'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])',
+            //linkElement: 'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])', // white screen bug when click to html <a></a> tag
             loading: true,
             loadingParentElement: 'html',
             loadingClass: 'loader-wrapper',
