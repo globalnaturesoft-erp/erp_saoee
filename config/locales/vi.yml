@@ -13,6 +13,12 @@ vi:
   share: "Chia sẻ"
   tags: "Từ khóa"
   
+  career: "TUYỂN DỤNG"
+  blog: "TIN TỨC"
+  home_about: "GIỚI THIỆU (HOME PAGE)"
+  service: "DỊCH VỤ"
+  about_us: "VỀ CHÚNG TÔI"
+  
   erp:
     # Frontend
     saoee:
@@ -138,6 +144,12 @@ vi:
         categories:
           form:
             description: "Mô tả / Ghi chú"
+          list:
+            career: "TUYỂN DỤNG/CAREER"
+            blog: "TIN TỨC/BLOG"
+            about_us: "VỀ CHÚNG TÔI/ABOUT US"
+            service: "DỊCH VỤ/SERVICE"
+            home_about: "GIỚI THIỆU/ABOUT (HOME PAGE)"
     projects:
       backend:
         projects:
