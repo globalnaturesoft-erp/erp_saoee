@@ -41,7 +41,7 @@
     <% if @meta_description.present? %>
     <meta name="twitter:description" content="<%= @meta_description %>"/>
     <% else %>
-    <meta name="twitter:description" content="<%= project_name %>"/>
+    <meta name="twitter:description" content="<%= display_blog_name %>"/>
     <% end %>
     <meta name="twitter:image" content="<%= full_domain_path %><%= @blog.image %>">
 <% end %>
@@ -102,37 +102,38 @@
                                     </li>
                                 </ul>
                             </div>
+                            
+                            <div class="entry-share">
+                                <span class="title-6"><%= t('share') %>:</span>
+                                <ul class="list-social list-social--light2">
+                                    <li class="list-social__item">
+                                        <a class="ic-fb" href="#">
+                                            <i class="zmdi zmdi-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-social__item">
+                                        <a class="ic-insta" href="#">
+                                            <i class="zmdi zmdi-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-social__item">
+                                        <a class="ic-twi" href="#">
+                                            <i class="zmdi zmdi-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-social__item">
+                                        <a class="ic-pinterest" href="#">
+                                            <i class="zmdi zmdi-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-social__item">
+                                        <a class="ic-google" href="#">
+                                            <i class="zmdi zmdi-google"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         <% end %>
-                        <div class="entry-share">
-                            <span class="title-6"><%= t('share') %>:</span>
-                            <ul class="list-social list-social--light2">
-                                <li class="list-social__item">
-                                    <a class="ic-fb" href="#">
-                                        <i class="zmdi zmdi-facebook"></i>
-                                    </a>
-                                </li>
-                                <li class="list-social__item">
-                                    <a class="ic-insta" href="#">
-                                        <i class="zmdi zmdi-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="list-social__item">
-                                    <a class="ic-twi" href="#">
-                                        <i class="zmdi zmdi-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-social__item">
-                                    <a class="ic-pinterest" href="#">
-                                        <i class="zmdi zmdi-pinterest"></i>
-                                    </a>
-                                </li>
-                                <li class="list-social__item">
-                                    <a class="ic-google" href="#">
-                                        <i class="zmdi zmdi-google"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </footer>
                 </article>
                 <% if false %>

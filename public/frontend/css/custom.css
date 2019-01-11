@@ -123,6 +123,17 @@ li.menu-item.menu-item-has-children > a::after {
 article.blog-detail-1 .entry-content ul {
     padding-left: 20px;
 }
+article.blog-detail-1 .entry-content p {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+article.blog-detail-1 .entry-content blockquote {
+    padding: 5px 10px;
+    margin: 0 0 10px;
+    font-size: 15px;
+    border-left: 5px solid #eee;
+    font-weight: inherit;
+}
 .media-about .media__body .slogan.title-1 {
     margin-bottom: 15px;
 }
