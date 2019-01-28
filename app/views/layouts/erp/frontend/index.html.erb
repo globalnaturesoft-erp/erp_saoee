@@ -52,13 +52,15 @@
             
             <%= yield %>
             
-            <% @company_info = Erp::Contacts::Contact.get_main_contact %>
-            <div id="callme">
-                <div id="callmeMain">
-                    <a href="tel:<%= @company_info.hotline %>" title="<%= @company_info.hotline %>"></a>
-                    <span><%= @company_info.hotline %></span>
+            <% if false %>
+                <% @company_info = Erp::Contacts::Contact.get_main_contact %>
+                <div id="callme">
+                    <div id="callmeMain">
+                        <a href="tel:<%= @company_info.hotline %>" title="<%= @company_info.hotline %>"></a>
+                        <span><%= @company_info.hotline %></span>
+                    </div>
                 </div>
-            </div>
+            <% end %>
             
         </main>
         <!-- END MAIN-->

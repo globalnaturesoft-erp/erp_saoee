@@ -43,9 +43,9 @@
                             value: '',
                             label: 'Khách hàng',
                             placeholder: 'Chọn khách hàng',
-                        }) %>
+                        }) if false %>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <%= erp_form_control("dataselect", {
                                     name: 'project[category_id]',
                                     value: project.category_id,
@@ -57,7 +57,7 @@
                                     errors: project.errors.full_messages_for(:category_id)
                                 }) %>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <%= erp_form_control("text", {
                                     name: 'project[area]',
                                     value: project.area,

@@ -81,19 +81,21 @@
             <div class="col-lg-5">
                 <div class="entry-meta">
                     <div class="row">
-                        <div class="col-sm-4">
-                            <div class="entry-meta__item">
-                                <h4 class="key"><%= t('.client_name') %>:</h4>
-                                <span class="value">N/A</span>
+                        <% if false %>
+                            <div class="col-sm-4">
+                                <div class="entry-meta__item">
+                                    <h4 class="key"><%= t('.client_name') %>:</h4>
+                                    <span class="value">N/A</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
+                        <% end %>
+                        <div class="col-sm-6">
                             <div class="entry-meta__item">
                                 <h4 class="key"><%= t('.location') %>:</h4>
                                 <span class="value"><%= project_location %></span>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="entry-meta__item">
                                 <h4 class="key"><%= t('.area') %>:</h4>
                                 <span class="value"><%= @project.area.present? ? "#{@project.area}m<sup>2</sup>".html_safe : "N/A" %></span>
@@ -101,24 +103,26 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="entry-meta__item">
                                 <h4 class="key"><%= t('.start_date') %>:</h4>
                                 <span class="value"><%= @project.start_date.present? ? @project.start_date.strftime('%d/%m/%Y') : "N/A" %></span>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="entry-meta__item">
                                 <h4 class="key"><%= t('.completion_date') %>:</h4>
                                 <span class="value"><%= @project.completion_date.present? ? @project.completion_date.strftime('%d/%m/%Y') : "N/A" %></span>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="entry-meta__item">
-                                <h4 class="key"><%= t('.status') %>:</h4>
-                                <span class="value">Hoàn thành</span>
+                        <% if false %>
+                            <div class="col-sm-4">
+                                <div class="entry-meta__item">
+                                    <h4 class="key"><%= t('.status') %>:</h4>
+                                    <span class="value">Hoàn thành</span>
+                                </div>
                             </div>
-                        </div>
+                        <% end %>
                     </div>
                 </div>
             </div>
