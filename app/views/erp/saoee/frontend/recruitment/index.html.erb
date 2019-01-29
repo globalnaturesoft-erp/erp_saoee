@@ -1,0 +1,97 @@
+<% title t('recruitment') %>
+
+<!-- PAGE HEADING-->
+<section class="section breadcrumb p-t-65 p-b-35">
+    <div class="container">
+        <div class="page-heading">
+            <h2 class="title-2"><%= t('.recruitment') %></h2>
+            <h4 class="title-sub title-sub--c8 m-b-15">
+                <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= t('recruitment') %>
+            </h4>
+        </div>
+    </div>
+</section>
+<!-- END PAGE HEADING-->
+
+<!-- BLOG-->
+<section class="p-t-20 p-b-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <% if @recruitments.count > 0 %>
+                    <div class="row">
+                        <% @recruitments.each do |recruitment| %>
+                            <%
+                                recruitment_name = recruitment.name
+                                if recruitment.name.present? and recruitment.en_name.present?
+                                    if I18n.locale == :vi
+                                        recruitment_name = recruitment.name
+                                    else
+                                        recruitment_name = recruitment.en_name
+                                    end
+                                end
+                            %>
+                            <div class="col-md-4">
+                                <article class="blog">
+                                    <figure class="entry-image">
+                                        <% if I18n.locale == :vi %>
+                                            <%= link_to image_tag(article_image(recruitment.image.thumb_420_236, '420_236'), alt: recruitment.name), recruitment_link(recruitment) %>
+                                        <% else %>
+                                            <%= link_to image_tag(article_image(recruitment.en_image.thumb_420_236, '420_236'), alt: recruitment.en_name), recruitment_link(recruitment) %>
+                                        <% end %>
+                                    </figure>
+                                    <div class="entry-summary">
+                                        <h4 class="entry-title">
+                                            <%= link_to recruitment_name, recruitment_link(recruitment) %>
+                                        </h4>
+                                        <span class="entry-meta"><%= relative_time(recruitment.created_at) %></span>
+                                        <p class="entry-excerpt">
+                                            <% if I18n.locale == :vi %>
+                                                <%= short_text(recruitment.content, 25) + '...' if recruitment.content.present? %>
+                                            <% else %>
+                                                <%= short_text(recruitment.en_content, 25) + '...' if recruitment.en_content.present? %>
+                                            <% end %>
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                        <% end %>
+                    </div>
+    
+                    <% if false %>
+                        <nav class="navigation blog-navigation">
+                            <div class="container">
+                                <div class="nav-links">
+                                    <ul class="page-numbers">
+                                        <li>
+                                            <a class="page-number prev" href="#">
+                                                <span class="ti-arrow-left"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <span class="page-number current">01</span>
+                                        </li>
+                                        <li>
+                                            <a class="page-number" href="#">02</a>
+                                        </li>
+                                        <li>
+                                            <a class="page-number next" href="#">
+                                                <span class="ti-arrow-right"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    <% end %>
+                <% else %>
+                    <div class="alert alert-warning">
+                        <i class="fa fa-warning"></i> <%= t('.no_matching_records_found') %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END BLOG-->

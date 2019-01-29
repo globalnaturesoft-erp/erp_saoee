@@ -8,6 +8,7 @@ vi:
   service: "Dịch vụ"
   project: "Dự án"
   blog: "Tin tức"
+  recruitment: "Tuyển dụng"
   contact_us: "Liên hệ"
   #--
   share: "Chia sẻ"
@@ -64,6 +65,12 @@ vi:
             newest_blogs: "Bài viết mới nhất"
             categories: "Chủ đề"
             latest_projects: "Dự án gần đây"
+        recruitment:
+          index:
+            recruitment: "Tuyển dụng"
+            no_matching_records_found: "Hiện tại chưa có đợt tuyển dụng"
+          detail:
+            recruitment: "Tuyển dụng"
         contact_us:
           index:
             contact_us: "Liên hệ & Góp ý"
@@ -87,6 +94,10 @@ vi:
               tags: "Từ khóa"
               newest_blogs: "Bài viết mới nhất"
               categories: "Chủ đề"
+              latest_projects: "Dự án gần đây"
+          recruitment:
+            sidebar:
+              newest_recruitments: "Tin tuyển dụng khác"
               latest_projects: "Dự án gần đây"
           contact_us:
             contact_form:

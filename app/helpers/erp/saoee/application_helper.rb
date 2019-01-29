@@ -29,6 +29,11 @@ module Erp
         erp_saoee.blog_detail_path(blog.id, title: url_friendly(blog.name))
       end
       
+      # recruitment link
+      def recruitment_link(recruitment)
+        erp_saoee.recruitment_detail_path(recruitment.id, title: url_friendly(recruitment.name))
+      end
+      
       # project link
       def project_link(project)
         erp_saoee.project_detail_path(project.id, title: url_friendly(project.name))

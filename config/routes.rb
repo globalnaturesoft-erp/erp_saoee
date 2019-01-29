@@ -17,7 +17,7 @@ Erp::Saoee::Engine.routes.draw do
     get "lien-he.html" => "frontend/contact_us#index", as: :contact_us
     post "lien-he.html" => "frontend/contact_us#index"
     
-    get "tuyen-dung.html" => "frontend/blog#recruitment", as: :recruitment
-    get "tuyen-dung/:title-rcm:recruitment_id.html" => "frontend/blog#recruitment_detail", as: :recruitment_detail
+    get "tuyen-dung.html" => "frontend/recruitment#index", as: :recruitment
+    get "tuyen-dung/:title-rcm:recruitment_id.html" => "frontend/recruitment#detail", as: :recruitment_detail
   end
 end

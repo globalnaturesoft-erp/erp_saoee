@@ -1,13 +1,13 @@
 <%
-    display_blog_name = ''
+    display_recruitment_name = ''
     if I18n.locale == :vi
-        display_blog_name = @blog.name
+        display_recruitment_name = @recruitment.name
     else
-        display_blog_name = @blog.en_name
+        display_recruitment_name = @recruitment.en_name
     end
 %>
 
-<% title display_blog_name %>
+<% title display_recruitment_name %>
 <% full_domain_path = request.env['rack.url_scheme'] + '://' + request.host_with_port %>
 
 <% content_for :metas do %>
@@ -15,46 +15,46 @@
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="<%= request.url %>"/>
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="<%= display_blog_name %>"/>
+    <meta property="og:title" content="<%= display_recruitment_name %>"/>
     <% if @meta_description.present? %>
     <meta property="og:description" content="<%= @meta_description %>"/>
     <% else %>
-    <meta property="og:description" content="<%= display_blog_name %>"/>
+    <meta property="og:description" content="<%= display_recruitment_name %>"/>
     <% end %>
     <meta property="og:site_name" content="SAO-EE.VN">
-    <meta property="og:image" content="<%= full_domain_path %><%= @blog.image %>" />
+    <meta property="og:image" content="<%= full_domain_path %><%= @recruitment.image %>" />
     <meta property="og:locale" content="<%= (I18n.locale == :vi) ? 'vi_VN' : 'en_US' %>">
     
     <!-- Google+ Open Graph -->
-    <meta itemprop="name" content="<%= display_blog_name %>">
+    <meta itemprop="name" content="<%= display_recruitment_name %>">
     <% if @meta_description.present? %>
     <meta itemprop="description" content="<%= @meta_description %>">
     <% else %>
-    <meta itemprop="description" content="<%= display_blog_name %>">
+    <meta itemprop="description" content="<%= display_recruitment_name %>">
     <% end %>
-    <meta itemprop="image" content="<%= full_domain_path %><%= @blog.image %>">
+    <meta itemprop="image" content="<%= full_domain_path %><%= @recruitment.image %>">
     
     <!-- Twitter Open Graph -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@SAOEE">
-    <meta name="twitter:title" content="<%= display_blog_name %>">
+    <meta name="twitter:title" content="<%= display_recruitment_name %>">
     <% if @meta_description.present? %>
     <meta name="twitter:description" content="<%= @meta_description %>"/>
     <% else %>
-    <meta name="twitter:description" content="<%= display_blog_name %>"/>
+    <meta name="twitter:description" content="<%= display_recruitment_name %>"/>
     <% end %>
-    <meta name="twitter:image" content="<%= full_domain_path %><%= @blog.image %>">
+    <meta name="twitter:image" content="<%= full_domain_path %><%= @recruitment.image %>">
 <% end %>
 
 <!-- PAGE HEADING-->
 <section class="section breadcrumb p-t-65 p-b-35">
     <div class="container">
         <div class="page-heading">
-            <h2 class="title-2"><%= t('.blog') %></h2>
+            <h2 class="title-2"><%= t('.recruitment') %></h2>
             <h4 class="title-sub title-sub--c8 m-b-15">
                 <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
-                <%= link_to t('blog'), erp_saoee.blog_path %> <i class="ti-angle-double-right"></i>
-                <%= display_blog_name %>
+                <%= link_to t('recruitment'), erp_saoee.recruitment_path %> <i class="ti-angle-double-right"></i>
+                <%= display_recruitment_name %>
             </h4>
         </div>
     </div>
@@ -68,39 +68,26 @@
             <div class="col-md-8 col-lg-9">
                 <article class="blog-detail-1">
                     <header class="entry-header">
-                        <h2 class="entry-title"><%= display_blog_name %></h2>
-                        <span class="entry-date"><%= relative_time(@blog.created_at) %></span>
+                        <h2 class="entry-title"><%= display_recruitment_name %></h2>
+                        <span class="entry-date"><%= relative_time(@recruitment.created_at) %></span>
                     </header>
                     <div class="entry-content">
-                        <% (image_tag @blog.image.thumb_870_489, alt: display_blog_name, class: 'wp-post-image') if @blog.image.thumb_870_489.present? %>
+                        <% (image_tag @recruitment.image.thumb_870_489, alt: display_recruitment_name, class: 'wp-post-image') if @recruitment.image.thumb_870_489.present? %>
                         <%
-                            blog_content = @blog.content
-                            if @blog.content.present? and @blog.en_content.present?
+                            recruitment_content = @recruitment.content
+                            if @recruitment.content.present? and @recruitment.en_content.present?
                                 if I18n.locale == :vi
-                                    blog_content = @blog.content
+                                    recruitment_content = @recruitment.content
                                 else
-                                    blog_content = @blog.en_content
+                                    recruitment_content = @recruitment.en_content
                                 end
                             end
                         %>
-                        <%= blog_content.html_safe %>
+                        <%= recruitment_content.html_safe %>
                     </div>
                     
                     <% if true %>
                         <footer class="entry-footer">
-                            <div class="entry-tags">
-                                <span class="key"><strong><%= t('.tags') %>:</strong></span>
-                                <ul class="wp-tag-cloud">
-                                    <% @blog.get_tags.each_with_index do |tag,index| %>
-                                        <% if index+1 == @blog.get_tags.count %>
-                                            <li><a href="#"><%= tag %></a></li>
-                                        <% else %>
-                                            <li><a href="#"><%= tag %></a></li>,
-                                        <% end %>
-                                    <% end %>
-                                </ul>
-                            </div>
-                            
                             <div class="entry-share">
                                 <span class="key"><%= t('share') %>:</span>
                                 
@@ -112,7 +99,7 @@
                                     </a>
                                      
                                     <!-- Twitter -->
-                                    <a href="https://twitter.com/share?url=<%= request.url %>&amp;text=<%= display_blog_name %>&amp;hashtags=sao_ee" target="_blank">
+                                    <a href="https://twitter.com/share?url=<%= request.url %>&amp;text=<%= display_recruitment_name %>&amp;hashtags=sao_ee" target="_blank">
                                         <img src="/frontend/images/icon/socials/twitter.png" alt="Twitter" title="Share a link to this page on Twitter" />
                                     </a>
                                     
@@ -127,7 +114,7 @@
                                     </a>
                                     
                                     <!-- Email -->
-                                    <a href="mailto:?Subject=<%= display_blog_name %>&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 <%= request.url %>">
+                                    <a href="mailto:?Subject=<%= display_recruitment_name %>&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 <%= request.url %>">
                                         <img src="/frontend/images/icon/socials/email.png" alt="Email" title="Share a link to this page on Email" />
                                     </a>
                                 
@@ -136,12 +123,9 @@
                         <% end %>
                     </footer>
                 </article>
-                <% if false %>
-                    <%= render "erp/saoee/frontend/modules/blog/comments_area" %>
-                <% end %>
             </div>
             <div class="col-md-4 col-lg-3">
-                <%= render "erp/saoee/frontend/modules/blog/sidebar" %>
+                <%= render "erp/saoee/frontend/modules/recruitment/sidebar" %>
             </div>
         </div>
     </div>

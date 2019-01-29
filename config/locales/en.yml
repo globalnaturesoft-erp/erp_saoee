@@ -4,6 +4,7 @@ en:
   service: "Service"
   project: "Project"
   blog: "Blog"
+  recruitment: "Recruitment"
   contact_us: "Contact"
   #--
   share: "Share"
@@ -46,6 +47,13 @@ en:
             no_matching_records_found: "No matching records found"
           detail:
             blog: "Blog"
+            tags: "Tags"
+        recruitment:
+          index:
+            recruitment: "Recruitment"
+            no_matching_records_found: "No matching records found"
+          detail:
+            recruitment: "Recruitment"
         contact_us:
           index:
             contact_us: "Contact Us"
@@ -69,6 +77,11 @@ en:
               tags: "Tags"
               newest_blogs: "Newest posts"
               categories: "Categories"
+              latest_projects: "Latest projects"
+          recruitment:
+            sidebar:
+              tags: "Tags"
+              newest_recruitments: "Newest posts"
               latest_projects: "Latest projects"
           contact_us:
             contact_form:
