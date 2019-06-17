@@ -3,13 +3,15 @@ vi:
   english: "English"
   vi_content: "Nội dung tiếng Việt"
   en_content: "English Content"
-  home: "Trang chủ"
-  about_us: "Về chúng tôi"
-  service: "Dịch vụ"
-  project: "Dự án"
-  blog: "Tin tức"
-  recruitment: "Tuyển dụng"
-  contact_us: "Liên hệ"
+  header:
+    nav:
+      home: "Trang chủ"
+      about_us: "Về chúng tôi"
+      service: "Dịch vụ"
+      project: "Dự án"
+      blog: "Tin tức"
+      recruitment: "Tuyển dụng"
+      contact_us: "Liên hệ"
   #--
   share: "Chia sẻ"
   tags: "Từ khóa"
