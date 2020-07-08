@@ -2,10 +2,10 @@ Erp::Saoee::Engine.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root to: "frontend/home#index"
     
-    get "gioi-thieu.html" => "frontend/about_us#index", as: :about_us
+    get "dich-vu.html" => "frontend/about_us#index", as: :about_us
     
-    get "dich-vu.html" => "frontend/service#index", as: :service
-    get "dich-vu/:title-ctgsvr:cat_id.html" => "frontend/service#detail", as: :service_detail
+    get "san-pham.html" => "frontend/service#index", as: :service
+    get "san-pham/:title-ctgsvr:cat_id.html" => "frontend/service#detail", as: :service_detail
     
     get "du-an.html" => "frontend/project#index", as: :project
     get "du-an/:title-pj:project_id.html" => "frontend/project#detail", as: :project_detail

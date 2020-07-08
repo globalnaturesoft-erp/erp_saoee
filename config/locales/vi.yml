@@ -6,8 +6,8 @@ vi:
   header:
     nav:
       home: "Trang chủ"
-      about_us: "Về chúng tôi"
-      service: "Dịch vụ"
+      about_us: "Dịch vụ"
+      service: "Sản phẩm"
       project: "Dự án"
       blog: "Tin tức"
       recruitment: "Tuyển dụng"
@@ -19,8 +19,8 @@ vi:
   career: "TUYỂN DỤNG"
   blog: "TIN TỨC"
   home_about: "GIỚI THIỆU (HOME PAGE)"
-  service: "DỊCH VỤ"
-  about_us: "VỀ CHÚNG TÔI"
+  service: "SẢN PHẨM"
+  about_us: "DỊCH VỤ"
   
   erp:
     # Frontend
@@ -28,15 +28,15 @@ vi:
       frontend:
         about_us:
           index:
-            about_us: "Về chúng tôi"
+            about_us: "Dịch vụ"
             no_matching_records_found: "Nội dung đang được cập nhật"
         service:
           index:
-            service: "Dịch vụ"
-            our_services_title: "Các dịch vụ của chúng tôi"
+            service: "Sản phẩm"
+            our_services_title: "Các sản phẩm của chúng tôi"
             our_services_title_sub: "Chúng tôi có thể giúp gì cho bạn?" 
           detail:
-            service: "Dịch vụ"
+            service: "Sản phẩm"
             no_matching_records_found: "Nội dung đang được cập nhật"
         project:
           index:
@@ -87,7 +87,7 @@ vi:
               blog_title: "BÀI VIẾT"
             service:
               service_title_sub: "Chúng tôi cung cấp những gì?"
-              service_title: "DỊCH VỤ"
+              service_title: "SẢN PHẨM"
             project:
               project_title_sub: "Chúng tôi đã làm những gì?"
               project_title: "DỰ ÁN GẦN ĐÂY"
@@ -117,11 +117,11 @@ vi:
             google_map:
               saoee_name: "CÔNG TY CỔ PHẦN TƯ VẤN THIẾT KẾ SAO"
               address: "Địa chỉ"
-              address_info: "P.901, Lầu 9, 68 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh"
+              address_info: "L17-11, Vincom Center Buildings, 72 Lê Thánh Tôn, P. Bến Nghé, Quận 1, TP. Hồ Chí Minh, Việt Nam"
               phone: "Điện thoại"
           service:
             sidebar:
-              other_services: "Dịch vụ khác"
+              other_services: "Sản phẩm khác"
               newest_projects: "Dự án gần đây"
           footer:
             address: "Địa chỉ"
@@ -129,10 +129,10 @@ vi:
             hotline: "Hotline"
             email: "Email"
             tax_code: "Mã số thuế"
-            service: "Dịch vụ"
+            service: "Sản phẩm"
             link: "Liên kết"
             socials: "Kết nối"
-            about_us: "Về chúng tôi"
+            about_us: "Dịch vụ"
             project: "Dự án"
             blog: "Tin tức"
             recruiting: "Tuyển dụng"
@@ -160,8 +160,8 @@ vi:
           list:
             career: "TUYỂN DỤNG/CAREER"
             blog: "TIN TỨC/BLOG"
-            about_us: "VỀ CHÚNG TÔI/ABOUT US"
-            service: "DỊCH VỤ/SERVICE"
+            about_us: "DỊCH VỤ/SERVICE"
+            service: "SẢN PHẨM/PRODUCT"
             home_about: "GIỚI THIỆU/ABOUT (HOME PAGE)"
     projects:
       backend:

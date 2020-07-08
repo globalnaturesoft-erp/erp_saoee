@@ -6,9 +6,29 @@ en:
   blog: "Blog"
   recruitment: "Recruitment"
   contact_us: "Contact"
+
+  vietnames: "Vietnames"
+  english: "English"
+  vi_content: "Content of Vietnamese"
+  en_content: "Content of English"
+  header:
+    nav:
+      home: "Home"
+      about_us: "Service"
+      service: "Product"
+      project: "Project"
+      blog: "Blog"
+      recruitment: "Career"
+      contact_us: "Contact"
   #--
   share: "Share"
   tags: "Tags"
+  
+  career: "CAREER"
+  blog: "BLOG"
+  home_about: "ABOUT US (HOME PAGE)"
+  service: "PRODUCT"
+  about_us: "SERVICE"
   
   erp:
     # Frontend
@@ -16,15 +36,15 @@ en:
       frontend:
         about_us:
           index:
-            about_us: "About Us"
+            about_us: "Service"
             no_matching_records_found: "No matching records found"
         service:
           index:
-            service: "Service"
-            our_services_title: "Our services"
+            service: "Product"
+            our_services_title: "Our products"
             our_services_title_sub: "Can we help you?" 
           detail:
-            service: "Service"
+            service: "Product"
             no_matching_records_found: "Updating..."
         project:
           index:
@@ -68,7 +88,7 @@ en:
               blog_title: "NEWS"
             service:
               service_title_sub: "Everything you need?"
-              service_title: "SERVICES"
+              service_title: "PRODUCTS"
             project:
               project_title_sub: "What is our work?"
               project_title: "PROJECTS"
@@ -99,11 +119,11 @@ en:
             google_map:
               saoee_name: "SAO DESIGN CONSULTANCY JOINT STOCK COMPANY"
               address: "Address"
-              address_info: "Room No.901, 9th Floor, 68 Nguyen Hue Street, Ben Nghe Ward, Dist.1, HCMC, VN"
+              address_info: "F17-11, Vincom Center Buildings, 72 Le Thanh Ton, Ben Nghe Ward, District 1, HCMC, Vietnam"
               phone: "Phone"
           service:
             sidebar:
-              other_services: "Other services"
+              other_services: "Other products"
               newest_projects: "Newest projects"
           footer:
             address: "Address"
@@ -111,10 +131,10 @@ en:
             hotline: "Hotline"
             email: "Email"
             tax_code: "Tax code"
-            service: "Service"
+            service: "Product"
             link: "Link"
             socials: "Social"
-            about_us: "About Us"
+            about_us: "Service"
             project: "Project"
             blog: "Blog"
             recruiting: "Recruiting"

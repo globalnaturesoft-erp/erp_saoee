@@ -12,15 +12,21 @@
         <div class="contact-info__item m-b-10">
             <p class="value"><strong><%= t('.address') %>:</strong> <%= full_address(@company_info) %></p>
         </div>
-        <div class="contact-info__item m-b-10">
-            <p class="value"><strong><%= t('.phone_number') %>:</strong> <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></p>
-        </div>
-        <div class="contact-info__item m-b-10">
-            <p class="value"><strong><%= t('.hotline') %>:</strong> <%= link_to @company_info.hotline, "tel:#{@company_info.hotline}" %></p>
-        </div>
-        <div class="contact-info__item m-b-10">
-            <p class="value"><strong><%= t('.email') %>:</strong> <%= mail_to @company_info.email, @company_info.email %></p>
-        </div>
+        <% if @company_info.phone.present? %>
+            <div class="contact-info__item m-b-10">
+                <p class="value"><strong><%= t('.phone_number') %>:</strong> <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></p>
+            </div>
+        <% end %>
+        <% if @company_info.hotline.present? %>
+            <div class="contact-info__item m-b-10">
+                <p class="value"><strong><%= t('.hotline') %>:</strong> <%= link_to @company_info.hotline, "tel:#{@company_info.hotline}" %></p>
+            </div>
+        <% end %>
+        <% if @company_info.email.present? %>
+            <div class="contact-info__item m-b-10">
+                <p class="value"><strong><%= t('.email') %>:</strong> <%= mail_to @company_info.email, @company_info.email %></p>
+            </div>
+        <% end %>
         <% if @company_info.tax_code.present? %>
             <div class="contact-info__item m-b-10">
                 <p class="value"><strong><%= t('.tax_code') %>:</strong> <%= @company_info.tax_code %></p>

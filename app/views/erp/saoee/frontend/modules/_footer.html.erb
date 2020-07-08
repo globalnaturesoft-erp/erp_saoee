@@ -24,9 +24,15 @@
                                     </strong>
                                 </li>
                                 <li><%= t('.address') %>: <%= full_address(@company_info) %></li>
-                                <li><%= t('.phone_number') %>: <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></li>
-                                <li><%= t('.hotline') %>: <%= link_to @company_info.hotline, "tel:#{@company_info.hotline}" %></li>
-                                <li><%= t('.email') %>: <%= mail_to @company_info.email, @company_info.email %></li>
+                                <% if @company_info.phone.present? %>
+                                    <li><%= t('.phone_number') %>: <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></li>
+                                <% end %>
+                                <% if @company_info.hotline.present? %>
+                                    <li><%= t('.hotline') %>: <%= link_to @company_info.hotline, "tel:#{@company_info.hotline}" %></li>
+                                <% end %>
+                                <% if @company_info.email.present? %>
+                                    <li><%= t('.email') %>: <%= mail_to @company_info.email, @company_info.email %></li>
+                                <% end %>
                             </ul>
                         </div>
                     <% end %>
@@ -99,7 +105,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p class="font-12 text-gray m-0 text-center">
-                        Copyright &copy; 2016 - 2018 <span class="text-color">SAO-EE.VN</span>. All Rights Reserved. <br/>
+                        Copyright &copy; <%= Time.now.strftime('%Y') %> <span class="text-color">SAO-EE.VN</span>. All Rights Reserved. <br/>
                         Designed by <a href="http://hoangkhang.com.vn" target="_blank">Hoang Khang Incotech</a>
                     </p>
                 </div>
