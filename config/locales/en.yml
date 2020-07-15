@@ -1,7 +1,7 @@
 en:
   home: "Home"
-  about_us: "About"
-  service: "Service"
+  about_us: "Service"
+  service: "Product"
   project: "Project"
   blog: "Blog"
   recruitment: "Recruitment"
@@ -25,10 +25,10 @@ en:
   tags: "Tags"
   
   career: "CAREER"
-  blog: "BLOG"
+  # blog: "BLOG"
   home_about: "ABOUT US (HOME PAGE)"
-  service: "PRODUCT"
-  about_us: "SERVICE"
+  # service: "PRODUCT"
+  # about_us: "SERVICE"
   
   erp:
     # Frontend

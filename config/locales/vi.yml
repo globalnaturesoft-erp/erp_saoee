@@ -1,4 +1,12 @@
 vi:
+  home: "Trang chủ"
+  about_us: "Dịch vụ"
+  service: "Sản phẩm"
+  project: "Dự án"
+  blog: "Tin tức"
+  recruitment: "Tuyển dụng"
+  contact_us: "Liên hệ"
+
   vietnames: "Tiếng Việt"
   english: "English"
   vi_content: "Nội dung tiếng Việt"
@@ -17,10 +25,10 @@ vi:
   tags: "Từ khóa"
   
   career: "TUYỂN DỤNG"
-  blog: "TIN TỨC"
+  # blog: "TIN TỨC"
   home_about: "GIỚI THIỆU (HOME PAGE)"
-  service: "SẢN PHẨM"
-  about_us: "DỊCH VỤ"
+  # service: "SẢN PHẨM"
+  # about_us: "DỊCH VỤ"
   
   erp:
     # Frontend
