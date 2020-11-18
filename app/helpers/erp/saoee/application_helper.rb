@@ -13,8 +13,8 @@ module Erp
           str << contact.address if contact.address.present?
         elsif I18n.locale == :en
           str << contact.en_address if contact.en_address.present?
-        elsif I18n.locale == :jp
-          str << contact.jp_address if contact.jp_address.present?
+        elsif I18n.locale == :ja
+          str << contact.ja_address if contact.ja_address.present?
         end
         #str << contact.district_name if contact.district_name.present?
         #str << contact.state_name if contact.state_name.present?

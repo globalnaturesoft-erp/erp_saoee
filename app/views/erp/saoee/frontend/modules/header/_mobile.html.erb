@@ -9,19 +9,32 @@
                 <div class="nav-custom">
                     <div class="mod-languages">
                         <ul class="lang-inline">
-                            <% if I18n.locale == :vi %>
-                                <li class="lang">
-                                    <%= link_to url_for(locale: :en) do %>
-                                        <img title="English" alt="English" src="/frontend/images/icon/flags/gb.svg">
-                                    <% end %>
-                                </li>
-                            <% else %>
-                                <li class="lang">
-                                    <%= link_to url_for(locale: :vi) do %>
-                                        <img title="Tiếng Việt" alt="Vietnames" src="/frontend/images/icon/flags/vn.svg">
-                                    <% end %>
-                                </li>
-                            <% end %>
+                            <li class="">
+                                <div class="dropdown">
+                                    <a class="lang-menu" href="javascript:void(0)">
+                                        <% if I18n.locale == :vi %>
+                                            <img class="lang-menu" src="/frontend/images/icon/flags/vi.svg" alt="Tiếng Việt">
+                                        <% end %>
+                                        <% if I18n.locale == :en %>
+                                            <img class="lang-menu" src="/frontend/images/icon/flags/en.svg" alt="English">
+                                        <% end %>
+                                        <% if I18n.locale == :ja %>
+                                            <img class="lang-menu" src="/frontend/images/icon/flags/ja.svg" alt="日本語">
+                                        <% end %>
+                                    </a>
+                                    <div class="lang-content">
+                                        <%= link_to url_for(locale: :vi) do %>
+                                            <img src="/frontend/images/icon/flags/vi-2.svg" /> Tiếng Việt
+                                        <% end %>
+                                        <%= link_to url_for(locale: :en) do %>
+                                            <img src="/frontend/images/icon/flags/en-2.svg" /> English
+                                        <% end %>
+                                        <%= link_to url_for(locale: :ja) do %>
+                                            <img src="/frontend/images/icon/flags/ja-2.svg" /> 日本語
+                                        <% end %>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <button class="hamburger hamburger--slider float-right" type="button">
@@ -56,8 +69,8 @@
                                     <%= link_to menu.name, service_link(menu) %>
                                 <% elsif I18n.locale == :en %>
                                     <%= link_to menu.en_name, service_link(menu) %>
-                                <% elsif I18n.locale == :jp %>
-                                    <%= link_to menu.jp_name, service_link(menu) %>
+                                <% elsif I18n.locale == :ja %>
+                                    <%= link_to menu.ja_name, service_link(menu) %>
                                 <% end %>
                             </li>
                         <% end %>

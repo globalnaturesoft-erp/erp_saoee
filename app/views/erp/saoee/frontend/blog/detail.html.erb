@@ -1,12 +1,12 @@
 <%
     display_blog_name = @blog.name
-    if @blog.name.present? and @blog.en_name.present? and @blog.jp_name.present?
+    if @blog.name.present? and @blog.en_name.present? and @blog.ja_name.present?
         if I18n.locale == :vi
             display_blog_name = @blog.name
         elsif I18n.locale == :en
             display_blog_name = @blog.en_name
-        elsif I18n.locale == :jp
-            display_blog_name = @blog.jp_name
+        elsif I18n.locale == :ja
+            display_blog_name = @blog.ja_name
         end
     end
 %>
@@ -79,13 +79,13 @@
                         <% (image_tag @blog.image.thumb_870_489, alt: display_blog_name, class: 'wp-post-image') if @blog.image.thumb_870_489.present? %>
                         <%
                             blog_content = @blog.content
-                            if @blog.content.present? and @blog.en_content.present? and @blog.jp_content.present?
+                            if @blog.content.present? and @blog.en_content.present? and @blog.ja_content.present?
                                 if I18n.locale == :vi
                                     blog_content = @blog.content
                                 elsif I18n.locale == :en
                                     blog_content = @blog.en_content
-                                elsif I18n.locale == :jp
-                                    blog_content = @blog.jp_content
+                                elsif I18n.locale == :ja
+                                    blog_content = @blog.ja_content
                                 end
                             end
                         %>

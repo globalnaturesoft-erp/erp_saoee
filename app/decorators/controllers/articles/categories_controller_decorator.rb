@@ -5,7 +5,7 @@ Erp::Articles::Backend::CategoriesController.class_eval do
       :img_icon, :parent_id, :alias,
       :name, :description,
       :en_name, :en_description,
-      :jp_name, :jp_description,
+      :ja_name, :ja_description,
     )
   end
 end

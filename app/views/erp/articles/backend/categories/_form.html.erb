@@ -90,18 +90,18 @@
                         </div>
                 
                         <div class="tab-pane" id="tab_5_3">
-                            <h5 class="profile-desc-title bold font-yellow"><%= t('jp_content') %></span></sup></h5>
+                            <h5 class="profile-desc-title bold font-yellow"><%= t('ja_content') %></span></sup></h5>
                             <%= erp_form_control("text", {
-                                name: 'category[jp_name]',
-                                value: category.jp_name,                   
+                                name: 'category[ja_name]',
+                                value: category.ja_name,                   
                                 label: t('.name'),
                                 placeholder: t('.placeholder_name'),
                                 required: true,
-                                errors: category.errors.full_messages_for(:jp_name)
+                                errors: category.errors.full_messages_for(:ja_name)
                             }) %>
                             <%= erp_form_control("textarea", {
-                                name: 'category[jp_description]',
-                                value: category.jp_description,
+                                name: 'category[ja_description]',
+                                value: category.ja_description,
                                 label: t('.description'),
                             }) %>
                         </div>

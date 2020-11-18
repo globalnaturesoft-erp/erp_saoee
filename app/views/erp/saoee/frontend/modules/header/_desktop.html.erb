@@ -11,13 +11,16 @@
                     <div class="header__content-right">
                         <nav class="header-nav-menu">
                             <ul class="menu nav-menu">
-                                <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/home' %>">
+                                <li
+                                    class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/home' %>">
                                     <a href="<%= erp_saoee.root_path %>"><%= t('header.nav.home') %></a>
                                 </li>
-                                <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/about_us' %>">
+                                <li
+                                    class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/about_us' %>">
                                     <a href="<%= erp_saoee.about_us_path %>"><%= t('header.nav.about_us') %></a>
                                 </li>
-                                <li class="menu-item menu-item-has-children <%= 'active' if params[:controller] == 'erp/saoee/frontend/service' %>">
+                                <li
+                                    class="menu-item menu-item-has-children <%= 'active' if params[:controller] == 'erp/saoee/frontend/service' %>">
                                     <a href="<%= erp_saoee.service_path %>"><%= t('header.nav.service') %></a>
                                     <ul class="sub-menu">
                                         <%
@@ -26,45 +29,61 @@
                                                 .order('erp_articles_categories.custom_order ASC')
                                         %>
                                         <% @service_menus.each do |menu| %>
-                                            <li class="menu-item">
-                                                <% if I18n.locale == :vi %>
-                                                    <%= link_to menu.name, service_link(menu) %>
-                                                <% elsif I18n.locale == :en %>
-                                                    <%= link_to menu.en_name, service_link(menu) %>
-                                                <% elsif I18n.locale == :jp %>
-                                                    <%= link_to menu.jp_name, service_link(menu) %>
-                                                <% end %>
-                                            </li>
+                                        <li class="menu-item">
+                                            <% if I18n.locale == :vi %>
+                                            <%= link_to menu.name, service_link(menu) %>
+                                            <% elsif I18n.locale == :en %>
+                                            <%= link_to menu.en_name, service_link(menu) %>
+                                            <% elsif I18n.locale == :ja %>
+                                            <%= link_to menu.ja_name, service_link(menu) %>
+                                            <% end %>
+                                        </li>
                                         <% end %>
                                     </ul>
                                 </li>
-                                <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/project' %>">
+                                <li
+                                    class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/project' %>">
                                     <a href="<%= erp_saoee.project_path %>"><%= t('header.nav.project') %></a>
                                 </li>
-                                <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/blog' %>">
+                                <li
+                                    class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/blog' %>">
                                     <a href="<%= erp_saoee.blog_path %>"><%= t('header.nav.blog') %></a>
                                 </li>
-                                <li class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/contact_us' %>">
+                                <li
+                                    class="menu-item <%= 'active' if params[:controller] == 'erp/saoee/frontend/contact_us' %>">
                                     <a href="<%= erp_saoee.contact_us_path %>"><%= t('header.nav.contact_us') %></a>
                                 </li>
                             </ul>
                         </nav>
                         <%= render "erp/saoee/frontend/modules/header/social" if false %>
                         <div class="mod-languages">
-                            <ul class="lang-inline">                                
-                                <% if I18n.locale == :vi %>
-                                    <li class="lang">
-                                        <%= link_to url_for(locale: :en) do %>
-                                            <img title="English" alt="English" src="/frontend/images/icon/flags/gb.svg">
-                                        <% end %>
-                                    </li>
-                                <% else %>
-                                    <li class="lang">
-                                        <%= link_to url_for(locale: :vi) do %>
-                                            <img title="Tiếng Việt" alt="Vietnames" src="/frontend/images/icon/flags/vn.svg">
-                                        <% end %>
-                                    </li>
-                                <% end %>
+                            <ul class="lang-inline">
+                                <li class="">
+                                    <div class="dropdown">
+                                        <a class="lang-menu" href="javascript:void(0)">
+                                            <% if I18n.locale == :vi %>
+                                                <img class="lang-menu" src="/frontend/images/icon/flags/vi.svg" alt="Tiếng Việt">
+                                            <% end %>
+                                            <% if I18n.locale == :en %>
+                                                <img class="lang-menu" src="/frontend/images/icon/flags/en.svg" alt="English">
+                                            <% end %>
+                                            <% if I18n.locale == :ja %>
+                                                <img class="lang-menu" src="/frontend/images/icon/flags/ja.svg" alt="日本語">
+                                            <% end %>
+                                        </a>
+                                        <div class="lang-content">
+                                            <%= link_to url_for(locale: :vi) do %>
+                                                <img src="/frontend/images/icon/flags/vi-2.svg" /> Tiếng Việt
+                                            <% end %>
+                                            <%= link_to url_for(locale: :en) do %>
+                                                <img src="/frontend/images/icon/flags/en-2.svg" /> English
+                                            <% end %>
+                                            <%= link_to url_for(locale: :ja) do %>
+                                                <img src="/frontend/images/icon/flags/ja-2.svg" /> 日本語
+                                            <% end %>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>

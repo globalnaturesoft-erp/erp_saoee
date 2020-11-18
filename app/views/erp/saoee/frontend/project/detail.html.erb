@@ -1,24 +1,24 @@
 <%
     project_name = @project.name
-    if @project.name.present? and @project.en_name.present? and @project.jp_name.present?
+    if @project.name.present? and @project.en_name.present? and @project.ja_name.present?
         if I18n.locale == :vi
             project_name = @project.name
         elsif I18n.locale == :en
             project_name = @project.en_name
-        elsif I18n.locale == :jp
-            project_name = @project.jp_name
+        elsif I18n.locale == :ja
+            project_name = @project.ja_name
         end
     end
 %>
 <%
     project_location = @project.location
-    if @project.location.present? and @project.en_location.present? and @project.jp_location.present?
+    if @project.location.present? and @project.en_location.present? and @project.ja_location.present?
         if I18n.locale == :vi
             project_location = @project.location
         elsif I18n.locale == :en
             project_location = @project.en_location
-        elsif I18n.locale == :jp
-            project_location = @project.jp_location
+        elsif I18n.locale == :ja
+            project_location = @project.ja_location
         end
     end
 %>
@@ -134,13 +134,13 @@
                 <div class="entry-content">
                     <%
                         project_description = @project.description
-                        if @project.description.present? and @project.en_description.present? and @project.jp_description.present?
+                        if @project.description.present? and @project.en_description.present? and @project.ja_description.present?
                             if I18n.locale == :vi
                                 project_description = @project.description
                             elsif I18n.locale == :en
                                 project_description = @project.en_description
-                            elsif I18n.locale == :jp
-                                project_description = @project.jp_description
+                            elsif I18n.locale == :ja
+                                project_description = @project.ja_description
                             end
                         end
                     %>
@@ -186,13 +186,13 @@
                     <% @project.project_images.each do |project_image| %>
                         <%
                             project_image_name = project_image.name
-                            if project_image.name.present? and project_image.en_name.present? and project_image.jp_name.present?
+                            if project_image.name.present? and project_image.en_name.present? and project_image.ja_name.present?
                                 if I18n.locale == :vi
                                     project_image_name = project_image.name
                                 elsif I18n.locale == :en
                                     project_image_name = project_image.en_name
-                                elsif I18n.locale == :jp
-                                    project_image_name = project_image.jp_name
+                                elsif I18n.locale == :ja
+                                    project_image_name = project_image.ja_name
                                 end
                             end
                         %>
@@ -224,25 +224,25 @@
                             <% @newest_projects.each do |project| %>
                                 <%
                                     project_name = project.name
-                                    if project.name.present? and project.en_name.present? and project.jp_name.present?
+                                    if project.name.present? and project.en_name.present? and project.ja_name.present?
                                         if I18n.locale == :vi
                                             project_name = project.name
                                         elsif I18n.locale == :en
                                             project_name = project.en_name
-                                        elsif I18n.locale == :jp
-                                            project_name = project.jp_name
+                                        elsif I18n.locale == :ja
+                                            project_name = project.ja_name
                                         end
                                     end
                                 %>
                                 <%
                                     project_location = project.location
-                                    if project.location.present? and project.en_location.present? and project.jp_location.present?
+                                    if project.location.present? and project.en_location.present? and project.ja_location.present?
                                         if I18n.locale == :vi
                                             project_location = project.location
                                         elsif I18n.locale == :en
                                             project_location = project.en_location
-                                        elsif I18n.locale == :jp
-                                            project_location = project.jp_location
+                                        elsif I18n.locale == :ja
+                                            project_location = project.ja_location
                                         end
                                     end
                                 %>
@@ -277,13 +277,13 @@
                     <% @newest_projects.each do |project| %>
                         <%
                             project_name = project.name
-                            if project.name.present? and project.en_name.present? and project.jp_name.present?
+                            if project.name.present? and project.en_name.present? and project.ja_name.present?
                                 if I18n.locale == :vi
                                     project_name = project.name
                                 elsif I18n.locale == :en
                                     project_name = project.en_name
-                                elsif I18n.locale == :jp
-                                    project_name = project.jp_name
+                                elsif I18n.locale == :ja
+                                    project_name = project.ja_name
                                 end
                             end
                         %>

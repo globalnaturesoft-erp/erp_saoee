@@ -24,8 +24,8 @@
                             <%= @about.content.present? ? @about.content.html_safe : 'Đang cập nhật...' %>
                         <% elsif I18n.locale == :en %>
                             <%= @about.en_content.present? ? @about.en_content.html_safe : 'Updating...' %>
-                        <% elsif I18n.locale == :jp %>
-                            <%= @about.jp_content.present? ? @about.jp_content.html_safe : 'Updating...' %>
+                        <% elsif I18n.locale == :ja %>
+                            <%= @about.ja_content.present? ? @about.ja_content.html_safe : 'Updating...' %>
                         <% end %>
                     </div>
                 <% else %>

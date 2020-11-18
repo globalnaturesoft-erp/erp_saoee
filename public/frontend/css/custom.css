@@ -271,6 +271,72 @@ nav.navigation ul.pagination li.active span, nav.navigation ul.pagination li a:h
     color: #222;
     text-decoration: underline;
 }
+/* Language Dropdown menu */
+.mod-languages ul {
+    height: 30px;
+}
+.mod-languages ul .dropdown {
+    position: relative;
+    display: inline-block;
+    padding-left: 17.5px;
+}
+.mod-languages ul .lang-menu {
+    padding: 0;
+    margin: 0;
+    float: left;
+    background-color: transparent;
+    border: none;
+    outline-style: none;
+    cursor: pointer;
+    z-index: 3;
+}
+.mod-languages ul .lang-menu::after {
+    font-family: Material-Design-Iconic-Font;
+    content: '\f2f2';
+    margin-left: 5px;
+}
+.mod-languages ul .lang-menu img {
+    height: 30px;
+    width: auto;
+}
+.mod-languages ul .lang-content {
+    display: none;
+    position: absolute;
+    padding: 0 2px;
+    margin-top: 32px;
+    background-color: #faf9f9;
+    width: max-content;
+    z-index: 4;
+    border: 1px solid #e3e9ed;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 0 0 60px rgba(14,42,71,.25);
+    animation: popover .2s ease-in-out;
+}
+.mod-languages ul .lang-content img {
+    height: 18px;
+    width: auto;
+}
+.mod-languages ul .lang-content a {
+    padding: 0 5px;
+    padding-top: 2px;
+    margin: 0;
+    z-index: 3;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+}
+.mod-languages ul .lang-content a:hover {
+    background-color: rgb(238 238 238 / 0.2);
+}
+.mod-languages ul .dropdown:hover .lang-content {
+    display: block;
+}
+.mod-languages ul .dropdown:hover .lang-menu {
+    background-color: transparent;
+}
+/* End - Language Dropdown menu */
+
 /*callme css - start*/
 #callme {
     position: fixed;

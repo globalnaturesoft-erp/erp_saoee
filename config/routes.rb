@@ -1,5 +1,5 @@
 Erp::Saoee::Engine.routes.draw do
-  scope "(:locale)", locale: /en|jp|vi/ do
+  scope "(:locale)", locale: /en|ja|vi/ do
     root to: "frontend/home#index"
     
     get "dich-vu.html" => "frontend/about_us#index", as: :about_us

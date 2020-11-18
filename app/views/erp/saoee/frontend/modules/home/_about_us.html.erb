@@ -12,13 +12,15 @@
                         </h2>
                         <h5 class="slogan title-sub">Energy Efficiency</h5>
                         <div class="media__text">
+                            <% content = @home_about.content.html_safe %>
                             <% if I18n.locale == :vi %>
-                                <%= @home_about.content.html_safe %>
-                            <% elsif I18n.locale == :en %>
-                                <%= @home_about.en_content.html_safe %>
-                            <% elsif I18n.locale == :jp %>
-                                <%= @home_about.jp_content.html_safe %>
+                                <% content = @home_about.content.html_safe %>
+                            <% elsif I18n.locale == :en and @home_about.en_content.present? %>
+                                <% content = @home_about.en_content.html_safe %>
+                            <% elsif I18n.locale == :ja and @home_about.ja_content.present? %>
+                                <% content = @home_about.ja_content.html_safe %>
                             <% end %>
+                            <%= content %>
                         </div>
                         <% if false %>
                             <a class="au-btn au-btn--arrow" href="#">Xem thêm
@@ -29,13 +31,20 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="media__img js-line">
-                        <% if I18n.locale == :vi %>
-                            <%= image_tag(article_image(@home_about.image.thumb_960_960, '960_960'), alt: @home_about.name) %>
-                        <% elsif I18n.locale == :en %>
-                            <%= image_tag(article_image(@home_about.en_image.thumb_960_960, '960_960'), alt: @home_about.en_name) %>
-                        <% elsif I18n.locale == :jp %>
-                            <%= image_tag(article_image(@home_about.jp_image.thumb_960_960, '960_960'), alt: @home_about.jp_name) %>
+                        <% image = @home_about.image.thumb_960_960 %>
+                        <% about_name = @home_about.name %>
+
+                        <% if I18n.locale == :vi and @home_about.image.present? %>
+                            <% image = @home_about.image.thumb_960_960 %>
+                            <% about_name = @home_about.name %>
+                        <% elsif I18n.locale == :en and @home_about.en_image.present? %>
+                            <% image = @home_about.en_image.thumb_960_960 %>
+                            <% about_name = @home_about.en_name %>
+                        <% elsif I18n.locale == :ja and @home_about.ja_image.present? %>
+                            <% image = @home_about.ja_image.thumb_960_960 %>
+                            <% about_name = @home_about.ja_name %>
                         <% end %>
+                        <%= image_tag(article_image(image, '960_960'), alt: about_name) %>
                         
                         <% if false %>
                             <span class="line"></span>

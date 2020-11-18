@@ -29,8 +29,8 @@
                                         recruitment_name = recruitment.name
                                     elsif I18n.locale == :en
                                         recruitment_name = recruitment.en_name
-                                    elsif I18n.locale == :jp
-                                        recruitment_name = recruitment.jp_name
+                                    elsif I18n.locale == :ja
+                                        recruitment_name = recruitment.ja_name
                                     end
                                 end
                             %>
@@ -41,8 +41,8 @@
                                             <%= link_to image_tag(article_image(recruitment.image.thumb_420_236, '420_236'), alt: recruitment.name), recruitment_link(recruitment) %>
                                         <% elsif I18n.locale == :en %>
                                             <%= link_to image_tag(article_image(recruitment.en_image.thumb_420_236, '420_236'), alt: recruitment.en_name), recruitment_link(recruitment) %>
-                                        <% elsif I18n.locale == :jp %>
-                                            <%= link_to image_tag(article_image(recruitment.jp_image.thumb_420_236, '420_236'), alt: recruitment.jp_name), recruitment_link(recruitment) %>
+                                        <% elsif I18n.locale == :ja %>
+                                            <%= link_to image_tag(article_image(recruitment.ja_image.thumb_420_236, '420_236'), alt: recruitment.ja_name), recruitment_link(recruitment) %>
                                         <% end %>
                                     </figure>
                                     <div class="entry-summary">
@@ -55,8 +55,8 @@
                                                 <%= short_text(recruitment.content, 25) + '...' if recruitment.content.present? %>
                                             <% elsif I18n.locale == :en %>
                                                 <%= short_text(recruitment.en_content, 25) + '...' if recruitment.en_content.present? %>
-                                            <% elsif I18n.locale == :jp %>
-                                                <%= short_text(recruitment.jp_content, 25) + '...' if recruitment.jp_content.present? %>
+                                            <% elsif I18n.locale == :ja %>
+                                                <%= short_text(recruitment.ja_content, 25) + '...' if recruitment.ja_content.present? %>
                                             <% end %>
                                         </p>
                                     </div>

@@ -274,18 +274,18 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <%= erp_form_control("text", {
-                                        name: 'contact[jp_name]',
-                                        value: contact.jp_name,
+                                        name: 'contact[ja_name]',
+                                        value: contact.ja_name,
                                         label: t('.name'),
                                         placeholder: t('.enter_name'),
                                         required: true,
-                                        errors: contact.errors.full_messages_for(:jp_name)
+                                        errors: contact.errors.full_messages_for(:ja_name)
                                     }) %>
                                 </div>
                                 <div class="col-md-6">
                                     <%= erp_form_control("text", {
-                                        name: 'contact[jp_address]',
-                                        value: contact.jp_address,
+                                        name: 'contact[ja_address]',
+                                        value: contact.ja_address,
                                         label: t('.address'),
                                         placeholder: t('.enter_address')
                                     }) %>

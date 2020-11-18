@@ -25,8 +25,8 @@
                             </div>
                             <div class="col-md-4">
                                 <%= erp_form_control('image', {
-                                    img_src: article.jp_image.system,
-                                    name: 'article[jp_image]',
+                                    img_src: article.ja_image.system,
+                                    name: 'article[ja_image]',
                                     width: 150,
                                     height: 150,
                                     label: 'Hình ảnh (Tiếng Nhật)'
@@ -138,16 +138,16 @@
                         </div>
                 
                         <div class="tab-pane" id="tab_5_3">
-                            <h5 class="profile-desc-title bold font-yellow"><%= t('jp_content') %></span></sup></h5>
+                            <h5 class="profile-desc-title bold font-yellow"><%= t('ja_content') %></span></sup></h5>
                             <%= erp_form_control("text", {
-                                name: 'article[jp_name]',
-                                value: article.jp_name,
+                                name: 'article[ja_name]',
+                                value: article.ja_name,
                                 label: t('.name'),
                                 placeholder: t('.placeholder_article_name')
                             }) %>
                             <%= erp_form_control("editor", {
-                                name: 'article[jp_content]',
-                                value: article.jp_content,
+                                name: 'article[ja_content]',
+                                value: article.ja_content,
                                 label: t('.content')
                             }) %>
                         </div>

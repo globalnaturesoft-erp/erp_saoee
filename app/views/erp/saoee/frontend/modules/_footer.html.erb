@@ -20,8 +20,8 @@
                                             <%= @company_info.name %>
                                         <% elsif I18n.locale == :en %>
                                             <%= @company_info.en_name %>
-                                        <% elsif I18n.locale == :jp %>
-                                            <%= @company_info.jp_name %>
+                                        <% elsif I18n.locale == :ja %>
+                                            <%= @company_info.ja_name %>
                                         <% end %>
                                     </strong>
                                 </li>
@@ -56,8 +56,8 @@
                                         <%= link_to menu.name, service_link(menu) %>
                                     <% elsif I18n.locale == :en %>
                                         <%= link_to menu.en_name, service_link(menu) %>
-                                    <% elsif I18n.locale == :jp %>
-                                        <%= link_to menu.jp_name, service_link(menu) %>
+                                    <% elsif I18n.locale == :ja %>
+                                        <%= link_to menu.ja_name, service_link(menu) %>
                                     <% end %>
                                 </li>
                             <% end %>

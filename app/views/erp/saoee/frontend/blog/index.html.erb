@@ -29,8 +29,8 @@
                                         blog_name = blog.name
                                     elsif I18n.locale == :en
                                         blog_name = blog.en_name
-                                    elsif I18n.locale == :jp
-                                        blog_name = blog.jp_name
+                                    elsif I18n.locale == :ja
+                                        blog_name = blog.ja_name
                                     end
                                 end
                             %>
@@ -41,8 +41,8 @@
                                             <%= link_to image_tag(article_image(blog.image.thumb_420_236, '420_236'), alt: blog.name), blog_link(blog) %>
                                         <% elsif I18n.locale == :en %>
                                             <%= link_to image_tag(article_image(blog.en_image.thumb_420_236, '420_236'), alt: blog.en_name), blog_link(blog) %>
-                                        <% elsif I18n.locale == :jp %>
-                                            <%= link_to image_tag(article_image(blog.jp_image.thumb_420_236, '420_236'), alt: blog.jp_name), blog_link(blog) %>
+                                        <% elsif I18n.locale == :ja %>
+                                            <%= link_to image_tag(article_image(blog.ja_image.thumb_420_236, '420_236'), alt: blog.ja_name), blog_link(blog) %>
                                         <% end %>
                                     </figure>
                                     <div class="entry-summary">
@@ -55,8 +55,8 @@
                                                 <%= short_text(blog.content, 25) + '...' if blog.content.present? %>
                                             <% elsif I18n.locale == :en %>
                                                 <%= short_text(blog.en_content, 25) + '...' if blog.en_content.present? %>
-                                            <% elsif I18n.locale == :jp %>
-                                                <%= short_text(blog.jp_content, 25) + '...' if blog.jp_content.present? %>
+                                            <% elsif I18n.locale == :ja %>
+                                                <%= short_text(blog.ja_content, 25) + '...' if blog.ja_content.present? %>
                                             <% end %>
                                         </p>
                                     </div>
