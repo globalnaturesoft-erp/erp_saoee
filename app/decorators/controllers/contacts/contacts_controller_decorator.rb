@@ -5,6 +5,7 @@ Erp::Contacts::Backend::ContactsController.class_eval do
       :company_name, :phone, :address, :tax_code, :birthday,
       :email, :gender, :note, :fax, :website, :archived, :user_id,
       :country_id, :state_id, :district_id,
-      :hotline, :en_name, :en_address)
+      :hotline, :en_name, :en_address,
+      :jp_name, :jp_address)
   end
 end

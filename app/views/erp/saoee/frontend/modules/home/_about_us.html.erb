@@ -14,8 +14,10 @@
                         <div class="media__text">
                             <% if I18n.locale == :vi %>
                                 <%= @home_about.content.html_safe %>
-                            <% else %>
+                            <% elsif I18n.locale == :en %>
                                 <%= @home_about.en_content.html_safe %>
+                            <% elsif I18n.locale == :jp %>
+                                <%= @home_about.jp_content.html_safe %>
                             <% end %>
                         </div>
                         <% if false %>
@@ -29,8 +31,10 @@
                     <div class="media__img js-line">
                         <% if I18n.locale == :vi %>
                             <%= image_tag(article_image(@home_about.image.thumb_960_960, '960_960'), alt: @home_about.name) %>
-                        <% else %>
+                        <% elsif I18n.locale == :en %>
                             <%= image_tag(article_image(@home_about.en_image.thumb_960_960, '960_960'), alt: @home_about.en_name) %>
+                        <% elsif I18n.locale == :jp %>
+                            <%= image_tag(article_image(@home_about.jp_image.thumb_960_960, '960_960'), alt: @home_about.jp_name) %>
                         <% end %>
                         
                         <% if false %>

@@ -81,6 +81,9 @@
                         <li>
                             <a href="#tab_5_2" data-toggle="tab"> <%= t('english') %> </a>
                         </li>
+                        <li>
+                            <a href="#tab_5_3" data-toggle="tab"> <%= t('japanese') %> </a>
+                        </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_5_1">
@@ -133,6 +136,32 @@
                                 name: 'project[en_description]',
                                 value: project.en_description,
                                 label: t('.en_description'),
+                            }) %>
+                        </div>
+                        <div class="tab-pane" id="tab_5_3">
+                            <h5 class="profile-desc-title bold font-yellow"><%= t('jp_content') %></span></sup></h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <%= erp_form_control("text", {
+                                        name: 'project[jp_name]',
+                                        value: project.jp_name,
+                                        label: "#{t('.name')}",
+                                        placeholder: t('.placeholder_name')
+                                    }) %>
+                                </div>
+                                <div class="col-md-6">
+                                    <%= erp_form_control("text", {
+                                        name: 'project[jp_location]',
+                                        value: project.jp_location,
+                                        label: t('.location'),
+                                        placeholder: t('.placeholder_location'),
+                                    }) %>
+                                </div>
+                            </div>
+                            <%= erp_form_control("editor", {
+                                name: 'project[jp_description]',
+                                value: project.jp_description,
+                                label: t('.jp_description'),
                             }) %>
                         </div>
                     </div>

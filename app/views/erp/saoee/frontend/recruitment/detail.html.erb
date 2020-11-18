@@ -78,8 +78,10 @@
                             if @recruitment.content.present? and @recruitment.en_content.present?
                                 if I18n.locale == :vi
                                     recruitment_content = @recruitment.content
-                                else
+                                elsif I18n.locale == :en
                                     recruitment_content = @recruitment.en_content
+                                elsif I18n.locale == :jp
+                                    recruitment_content = @recruitment.jp_content
                                 end
                             end
                         %>

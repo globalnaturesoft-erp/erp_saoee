@@ -7,8 +7,10 @@
                     display_service_name = ''
                     if I18n.locale == :vi
                         display_service_name = category.name
-                    else
+                    elsif I18n.locale == :en
                         display_service_name = category.en_name
+                    elsif I18n.locale == :jp
+                        display_service_name = category.jp_name
                     end
                 %>
                 <li>
@@ -29,8 +31,10 @@
                         if project.name.present? and project.en_name.present?
                             if I18n.locale == :vi
                                 project_name = project.name
-                            else
+                            elsif I18n.locale == :en
                                 project_name = project.en_name
+                            elsif I18n.locale == :jp
+                                project_name = project.jp_name
                             end
                         end
                     %>

@@ -5,7 +5,7 @@
                 <div class="portlet light bordered">
                     <div class="portlet-body form">
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <%= erp_form_control('image', {
                                     img_src: article.image.system,
                                     name: 'article[image]',
@@ -14,16 +14,25 @@
                                     label: 'Hình ảnh (mặc định)'
                                 }) %>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <%= erp_form_control('image', {
                                     img_src: article.en_image.system,
                                     name: 'article[en_image]',
                                     width: 150,
                                     height: 150,
-                                    label: 'Hình ảnh (ENG)'
+                                    label: 'Hình ảnh (Tiếng Anh)'
                                 }) %>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
+                                <%= erp_form_control('image', {
+                                    img_src: article.jp_image.system,
+                                    name: 'article[jp_image]',
+                                    width: 150,
+                                    height: 150,
+                                    label: 'Hình ảnh (Tiếng Nhật)'
+                                }) %>
+                            </div>
+                            <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <%= erp_form_control("dataselect", {
@@ -93,6 +102,9 @@
                         <li>
                             <a href="#tab_5_2" data-toggle="tab"> <%= t('english') %> </a>
                         </li>
+                        <li>
+                            <a href="#tab_5_3" data-toggle="tab"> <%= t('japanese') %> </a>
+                        </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_5_1">
@@ -121,6 +133,21 @@
                             <%= erp_form_control("editor", {
                                 name: 'article[en_content]',
                                 value: article.en_content,
+                                label: t('.content')
+                            }) %>
+                        </div>
+                
+                        <div class="tab-pane" id="tab_5_3">
+                            <h5 class="profile-desc-title bold font-yellow"><%= t('jp_content') %></span></sup></h5>
+                            <%= erp_form_control("text", {
+                                name: 'article[jp_name]',
+                                value: article.jp_name,
+                                label: t('.name'),
+                                placeholder: t('.placeholder_article_name')
+                            }) %>
+                            <%= erp_form_control("editor", {
+                                name: 'article[jp_content]',
+                                value: article.jp_content,
                                 label: t('.content')
                             }) %>
                         </div>

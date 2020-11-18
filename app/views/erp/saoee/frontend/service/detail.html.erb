@@ -2,8 +2,10 @@
     display_service_name = ''
     if I18n.locale == :vi
         display_service_name = @current_menu.name
-    else
+    elsif I18n.locale == :en
         display_service_name = @current_menu.en_name
+    elsif I18n.locale == :jp
+        display_service_name = @current_menu.jp_name
     end
 %>
 

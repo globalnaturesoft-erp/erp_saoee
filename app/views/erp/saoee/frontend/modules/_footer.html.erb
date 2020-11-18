@@ -18,8 +18,10 @@
                                     <strong>
                                         <% if I18n.locale == :vi %>
                                             <%= @company_info.name %>
-                                        <% else %>
+                                        <% elsif I18n.locale == :en %>
                                             <%= @company_info.en_name %>
+                                        <% elsif I18n.locale == :jp %>
+                                            <%= @company_info.jp_name %>
                                         <% end %>
                                     </strong>
                                 </li>
@@ -38,7 +40,7 @@
                     <% end %>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="footer-col p-l-70 p-md-l-0">
                     <div class="widget widget_pages">
                         <h4 class="widget-title"><%= t('.service') %></h4>
@@ -52,8 +54,10 @@
                                 <li>
                                     <% if I18n.locale == :vi %>
                                         <%= link_to menu.name, service_link(menu) %>
-                                    <% else %>
+                                    <% elsif I18n.locale == :en %>
                                         <%= link_to menu.en_name, service_link(menu) %>
+                                    <% elsif I18n.locale == :jp %>
+                                        <%= link_to menu.jp_name, service_link(menu) %>
                                     <% end %>
                                 </li>
                             <% end %>
@@ -85,7 +89,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-2 col-md-6">
                 <div class="footer-col p-l-70 p-md-l-0">
                     <h4 class="widget-title"><%= t('.socials') %></h4>
                     <div class="widget widget_socials">

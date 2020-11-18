@@ -50,6 +50,9 @@
                         <li>
                             <a href="#tab_5_2" data-toggle="tab"> <%= t('english') %> </a>
                         </li>
+                        <li>
+                            <a href="#tab_5_3" data-toggle="tab"> <%= t('japanese') %> </a>
+                        </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_5_1">
@@ -82,6 +85,23 @@
                             <%= erp_form_control("textarea", {
                                 name: 'category[en_description]',
                                 value: category.en_description,
+                                label: t('.description'),
+                            }) %>
+                        </div>
+                
+                        <div class="tab-pane" id="tab_5_3">
+                            <h5 class="profile-desc-title bold font-yellow"><%= t('jp_content') %></span></sup></h5>
+                            <%= erp_form_control("text", {
+                                name: 'category[jp_name]',
+                                value: category.jp_name,                   
+                                label: t('.name'),
+                                placeholder: t('.placeholder_name'),
+                                required: true,
+                                errors: category.errors.full_messages_for(:jp_name)
+                            }) %>
+                            <%= erp_form_control("textarea", {
+                                name: 'category[jp_description]',
+                                value: category.jp_description,
                                 label: t('.description'),
                             }) %>
                         </div>

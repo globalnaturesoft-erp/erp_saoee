@@ -4,8 +4,10 @@
             <h5 class="title--sm2">
                 <% if I18n.locale == :vi %>
                     <%= @company_info.name %>
-                <% else %>
+                <% elsif I18n.locale == :en %>
                     <%= @company_info.en_name %>
+                <% elsif I18n.locale == :jp %>
+                    <%= @company_info.jp_name %>
                 <% end %>
             </h5>
         </div>

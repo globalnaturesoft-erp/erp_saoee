@@ -9,8 +9,10 @@
                         if post.name.present? and post.en_name.present?
                             if I18n.locale == :vi
                                 post_name = post.name
-                            else
+                            elsif I18n.locale == :en
                                 post_name = post.en_name
+                            elsif I18n.locale == :jp
+                                post_name = post.jp_name
                             end
                         end
                     %>
@@ -33,8 +35,10 @@
                         if project.name.present? and project.en_name.present?
                             if I18n.locale == :vi
                                 project_name = project.name
-                            else
+                            elsif I18n.locale == :en
                                 project_name = project.en_name
+                            elsif I18n.locale == :jp
+                                project_name = project.jp_name
                             end
                         end
                     %>

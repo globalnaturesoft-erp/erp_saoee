@@ -28,8 +28,10 @@
                     if project.name.present? and project.en_name.present?
                         if I18n.locale == :vi
                             project_name = project.name
-                        else
+                        elsif I18n.locale == :en
                             project_name = project.en_name
+                        elsif I18n.locale == :jp
+                            project_name = project.jp_name
                         end
                     end
                 %>
@@ -38,8 +40,10 @@
                     if project.location.present? and project.en_location.present?
                         if I18n.locale == :vi
                             project_location = project.location
-                        else
+                        elsif I18n.locale == :en
                             project_location = project.en_location
+                        elsif I18n.locale == :jp
+                            project_location = project.jp_location
                         end
                     end
                 %>

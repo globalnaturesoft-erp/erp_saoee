@@ -1,0 +1,191 @@
+jp:
+  home: "ホームページ"
+  about_us: "サービス"
+  service: "製品"
+  project: "プロジェクト"
+  blog: "ニュース"
+  recruitment: "募集"
+  contact_us: "関連会社"
+
+  vietnames: "Vietnames"
+  english: "English"
+  japanese: "日本語"
+  vi_content: "Content of Vietnamese"
+  en_content: "Content of English"
+  header:
+    nav:
+      home: "ホームページ"
+      about_us: "サービス"
+      service: "製品"
+      project: "プロジェクト"
+      blog: "ニュース"
+      recruitment: "募集"
+      contact_us: "関連会社"
+  #--
+  share: "Share"
+  tags: "Tags"
+  
+  career: "CAREER"
+  # blog: "BLOG"
+  home_about: "ABOUT US (HOME PAGE)"
+  # service: "PRODUCT"
+  # about_us: "SERVICE"
+  
+  erp:
+    # Frontend
+    saoee:
+      frontend:
+        about_us:
+          index:
+            about_us: "サービス"
+            no_matching_records_found: "Nội dung đang được cập nhật"
+        service:
+          index:
+            service: "製品"
+            our_services_title: "当社の製品"
+            our_services_title_sub: "お手伝いしましょうか？" 
+          detail:
+            service: "製品"
+            no_matching_records_found: "Nội dung đang được cập nhật"
+        project:
+          index:
+            project: "プロジェクト"
+            our_work: "私たちは何をしましたか？"
+            our_projects: "私たちのプロジェクト"
+          detail:
+            project: "プロジェクト"
+            client_name: "Khách hàng"
+            location: "ロケーション"
+            area: "面積"
+            start_date: "開始日"
+            completion_date: "終了日"
+            status: "Trạng thái"
+            latest_project_title_sub: "Có thể bạn muốn xem?"
+            latest_project_title: "Các dự án khác"
+        blog:
+          index:
+            blog: "ニュース"
+            no_matching_records_found: "Không tìm thấy danh sách bài viết"
+            tags: "Từ khóa"
+            newest_blogs: "最新の書き込み"
+            categories: "テーマ"
+            latest_projects: "最近のプロジェクト"
+          detail:
+            blog: "ニュース"
+            tags: "Từ khóa"
+            newest_blogs: "最新の書き込み"
+            categories: "テーマ"
+            latest_projects: "最近のプロジェクト"
+        recruitment:
+          index:
+            recruitment: "募集"
+            no_matching_records_found: "Hiện tại chưa có đợt tuyển dụng"
+          detail:
+            recruitment: "募集"
+        contact_us:
+          index:
+            contact_us: "関連会社"
+            success: "Yêu cầu của bạn đã được gửi thành công."
+            error: "Lỗi! Yêu cầu của bạn chưa được gửi. Vui lòng kiểm tra và thử lại."
+        modules:
+          home:
+            about_us:
+              media_img_desc: "Đội ngũ kiến trúc sư giàu kinh nghiệm"
+            newest_blog:
+              blog_title_sub: "最新ニュース"
+              blog_title: "投稿"
+            service:
+              service_title_sub: "私たちは何を提供しますか？"
+              service_title: "製品"
+            project:
+              project_title_sub: "私たちは何をしましたか？"
+              project_title: "最近のプロジェクト"
+          blog:
+            sidebar:
+              tags: "Từ khóa"
+              newest_blogs: "最新の書き込み"
+              categories: "テーマ"
+              latest_projects: "最近のプロジェクト"
+          recruitment:
+            sidebar:
+              newest_recruitments: "Tin tuyển dụng khác"
+              latest_projects: "最近のプロジェクト"
+          contact_us:
+            contact_form:
+              placeholder_name: "名前"
+              placeholder_email: "電子メールアドレス"
+              placeholder_phone: "電話番号"
+              placeholder_message: "メッセージを残してください..."
+              send_message: "メッセージを送ります。"
+            contact_info:
+              address: "住所"
+              phone_number: "電話"
+              hotline: "Hotline"
+              email: "Eメール"
+              tax_code: "税コード"
+            google_map:
+              saoee_name: "SAOデザインコンサルティング合資会社"
+              address: "住所"
+              address_info: "L17-11、Vincom Center Buildings、72 Le Thanh Ton、Ben Nghe Ward、District 1、City。ベトナム、ホーチミン市"
+              phone: "電話"
+          service:
+            sidebar:
+              other_services: "その他の製品"
+              newest_projects: "最近のプロジェクト"
+          footer:
+            address: "住所"
+            phone_number: "電話"
+            hotline: "Hotline"
+            email: "Eメール"
+            tax_code: "税コード"
+            service: "製品"
+            link: "リンク"
+            socials: "接続する"
+            about_us: "サービス"
+            project: "プロジェクト"
+            blog: "ニュース"
+            recruiting: "募集"
+            contact_us: "連絡先"
+    
+    # Backend Decorator
+    banners:
+      backend:
+        banners:
+          form:
+            caption_1: "Tiêu đề/chú thích (1)"
+            placeholder_caption_1: "Nhập tiêu đề (1)"
+            help_caption_1: "Tiêu đề/chú thích của slideshow (1)"
+            caption_2: "Tiêu đề/chú thích (2)"
+            placeholder_caption_2: "Nhập tiêu đề (2)"
+            help_caption_2: "Tiêu đề/chú thích của slideshow (2)"
+            btn_text: "Tên nút liên kết"
+            placeholder_btn_text: "Nhập tên của nút liên kết"
+            link_url: "Liên kết URL"
+    articles:
+      backend:
+        categories:
+          form:
+            description: "Mô tả / Ghi chú"
+          list:
+            career: "TUYỂN DỤNG/CAREER"
+            blog: "TIN TỨC/BLOG"
+            about_us: "DỊCH VỤ/SERVICE"
+            service: "SẢN PHẨM/PRODUCT"
+            home_about: "GIỚI THIỆU/ABOUT (HOME PAGE)"
+    projects:
+      backend:
+        projects:
+          form:
+            en_description: "Mô tả chi tiết (ENG)"
+        project_images:
+          form_line:
+            image_name: "Tên ảnh (VIE)"
+            image_en_name: "Tên ảnh (ENG)"
+            placeholder_image_name: "Nhập tên cho ảnh (VIE)"
+            placeholder_image_en_name: "Nhập tên cho ảnh (ENG)"
+    contacts:
+      backend:
+        contacts:
+          form:
+            hotline: "Số hotline"
+            enter_hotline_numbers: "Nhập số hotline"

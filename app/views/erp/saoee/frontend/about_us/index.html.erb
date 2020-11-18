@@ -22,8 +22,10 @@
                     <div class="text--s16-40 m-b-15 text-justify">
                         <% if I18n.locale == :vi %>
                             <%= @about.content.present? ? @about.content.html_safe : 'Đang cập nhật...' %>
-                        <% else %>
+                        <% elsif I18n.locale == :en %>
                             <%= @about.en_content.present? ? @about.en_content.html_safe : 'Updating...' %>
+                        <% elsif I18n.locale == :jp %>
+                            <%= @about.jp_content.present? ? @about.jp_content.html_safe : 'Updating...' %>
                         <% end %>
                     </div>
                 <% else %>

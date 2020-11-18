@@ -29,8 +29,10 @@
                                             <li class="menu-item">
                                                 <% if I18n.locale == :vi %>
                                                     <%= link_to menu.name, service_link(menu) %>
-                                                <% else %>
+                                                <% elsif I18n.locale == :en %>
                                                     <%= link_to menu.en_name, service_link(menu) %>
+                                                <% elsif I18n.locale == :jp %>
+                                                    <%= link_to menu.jp_name, service_link(menu) %>
                                                 <% end %>
                                             </li>
                                         <% end %>
