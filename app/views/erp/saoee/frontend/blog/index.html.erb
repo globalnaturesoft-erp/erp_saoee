@@ -64,31 +64,10 @@
                             </div>
                         <% end %>
                     </div>
-    
-                    <% if false %>
+
+                    <% if @blogs.count > 2 %>
                         <nav class="navigation blog-navigation">
-                            <div class="container">
-                                <div class="nav-links">
-                                    <ul class="page-numbers">
-                                        <li>
-                                            <a class="page-number prev" href="#">
-                                                <span class="ti-arrow-left"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <span class="page-number current">01</span>
-                                        </li>
-                                        <li>
-                                            <a class="page-number" href="#">02</a>
-                                        </li>
-                                        <li>
-                                            <a class="page-number next" href="#">
-                                                <span class="ti-arrow-right"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <%= will_paginate @blogs, previous_label: '<span class="ti-arrow-left"></span>', next_label: '<span class="ti-arrow-right"></span>', renderer: BootstrapPagination::Rails, class: 'pagination-lg m-0' %>
                         </nav>
                     <% end %>
                 <% else %>

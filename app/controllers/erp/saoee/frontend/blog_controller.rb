@@ -3,7 +3,7 @@ module Erp
     module Frontend
       class BlogController < Erp::Frontend::FrontendController
         def index
-          @blogs = Erp::Articles::Article.get_all_blogs(params).paginate(:page => params[:page], :per_page => 18)
+          @blogs = Erp::Articles::Article.get_all_blogs(params).paginate(:page => params[:page], :per_page => 12)
           @categories = Erp::Articles::Category.get_categories_by_alias_blog
           @newest_blogs = Erp::Articles::Article.newest_articles(5)
           if params[:cat_id].present?
