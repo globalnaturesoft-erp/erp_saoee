@@ -2,8 +2,10 @@
     display_recruitment_name = ''
     if I18n.locale == :vi
         display_recruitment_name = @recruitment.name
-    else
+    elsif I18n.locale == :en
         display_recruitment_name = @recruitment.en_name
+    elsif I18n.locale == :ja
+        display_recruitment_name = @recruitment.ja_name
     end
 %>
 

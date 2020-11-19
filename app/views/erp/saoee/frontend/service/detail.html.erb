@@ -39,9 +39,12 @@
                             <% if I18n.locale == :vi %>
                                 <%= (image_tag @service.image.thumb_870_489, alt: @service.name, class: 'wp-post-image') if @service.image.thumb_870_489.present? %>
                                 <%= @service.content.html_safe if @service.content.present? %>
-                            <% else %>
+                            <% elsif I18n.locale == :en %>
                                 <%= (image_tag @service.en_image.thumb_870_489, alt: @service.en_name, class: 'wp-post-image') if @service.en_image.thumb_870_489.present? %>
                                 <%= @service.en_content.html_safe if @service.en_content.present? %>
+                            <% elsif I18n.locale == :ja %>
+                                <%= (image_tag @service.ja_image.thumb_870_489, alt: @service.ja_name, class: 'wp-post-image') if @service.ja_image.thumb_870_489.present? %>
+                                <%= @service.ja_content.html_safe if @service.ja_content.present? %>
                             <% end %>
                         </div>
                     </article>
