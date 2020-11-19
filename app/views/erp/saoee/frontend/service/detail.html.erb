@@ -33,7 +33,15 @@
                 <% if @service.present? %>
                     <article class="blog-detail-1">
                         <header class="entry-header">
-                            <h2 class="entry-title"><%= (I18n.locale == :vi) ? @service.name : @service.en_name %></h2>
+                            <h2 class="entry-title">
+                                <% if I18n.locale == :vi %>
+                                    <%= @service.name %>
+                                <% elsif I18n.locale == :en %>
+                                    <%= @service.en_name %>
+                                <% elsif I18n.locale == :ja %>
+                                    <%= @service.ja_name %>
+                                <% end %>
+                            </h2>
                         </header>
                         <div class="entry-content">
                             <% if I18n.locale == :vi %>
