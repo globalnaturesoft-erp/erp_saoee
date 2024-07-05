@@ -1,15 +1,473 @@
 <% title 'Trang chủ' %>
 
-<%= render "erp/saoee/frontend/modules/home/slider" %>
-
-<%= render "erp/saoee/frontend/modules/home/about_us" %>
-
-<%= render "erp/saoee/frontend/modules/home/service" %>
-
-<%= render "erp/saoee/frontend/modules/home/project" %>
-
-<%= render "erp/saoee/frontend/modules/home/testimonial" if false %>
-
-<%= render "erp/saoee/frontend/modules/home/partner" if false %>
-
-<%= render "erp/saoee/frontend/modules/home/newest_blog" %>
+<!-- Main -->
+<main class="main">
+  <!-- Banner -->
+  <section class="section__banner">
+    <div class="container">
+      <h2 class="banner__slogan">
+        Công trình Kiến trúc<br class="d-block d-sm-block d-md-block d-lg-none"> hiệu quả năng lượng
+      </h2>
+      <div class="banner__methods">
+        <div class="methods__container shadow-sm">
+          <div class="d-flex flex-column flex-sm-column flex-md-column flex-lg-row gap-0 gap-sm-0 gap-md-0 gap-lg-3 align-items-center">
+            <div class="method__image">
+              <img src="./images/Simulation.png" alt="Simulation" class="d-none d-lg-block">
+              <img src="./images/Simulation-sp.png" alt="Simulation" class="d-block d-lg-none">
+            </div>
+          </div>
+          <div class="d-flex flex-column flex-sm-column flex-md-column flex-lg-row gap-0 gap-sm-0 gap-md-0 gap-lg-3 align-items-center">
+            <div class="method__image">
+              <img src="./images/Analysis.png" alt="Analysis" class="d-none d-lg-block">
+              <img src="./images/Analysis-sp.png" alt="Analysis" class="d-block d-lg-none">
+            </div>
+          </div>
+          <div class="d-flex flex-column flex-sm-column flex-md-column flex-lg-row gap-0 gap-sm-0 gap-md-0 gap-lg-3 align-items-center">
+            <div class="method__image">
+              <img src="./images/Optimization.png" alt="Optimizationn" class="d-none d-lg-block">
+              <img src="./images/Optimization-sp.png" alt="Optimization" class="d-block d-lg-none">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Power -->
+  <section class="section__power d-flex flex-column flex-sm-column flex-md-column flex-lg-row align-items-center py-0 py-sm-0 py-md-0 py-lg-5">
+    <div class="container py-0 py-sm-0 py-md-0 py-lg-5">
+      <div class="row align-items-center py-0 py-sm-0 py-md-0 py-lg-5">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 power__content">
+          <div class="d-flex flex-column align-items-center align-items-sm-center align-items-md-center align-items-lg-start">
+            <h2 class="section__heading">
+              câu chuyện
+            </h2>
+            <h3 class="section__title--1 text-center text-sm-center text-md-center text-lg-start">
+              Câu chuyện về <br>Hiệu quả năng lượng
+            </h3>
+          </div>
+          <div class="mt-lg-5 mt-1 pe-lg-mx">
+            <p class="text-desc power__desc pb-2">
+              Theo một nghiên cứu của Tổ chức Y tế Thế giới, con người dành trung bình 90% thời gian trong
+              cuộc sống của mình bên trong các công trình xây dựng, bao gồm nhà ở, văn phòng, trường học,
+              bệnh viện, trung tâm thương mại,... Điều này cho thấy tầm quan trọng của môi trường sống đối
+              với sức khỏe và chất lượng cuộc sống của con người.
+            </p>
+            <a href="#">
+              <div class="call-action d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start">
+                <span>tìm hiểu thêm</span>
+                <div class="icon-32 icon-red d-flex justify-content-center align-items-center">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 power__poster">
+          <img class="d-block d-sm-block d-md-block d-lg-none" src="./images/power.png" alt="Câu chuyện năng lượng">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Product -->
+  <section class="product__service">
+    <div class="section__product">
+      <div class="product__banner py-5">
+        <div class="banner__container container">
+          <div class="d-flex flex-column align-items-center align-items-sm-center align-items-md-center align-items-lg-start m-auto m-sm-auto m-md-auto m-lg-0 py-4">
+            <h2 class="section__heading">
+              Sản phẩm
+            </h2>
+            <h3 class="section__title--2 text-center text-sm-center text-md-center text-lg-start">
+              Sản phẩm chính <br>Chúng tôi đang cung cấp
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="product__container py-mx blbg">
+        <div class="container">
+          <div class="product__list row flex-wrap">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+              <div class="product__card d-flex flex-column align-items-center shadow-sm">
+                <div class="position-relative mb-3">
+                  <div class="card__image rounded-circle">
+                    <img class="img-fluid" src="./images/product1.png" alt="Sản phẩm">
+                  </div>
+                  <div class="card__icon position-absolute">
+                    <img class="img-fluid" src="./images/Icon_Air.png" alt="Icon">
+                  </div>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h3 class="fs-5 card__title">
+                    Mô phỏng<br> Cháy thoát hiểm
+                  </h3>
+                  <p class="card__desc text-center mb-0">
+                    Con người dành 90% thời gian bên trong các công trình xây dựng...
+                  </p>
+                </div>
+                <a href="mo-phong-chay-thoat-hiem.html" class="see-more">Xem thêm</a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+              <div class="product__card d-flex flex-column align-items-center shadow-sm">
+                <div class="position-relative mb-3">
+                  <div class="card__image rounded-circle">
+                    <img class="img-fluid" src="./images/product3.png" alt="Sản phẩm">
+                  </div>
+                  <div class="card__icon position-absolute">
+                    <img class="img-fluid" src="./images/Icon_Fire_Simulation.png" alt="Icon">
+                  </div>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h3 class="fs-5 card__title">
+                    Mô phỏng Tiện nghi<br> trong Công trình
+                  </h3>
+                  <p class="card__desc text-center mb-0">
+                    Con người dành 90% thời gian bên trong các công trình xây dựng...
+                  </p>
+                </div>
+                <a href="tien-nghi-trong-cong-trinh.html" class="see-more">Xem thêm</a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+              <div class="product__card d-flex flex-column align-items-center shadow-sm">
+                <div class="position-relative mb-3">
+                  <div class="card__image rounded-circle">
+                    <img class="img-fluid" src="./images/product2.png" alt="Sản phẩm">
+                  </div>
+                  <div class="card__icon position-absolute">
+                    <img class="img-fluid" src="./images/Icon_VendingMap.png" alt="Icon">
+                  </div>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h3 class="fs-5 card__title">
+                    Giải pháp Ứng dụng<br> Thông gió cho Nhà xưởng
+                  </h3>
+                  <p class="card__desc text-center mb-0">
+                    Con người dành 90% thời gian bên trong các công trình xây dựng...
+                  </p>
+                </div>
+                <a href="ban-do-gio.html" class="see-more">Xem thêm</a>
+              </div>
+            </div>
+          </div>
+          <a href="product.html">
+            <div class="call-action d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start product__more">
+              <span>Xem chi tiết</span>
+              <div class="icon-32 icon-black-6 d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Service -->
+    <div class="section__service py-mx">
+      <div class="service__container container pb-5 pb-lg-0">
+        <div class="row justify-content-center">
+          <div class="service__content col-12 col-lg-6 d-flex flex-column justify-content-center gap-4">
+            <div class="d-flex flex-column align-items-center align-items-sm-center align-items-md-center align-items-lg-start">
+              <h2 class="section__heading">
+                Dịch vụ
+              </h2>
+              <h3 class="section__title--2 fw-bold fw-lg-normal">
+                Các gói dịch vụ Tư vấn dành <br>cho các đối tượng nhất định
+              </h3>
+            </div>
+            <div class="d-flex flex-column flex-sm-column flex-md-column flex-lg-row mt-4 p-3 p-lg-0">
+              <div class="service__card d-flex flex-column gap-2">
+                <div class="card__image">
+                  <img class="img-fluid" src="./images/service1.png" alt="Dịch vụ 1">
+                </div>
+                <h4 class="card__title fw-bold fs-6 fs-lg-5">
+                  Dịch vụ Tư vấn Cải tạo công trình
+                </h4>
+                <a href="service.html" class="see-more mt-1 mt-lg-4 mb-5 mb-lg-0">Xem thêm</a>
+              </div>
+              <div class="service__card d-flex flex-column gap-2">
+                <div class="card__image">
+                  <img class="img-fluid" src="./images/service2.png" alt="Dịch vụ 1">
+                </div>
+                <h4 class="card__title fw-bold fs-6 fs-lg-5">
+                  Các Gói Dịch vụ dành cho Văn phòng tư vấn thiết kế
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="image__container col-6">
+            <img src="./images/service.png" alt="" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Project -->
+  <section class="section__project">
+    <div class="project__container container">
+      <div class="d-flex flex-column align-items-center align-items-sm-center align-items-md-center align-items-lg-start">
+        <h2 class="section__heading">
+          Dự án nổi bật
+        </h2>
+        <h3 class="section__title--2 fw-bold fw-lg-normal text-white text-center text-sm-center text-md-center text-lg-start">
+          Những dự án chất lượng <br>Là mục tiêu chúng tôi luôn hướng tới
+        </h3>
+      </div>
+      <div class="project__carousel mt-5">
+        <div class="carousel__list slick-light">
+          <div class="carousel__item">
+            <div class="carousel__image">
+              <img src="./images/project1.png" alt="Dự án 1"
+                class="img-fluid object-fit-cover">
+            </div>
+            <div class="position-absolute bottom-0 start-0 p-4">
+              <h3 class="carousel__title fs-5 fw-bold text-white">
+                Căn hộ tây hồ
+              </h3>
+              <p class="carousel__address text-white fw-medium">
+                Đặng Thai Mai, Tây Hồ, Hà Nội, Việt Nam
+              </p>
+            </div>
+          </div>
+          <div class="carousel__item">
+            <div class="carousel__image">
+              <img src="./images/project1.png" alt="Dự án 1"
+                class="img-fluid object-fit-cover">
+            </div>
+            <div class="position-absolute bottom-0 start-0 p-4">
+              <h3 class="carousel__title fs-5 fw-bold text-white">
+                Căn hộ tây hồ
+              </h3>
+              <p class="carousel__address text-white fw-medium">
+                Đặng Thai Mai, Tây Hồ, Hà Nội, Việt Nam
+              </p>
+            </div>
+          </div>
+          <div class="carousel__item">
+            <div class="carousel__image">
+              <img src="./images/project1.png" alt="Dự án 1"
+                class="img-fluid object-fit-cover">
+            </div>
+            <div class="position-absolute bottom-0 start-0 p-4">
+              <h3 class="carousel__title fs-5 fw-bold text-white">
+                Căn hộ tây hồ
+              </h3>
+              <p class="carousel__address text-white fw-medium">
+                Đặng Thai Mai, Tây Hồ, Hà Nội, Việt Nam
+              </p>
+            </div>
+          </div>
+          <div class="carousel__item">
+            <div class="carousel__image">
+              <img src="./images/project1.png" alt="Dự án 1"
+                class="img-fluid object-fit-cover">
+            </div>
+            <div class="position-absolute bottom-0 start-0 p-4">
+              <h3 class="carousel__title fs-5 fw-bold text-white">
+                Căn hộ tây hồ
+              </h3>
+              <p class="carousel__address text-white fw-medium">
+                Đặng Thai Mai, Tây Hồ, Hà Nội, Việt Nam
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="project.html" class="d-block mt-5 mt-sm-5 mt-md-5 mt-lg-0 pt-5 pt-sm-5 pt-md-5 pt-lg-0">
+        <div class="call-action d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start mt-4">
+          <span>Xem tất cả</span>
+          <div class="icon-32 icon-black-6 d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <!-- Assessment -->
+  <section class="section__assessment">
+    <div class="assessment__container container">
+      <div class="d-flex flex-column align-items-center align-items-sm-center align-items-md-center align-items-lg-start">
+        <h2 class="section__heading">
+          Đánh giá
+        </h2>
+        <h3 class="section__title--2 text-center text-sm-center text-md-center text-lg-start">
+          Niềm tin từ khách hàng là động lực <br>Cho chúng tôi phát triển
+        </h3>
+      </div>
+      <div class="assessment__carousel">
+        <div class="carousel__list js-slider">
+          <div class="carousel__item d-flex flex-column align-items-center justify-content-between shadow-sm">
+            <div class="icon-24">
+              <img src="./images/icon_quote.png" alt="Icon Quote">
+            </div>
+            <p class="text-center fs-6 mb-0">
+              Năng lượng gió là nguồn tài nguyên kinh doanh có giá trị nhất. Bạn sẽ không hối tiếc
+              đâu. Tôi sẽ lạc lối nếu không có năng lượng gió. Không cần phải nói chúng tôi vô
+              cùng
+              hài lòng với kết quả.
+            </p>
+            <div>
+              <p class="fs-5 fw-bold text-black-3 text-center mb-0">Nguyễn Văn A</p>
+              <p class="text-black-3 fs-6 text-center mb-0">Giám đốc, Công ty Powder Based Factory
+              </p>
+            </div>
+          </div>
+          <div class="carousel__item d-flex flex-column align-items-center justify-content-between shadow-sm">
+            <div class="icon-24">
+              <img src="./images/icon_quote_red.png" alt="Icon Quote">
+            </div>
+            <p class="text-center fs-6 mb-0">
+              Năng lượng gió là nguồn tài nguyên kinh doanh có giá trị nhất. Bạn sẽ không hối tiếc
+              đâu. Tôi sẽ lạc lối nếu không có năng lượng gió. Không cần phải nói chúng tôi vô
+              cùng
+              hài lòng với kết quả.
+            </p>
+            <div>
+              <p class="fs-5 fw-bold text-black-3 text-center mb-0">Nguyễn Văn A</p>
+              <p class="text-black-3 fs-6 text-center mb-0">Giám đốc, Công ty Powder Based Factory
+              </p>
+            </div>
+          </div>
+          <div class="carousel__item d-flex flex-column align-items-center justify-content-between shadow-sm">
+            <div class="icon-24">
+              <img src="./images/icon_quote_green.png" alt="Icon Quote">
+            </div>
+            <p class="text-center fs-6 mb-0">
+              Năng lượng gió là nguồn tài nguyên kinh doanh có giá trị nhất. Bạn sẽ không hối tiếc
+              đâu. Tôi sẽ lạc lối nếu không có năng lượng gió. Không cần phải nói chúng tôi vô
+              cùng
+              hài lòng với kết quả.
+            </p>
+            <div>
+              <p class="fs-5 fw-bold text-black-3 text-center mb-0">Nguyễn Văn A</p>
+              <p class="text-black-3 fs-6 text-center mb-0">Giám đốc, Công ty Powder Based Factory
+              </p>
+            </div>
+          </div>
+          <div class="carousel__item d-flex flex-column align-items-center justify-content-between shadow-sm">
+            <div class="icon-24">
+              <img src="./images/icon_quote.png" alt="Icon Quote">
+            </div>
+            <p class="text-center fs-6 mb-0">
+              Năng lượng gió là nguồn tài nguyên kinh doanh có giá trị nhất. Bạn sẽ không hối tiếc
+              đâu. Tôi sẽ lạc lối nếu không có năng lượng gió. Không cần phải nói chúng tôi vô
+              cùng
+              hài lòng với kết quả.
+            </p>
+            <div>
+              <p class="fs-5 fw-bold text-black-3 text-center mb-0">Nguyễn Văn A</p>
+              <p class="text-black-3 fs-6 text-center mb-0">Giám đốc, Công ty Powder Based Factory
+              </p>
+            </div>
+          </div>
+          <div class="carousel__item d-flex flex-column align-items-center justify-content-between shadow-sm">
+            <div class="icon-24">
+              <img src="./images/icon_quote_red.png" alt="Icon Quote">
+            </div>
+            <p class="text-center fs-6 mb-0">
+              Năng lượng gió là nguồn tài nguyên kinh doanh có giá trị nhất. Bạn sẽ không hối tiếc
+              đâu. Tôi sẽ lạc lối nếu không có năng lượng gió. Không cần phải nói chúng tôi vô
+              cùng
+              hài lòng với kết quả.
+            </p>
+            <div>
+              <p class="fs-5 fw-bold text-black-3 text-center mb-0">Nguyễn Văn A</p>
+              <p class="text-black-3 fs-6 text-center mb-0">Giám đốc, Công ty Powder Based Factory
+              </p>
+            </div>
+          </div>
+          <div class="carousel__item d-flex flex-column align-items-center justify-content-between shadow-sm">
+            <div class="icon-24">
+              <img src="./images/icon_quote_green.png" alt="Icon Quote">
+            </div>
+            <p class="text-center fs-6 mb-0">
+              Năng lượng gió là nguồn tài nguyên kinh doanh có giá trị nhất. Bạn sẽ không hối tiếc
+              đâu. Tôi sẽ lạc lối nếu không có năng lượng gió. Không cần phải nói chúng tôi vô
+              cùng
+              hài lòng với kết quả.
+            </p>
+            <div>
+              <p class="fs-5 fw-bold text-black-3 text-center mb-0">Nguyễn Văn A</p>
+              <p class="text-black-3 fs-6 text-center mb-0">Giám đốc, Công ty Powder Based Factory
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Partner -->
+  <section class="section__partner">
+    <div class="partner__container container">
+      <div class="d-flex flex-column align-items-center align-items-sm-center align-items-md-center align-items-lg-start">
+        <h3 class="section__title--2">
+          Đối tác
+        </h3>
+      </div>
+      <div class="row flex-wrap flex-sm-wrap flex-md-wrap flex-lg-nowrap mt-5">
+        <div class="col text-center">
+          <img class="img-fluid" src="./images/vingroup.png" alt="Vingroup">
+        </div>
+        <div class="col text-center">
+          <img class="img-fluid" src="./images/microsoft.png" alt="">
+        </div>
+        <div class="col text-center">
+          <img class="img-fluid" src="./images/apple.png" alt="">
+        </div>
+        <div class="col text-center">
+          <img class="img-fluid" src="./images/google.png" alt="">
+        </div>					
+      </div>
+    </div>
+  </section>
+  <!-- Posts -->
+  <section class="section__posts">
+    <div class="posts__container container">
+      <div class="d-flex align-items-center justify-content-between">
+        <h3 class="section__title--2 my-0">
+          Tin tức/Bài viết
+        </h3>
+        <a href="blog.html" class="d-none d-lg-block">
+          <div class="call-action d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start">
+            <span>Xem tất cả</span>
+            <div class="icon-32 icon-red d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+      <hr>
+      <div class="posts__list row gx-5 flex-wrap flex-sm-wrap flex-md-wrap flex-lg-nowrap">
+        <div class="post__item col-12 col-sm-12 col-md-12 col-lg-4">
+          <div class="post__image">
+            <img src="./images/post1.png" alt="Post">
+          </div>
+          <div class="d-flex flex-column gap-14">
+            <p class="fs-4 fw-medium mb-0">Tòa nhà năng lượng NZ</p>
+            <p class="fs-6 mb-0">Chúng tôi thường được hỏi: “Điều gì tạo nên một ngôi nhà lành mạnh?” Câu trả lời của chúng tôi tóm tắt lại 5 nguyên tắc đơn giản...</p>
+            <a href="blog-detail.html" class="see-more w-fit-content">Xem thêm</a>
+          </div>
+        </div>
+        <div class="post__item col-12 col-sm-12 col-md-12 col-lg-4">
+          <div class="post__image">
+            <img src="./images/post1.png" alt="Post">
+          </div>
+          <div class="d-flex flex-column gap-14">
+            <p class="fs-4 fw-medium mb-0">Tòa nhà năng lượng NZ</p>
+            <p class="fs-6 mb-0">Chúng tôi thường được hỏi: “Điều gì tạo nên một ngôi nhà lành mạnh?” Câu trả lời của chúng tôi tóm tắt lại 5 nguyên tắc đơn giản...</p>
+            <a href="blog-detail.html" class="see-more w-fit-content">Xem thêm</a>
+          </div>
+        </div>
+        <div class="post__item col-12 col-sm-12 col-md-12 col-lg-4">
+          <div class="post__image">
+            <img src="./images/post1.png" alt="Post">
+          </div>
+          <div class="d-flex flex-column gap-14">
+            <p class="fs-4 fw-medium mb-0">Tòa nhà năng lượng NZ</p>
+            <p class="fs-6 mb-0">Chúng tôi thường được hỏi: “Điều gì tạo nên một ngôi nhà lành mạnh?” Câu trả lời của chúng tôi tóm tắt lại 5 nguyên tắc đơn giản...</p>
+            <a href="blog-detail.html" class="see-more w-fit-content">Xem thêm</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

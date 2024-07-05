@@ -1,120 +1,76 @@
-<!-- FOOTER-->
-<footer class="footer bg-parallax">
-    <div class="bg-overlay bg-overlay--p85"></div>
-    <div class="container p-t-60 p-b-40">
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-col">
-                    <div class="widget m-b-10">
-                        <a class="logo" href="#">
-                            <img src="/frontend/images/icon/logo-white.png" alt="SAO-EE.VN" />
-                        </a>
-                    </div>
-                    <% @company_info = Erp::Contacts::Contact.get_main_contact %>
-                    <% if !@company_info.nil? %>
-                        <div class="widget widget-address">
-                            <ul>
-                                <li class="text-uppercase">
-                                    <strong>
-                                        <% if I18n.locale == :vi %>
-                                            <%= @company_info.name %>
-                                        <% elsif I18n.locale == :en %>
-                                            <%= @company_info.en_name %>
-                                        <% elsif I18n.locale == :ja %>
-                                            <%= @company_info.ja_name %>
-                                        <% end %>
-                                    </strong>
-                                </li>
-                                <li><%= t('.address') %>: <%= full_address(@company_info) %></li>
-                                <% if @company_info.phone.present? %>
-                                    <li><%= t('.phone_number') %>: <%= link_to @company_info.phone, "tel:#{@company_info.phone}" %></li>
-                                <% end %>
-                                <% if @company_info.hotline.present? %>
-                                    <li><%= t('.hotline') %>: <%= link_to @company_info.hotline, "tel:#{@company_info.hotline}" %></li>
-                                <% end %>
-                                <% if @company_info.email.present? %>
-                                    <li><%= t('.email') %>: <%= mail_to @company_info.email, @company_info.email %></li>
-                                <% end %>
-                            </ul>
+<footer class="footer">
+    <div class="footer__container py-5 container d-flex flex-column-reverse flex-sm-column-reverse flex-md-column-reverse flex-lg-row justify-content-between align-lg-items-center align-items-start align-sm-items-start align-md-items-start">
+        <div class="footer__logo">
+            <img src="./images/logo-footer.png" alt="Logo">
+        </div>
+        <div class="d-flex gap-6 flex-1 w-100 w-sm-100 w-md-100 w-lg-auto">
+            <nav class="d-none d-sm-none d-md-none d-lg-block">
+                <ul class="nav d-flex flex-column gap-lg-3 gap-0">
+                    <li class="nav-item flex-grow-0">
+                        <a href="#" class="nav-link active text-uppercase">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link text-uppercase">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-uppercase">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-uppercase">Dự án</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-uppercase">Tin tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-uppercase">Liên hệ</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="d-flex flex-column gap-4 flex-grow-0 w-100">
+                <h2 class="fs-5 text-capitalize d-inline-block w-fit-content fw-bold company__name">
+                    Công ty Cổ phần Tư vấn Thiết kế SAO
+                </h2>
+                <div class="d-flex flex-row flex-lg-column gap-2 flex-wrap flex-lg-nowrap w-100 w-lg-300 justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start gap-14">
+                    <div class="d-flex flex-column flex-sm-column flex-md-column flex-lg-row gap-2 align-items-center w-100 w-lg-auto">
+                        <div class="icon-20">
+                            <img src="./images/icon_add_location.png" alt="">
                         </div>
-                    <% end %>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-col p-l-70 p-md-l-0">
-                    <div class="widget widget_pages">
-                        <h4 class="widget-title"><%= t('.service') %></h4>
-                        <ul>
-                            <%
-                                @service_menus = Erp::Articles::Category.get_categories_by_alias_service
-                                    .where(parent_id: nil)
-                                    .order('erp_articles_categories.custom_order ASC')
-                            %>
-                            <% @service_menus.each do |menu| %>
-                                <li>
-                                    <% if I18n.locale == :vi %>
-                                        <%= link_to menu.name, service_link(menu) %>
-                                    <% elsif I18n.locale == :en %>
-                                        <%= link_to menu.en_name, service_link(menu) %>
-                                    <% elsif I18n.locale == :ja %>
-                                        <%= link_to menu.ja_name, service_link(menu) %>
-                                    <% end %>
-                                </li>
-                            <% end %>
-                        </ul>
+                        <p class="footer__text">
+                            L17-11, Vincom Center Buildings, 72 Lê Thánh Tôn, P. Bến Nghé, Quận 1, TP. Hồ Chí
+                            Minh, Việt Nam
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="footer-col p-l-70 p-md-l-0">
-                    <div class="widget widget_pages">
-                        <h4 class="widget-title"><%= t('.link') %></h4>
-                        <ul>
-                            <li>
-                                <a href="<%= erp_saoee.about_us_path %>"><%= t('.about_us') %></a>
-                            </li>
-                            <li>
-                                <a href="<%= erp_saoee.project_path %>"><%= t('.project') %></a>
-                            </li>
-                            <li>
-                                <a href="<%= erp_saoee.blog_path %>"><%= t('.blog') %></a>
-                            </li>
-                            <li>
-                                <a href="<%= erp_saoee.recruitment_path %>"><%= t('.recruiting') %></a>
-                            </li>
-                            <li>
-                                <a href="<%= erp_saoee.contact_us_path %>"><%= t('.contact_us') %></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="footer-col p-l-70 p-md-l-0">
-                    <h4 class="widget-title"><%= t('.socials') %></h4>
-                    <div class="widget widget_socials">
-                        <div id="link-buttons" class="list-social-footer">                     
-                            <!-- Facebook -->
-                            <a href="https://www.facebook.com/SAO-EE-469949339865339/" target="_blank">
-                                <img src="/frontend/images/icon/socials/facebook.png" alt="Facebook" title="Follow us on Facebook" />
-                            </a>
+                    <div class="d-flex gap-2 flex-column flex-sm-column flex-md-column flex-lg-row align-items-center">
+                        <div class="icon-20">
+                            <img src="./images/icon_drafts.png" alt="">
                         </div>
+                        <p class="footer__text">
+                            info@sao-ee.vn
+                        </p>
+                    </div>
+                    <div class="d-flex gap-2 flex-column flex-sm-column flex-md-column flex-lg-row align-items-center">
+                        <div class="icon-20">
+                            <img src="./images/icon_add_ic_call.png" alt="">
+                        </div>
+                        <p class="footer__text">
+                            (+84) 28 6682 2233
+                        </p>
+                    </div>
+                    <div class="d-flex gap-2 flex-column flex-sm-column flex-md-column flex-lg-row align-items-center">
+                        <div class="icon-20">
+                            <img src="./images/icon_margin.png" alt="">
+                        </div>
+                        <p class="footer__text">
+                            MST: 0313639154
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer-bottom">
-        <div class="container p-t-10 p-b-10">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="font-12 text-gray m-0 text-center">
-                        Copyright &copy; 2018 - <%= Time.now.strftime('%Y') %> <span class="text-color">SAO-EE.VN</span>. All Rights Reserved. <br/>
-                        Designed by <a href="http://hoangkhang.com.vn" target="_blank">Hoang Khang Incotech</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div class="footer__line">
+    </div>
+    <div class="bg-black text-center fs-6 fw-medium text-white py-3">
+        <p class="mb-0">Copyright © 2024 SAO-EE.All Rights Reserved.</p>
     </div>
 </footer>
-<!-- END FOOTER-->

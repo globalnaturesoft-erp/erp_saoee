@@ -1,6 +1,89 @@
 <!-- HEADER-->
-<header id="header">
-    <%= render "erp/saoee/frontend/modules/header/desktop" %>
-    <%= render "erp/saoee/frontend/modules/header/mobile" %>
+<header class="header bg-white z-3 shadow-sm px-4 px-sm-4 px-md-4 px-lg-0">
+    <div>
+        <a href="index.html">
+            <div class="header__logo">
+                <img src="./images/Logo.png" alt="Logo">
+            </div>
+        </a>
+    </div>
+    <nav class="navbar z-3">
+        <ul class="nav d-flex flex-column gap-lg-3 gap-sm-0 gap-md-0 gap-0">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link active text-uppercase">Trang chủ</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="product.html" class="nav-link text-uppercase d-flex align-items-center justify-content-between">
+                    <span>Sản phẩm</span>							
+                </a>
+                <i class="fa-solid fa-chevron-down d-block d-sm-block d-md-block d-lg-none px-2"></i>
+                <ul class="dropdown-menu shadow-sm">
+                    <li class="dropdown-item">
+                        <a class="text-uppercase" href="mo-phong-chay-thoat-hiem.html">
+                        Mô phỏng Cháy thoát hiểm
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="text-uppercase" href="tien-nghi-trong-cong-trinh.html">
+                        Mô phỏng Tiện nghi trong Công trình
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="text-uppercase" href="ban-do-gio.html">
+                        Ứng dụng Thông gió cho Nhà xưởng
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="service.html" class="nav-link text-uppercase d-flex align-items-center justify-content-between">
+                    <span>Dịch vụ</span>
+                </a>
+                <i class="fa-solid fa-chevron-down d-block d-sm-block d-md-block d-lg-none px-2"></i>
+                <ul class="dropdown-menu shadow-sm">
+                    <li class="dropdown-item">
+                        <a class="text-uppercase" href="goi-dich-vu-tu-van-thiet-ke.html">
+                            Các gói Dịch vụ cho Văn phòng tư vấn thiết kế
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="text-uppercase" href="dich-vu-tu-van-cai-tao-cong-trinh.html">
+                            Tư vấn cải tạo công trình
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="project.html" class="nav-link text-uppercase">Dự án</a>
+            </li>
+            <li class="nav-item">
+                <a href="blog.html" class="nav-link text-uppercase">Tin tức</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link text-uppercase">Liên hệ</a>
+            </li>
+            <li class="nav-item d-flex d-md-flex d-sm-flex d-lg-none">
+                <a class="nav-link"><div class="icon-32 p-1">
+                    <img src="./images/vi-flag.png" alt="Việt Nam">
+                </div></a>
+                <a class="nav-link"><div class="icon-32 p-1">
+                    <img src="./images/ja-flag.png" alt="Việt Nam">
+                </div></a>
+                <a class="nav-link"><div class="icon-32 p-1">
+                    <img src="./images/eng-flag.png" alt="Việt Nam">
+                </div></a>
+            </li>
+        </ul>
+    </nav>
+    <div class="d-lg-flex d-sm-none d-md-none d-none justify-content-between container align-items-center p-0 px-3">
+        <div class="icon-32">
+            <img src="./images/vietnam 1.png" alt="Việt Nam">
+        </div>
+        <i class="fa-solid fa-chevron-down p-1"></i>
+    </div>
+    <div class="header__menu-icon d-block d-sm-block d-md-block d-lg-none p-3">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark d-none"></i>
+    </div>
 </header>
 <!-- END HEADER-->
