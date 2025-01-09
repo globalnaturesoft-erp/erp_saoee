@@ -247,6 +247,9 @@ section {
 	font-size: 16px;
 	color: var(--black-4);
 }
+.text-justify {
+	text-align: justify;
+}
 
 .see-more {
 	font-size: 16px;
@@ -322,7 +325,7 @@ section {
 }
 
 .section__banner .banner__container .banner__title {
-	font-size: 64px;
+	font-size: 45px;
 }
 
 .banner__nav {
@@ -335,8 +338,24 @@ section {
 	gap: 12px;
 	font-size: 16px;
 }
-
-.page-link {
+ul.pagination > li > span {
+	border-radius: 30px !important;
+	margin: 0 5px !important;
+	width: 45px;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #000;
+	font-weight: bold;
+	padding: 0;
+	line-height: 1;
+	border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
+}
+ul.pagination > li.active > span {
+	background-color: #eee;
+}
+.page-link, ul.pagination > li > span {
 	border-radius: 30px !important;
 	margin: 0 5px !important;
 	width: 45px;
@@ -404,11 +423,16 @@ form button[type="submit"] {
 	justify-content: center;
 	align-items: center;
 	border-radius: 50rem;
-	background-color: transparent;
+	background-color: #fff;
 	outline: none;
 	border: 1px solid var(--black-3);
 	color: var(--black-3);
 	font-size: 1rem;
+	z-index: 9;
+}
+.btn--controll:hover,
+.slick-arrow:hover {
+	background-color: #fff;
 }
 
 .slick-light .slick-arrow {

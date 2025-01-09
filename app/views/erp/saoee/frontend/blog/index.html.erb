@@ -1,86 +1,74 @@
 <% title t('blog') %>
 
+<% content_for :page_style do %>
+    <link rel="stylesheet" href="/frontend/css/blog.css" />
+<% end %>
+
 <!-- PAGE HEADING-->
-<section class="section breadcrumb p-t-65 p-b-35">
-    <div class="container">
-        <div class="page-heading">
-            <h2 class="title-2"><%= t('.blog') %></h2>
-            <h4 class="title-sub title-sub--c8 m-b-15">
-                <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+<section class="section__banner">
+    <div class="banner__container container-fluid px-0">
+        <div class="banner__image z-0">
+            <img src="/frontend/images/b3cdf315c50cdc2ea383403ddff9f6c1.jpg" alt="">
+        </div>
+        <div class="banner__container container d-flex align-items-center">
+            <h1 class="banner__title fw-bold text-white text-capitalize">
                 <%= t('blog') %>
-            </h4>
+            </h1>
+        </div>
+    </div>
+    <div class="banner__nav">
+        <div class="nav__container container d-flex align-items-center text-black-4 fs-6 h-100">
+            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-angle-right"></i>
+            <span class="fw-semibold text-uppercase text-red"><%= t('blog') %></span>
         </div>
     </div>
 </section>
 <!-- END PAGE HEADING-->
 
 <!-- BLOG-->
-<section class="p-t-20 p-b-30">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-lg-9">
-                <% if @blogs.count > 0 %>
-                    <div class="row">
-                        <% @blogs.each do |blog| %>
-                            <%
-                                blog_name = blog.name
-                                if blog.name.present? and blog.en_name.present?
-                                    if I18n.locale == :vi
-                                        blog_name = blog.name
-                                    elsif I18n.locale == :en
-                                        blog_name = blog.en_name
-                                    elsif I18n.locale == :ja
-                                        blog_name = blog.ja_name
-                                    end
-                                end
-                            %>
-                            <div class="col-md-6">
-                                <article class="blog">
-                                    <figure class="entry-image">
-                                        <% if I18n.locale == :vi %>
-                                            <%= link_to image_tag(article_image(blog.image.thumb_420_236, '420_236'), alt: blog.name), blog_link(blog) %>
-                                        <% elsif I18n.locale == :en %>
-                                            <%= link_to image_tag(article_image(blog.en_image.thumb_420_236, '420_236'), alt: blog.en_name), blog_link(blog) %>
-                                        <% elsif I18n.locale == :ja %>
-                                            <%= link_to image_tag(article_image(blog.ja_image.thumb_420_236, '420_236'), alt: blog.ja_name), blog_link(blog) %>
-                                        <% end %>
-                                    </figure>
-                                    <div class="entry-summary">
-                                        <h4 class="entry-title">
-                                            <%= link_to blog_name, blog_link(blog) %>
-                                        </h4>
-                                        <span class="entry-meta"><%= relative_time(blog.created_at) %></span>
-                                        <p class="entry-excerpt">
-                                            <% if I18n.locale == :vi %>
-                                                <%= short_text(blog.content, 25) + '...' if blog.content.present? %>
-                                            <% elsif I18n.locale == :en %>
-                                                <%= short_text(blog.en_content, 25) + '...' if blog.en_content.present? %>
-                                            <% elsif I18n.locale == :ja %>
-                                                <%= short_text(blog.ja_content, 25) + '...' if blog.ja_content.present? %>
-                                            <% end %>
-                                        </p>
-                                    </div>
-                                </article>
+<section class="glbg sub2 py-0 py-sm-0 py-md-0 py-lg-mx">
+    <div class="container py-4 py-lg-5">
+        <% if @blogs.count > 0 %>
+            <div class="row">
+                <% @blogs.each do |blog| %>
+                    <%
+                        if I18n.locale == :en
+                            blog_name = blog.en_name
+                            blog_content = blog.en_content
+                        elsif I18n.locale == :ja
+                            blog_name = blog.ja_name
+                            blog_content = blog.ja_content
+                        else
+                            blog_name = blog.name
+                            blog_content = blog.content
+                        end
+                    %>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                        <div class="bbox">
+                            <div class="pimg">
+                                <%= link_to image_tag(article_image(blog.image.thumb_420_236, '420_236'), alt: blog_name, class: "bg-white border"), blog_link(blog) %>
+                                <span><%= relative_time(blog.created_at) %></span>
                             </div>
-                        <% end %>
-                    </div>
-
-                    <% if @blogs.count > 2 %>
-                        <nav class="navigation blog-navigation">
-                            <%= will_paginate @blogs, previous_label: '<span class="ti-arrow-left"></span>', next_label: '<span class="ti-arrow-right"></span>', renderer: BootstrapPagination::Rails, class: 'pagination-lg m-0' %>
-                        </nav>
-                    <% end %>
-                <% else %>
-                    <div class="alert alert-warning">
-                        <i class="fa fa-warning"></i> <%= t('.no_matching_records_found') %>
+                            <div class="ptitle">
+                                <h5><%= blog_name %></h5>
+                                <p><%= short_text(blog_content, 20) %>...</p>
+                                <a href="<%= blog_link(blog) %>" class="see-more">Chi tiết</a>
+                            </div>
+                        </div>
                     </div>
                 <% end %>
             </div>
-
-            <div class="col-md-4 col-lg-3">
-                <%= render "erp/saoee/frontend/modules/blog/sidebar" %>
+            <% if @blogs.count > 2 %>
+                <nav class="d-flex justify-content-center float-none float-sm-none float-md-none float-lg-end">
+                    <%= will_paginate @blogs, previous_label: '<span aria-hidden="true"><i class="fa-solid fa-arrow-left fa-fw"></i></span>', next_label: '<span aria-hidden="true"><i class="fa-solid fa-arrow-right fa-fw"></i></span>', renderer: BootstrapPagination::Rails, class: 'pagination', link_options: { class: "page-link" } %>
+                </nav>
+            <% end %>
+        <% else %>
+            <div class="alert alert-warning">
+                <i class="fa fa-warning"></i> <%= t('.no_matching_records_found') %>
             </div>
-        </div>
+        <% end %>
     </div>
 </section>
 <!-- END BLOG-->

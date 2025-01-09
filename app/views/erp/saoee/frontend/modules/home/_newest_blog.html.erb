@@ -1,48 +1,42 @@
-<!-- BLOG-->
-<section class="p-t-65 p-b-65">
-    <div class="container">
-        <div class="section-title m-b-70">
-            <h5 class="title-sub"><%= t('.blog_title_sub') %></h5>
-            <h2 class="title-1"><%= t('.blog_title') %></h2>
-        </div>
-        <div class="row gutter-xl">
-            <% @newest_blogs.each_with_index do |blog,index| %>
-            <div class="col-md-4">
-                <article class="blog">
-                    <figure class="entry-image">
-                        <% if I18n.locale == :vi %>
-                            <%= link_to image_tag(article_image(blog.image.thumb_357_201, '357_201'), alt: blog.name), blog_link(blog) %>
-                        <% elsif I18n.locale == :en %>
-                            <%= link_to image_tag(article_image(blog.en_image.thumb_357_201, '357_201'), alt: blog.en_name), blog_link(blog) %>
-                        <% elsif I18n.locale == :ja %>
-                            <%= link_to image_tag(article_image(blog.ja_image.thumb_357_201, '357_201'), alt: blog.ja_name), blog_link(blog) %>
-                        <% end %>
-                    </figure>
-                    <div class="entry-summary">
-                        <h4 class="entry-title">
-                            <% if I18n.locale == :vi %>
-                                <%= link_to blog.name, blog_link(blog) if blog.name.present? %>
-                            <% elsif I18n.locale == :en %>
-                                <%= link_to blog.en_name, blog_link(blog) if blog.en_name.present? %>
-                            <% elsif I18n.locale == :ja %>
-                                <%= link_to blog.ja_name, blog_link(blog) if blog.ja_name.present? %>
-                            <% end %>
-                        </h4>
-                        <span class="entry-meta"><%= blog.created_at.strftime("%d-%B-%Y") %></span>
-                        <p class="entry-excerpt">
-                            <% if I18n.locale == :vi %>
-                                <%= short_text(blog.content, 25) + '...' if blog.content.present? %>
-                            <% elsif I18n.locale == :en %>
-                                <%= short_text(blog.en_content, 25) + '...' if blog.en_content.present? %>
-                            <% elsif I18n.locale == :ja %>
-                                <%= short_text(blog.ja_content, 25) + '...' if blog.ja_content.present? %>
-                            <% end %>
-                        </p>
-                    </div>
-                </article>
+<!-- Posts -->
+<section class="section__posts">
+    <div class="posts__container container">
+        <div class="d-flex align-items-center justify-content-between">
+        <h3 class="section__title--2 my-0">
+            <%= t('.blog_title') %>
+        </h3>
+        <a href="<%= erp_saoee.blog_path %>" class="d-none d-lg-block">
+            <div class="call-action d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start">
+            <span>Xem tất cả</span>
+            <div class="icon-32 icon-red d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-arrow-right"></i>
             </div>
+            </div>
+        </a>
+        </div>
+        <hr>
+        <div class="posts__list row gx-5 flex-wrap flex-sm-wrap flex-md-wrap flex-lg-nowrap">
+            <% @newest_blogs.each do |blog| %>
+                <%
+                    if I18n.locale == :en
+                        blog_title = blog.en_name
+                    elsif I18n.locale == :ja
+                        blog_title = blog.ja_name
+                    else
+                        blog_title = blog.name
+                    end
+                %>
+                <div class="post__item col-12 col-sm-12 col-md-12 col-lg-4">
+                    <div class="post__image">
+                        <%= link_to image_tag(article_image(blog.image.thumb_357_201, '357_201'), alt: blog_title), blog_link(blog) %>
+                    </div>
+                    <div class="d-flex flex-column gap-14">
+                    <p class="fs-4 fw-medium mb-0"><%= link_to blog_title, blog_link(blog) %></p>
+                    <p class="fs-6 mb-0"><%= short_text(blog.content, 25) %>...</p>
+                    <a href="<%= blog_link(blog) %>" class="see-more w-fit-content">Chi tiết</a>
+                    </div>
+                </div>
             <% end %>
         </div>
     </div>
 </section>
-<!-- END BLOG-->

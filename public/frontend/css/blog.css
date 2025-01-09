@@ -1,0 +1,98 @@
+/* Import css */
+@import "./lib/variable.css";
+@import "./lib/reset.css";
+@import "./lib/global.css";
+@import "./lib/header.css";
+@import "./lib/footer.css";
+
+.bbox {
+    position: relative;
+    margin-bottom: calc(var(--bs-gutter-x) * 1.5);
+}
+
+.bbox .pimg {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    margin-bottom: 1.5em;
+}
+
+.bbox .pimg span {
+    content: '';
+    padding: 5px 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: var(--blue);
+    color: #fff;
+}
+
+.bbox a {
+    text-transform: uppercase;
+    line-height: 24px;
+    color: var(--black-2);
+    border-bottom: 1px solid var(--black-5);
+}
+
+.bbox a:hover {
+    text-decoration: none;
+}
+
+.tags {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.tags li {
+    display: inline-block;
+}
+
+.tags li a {
+    display: block;
+    padding: 5px 15px;
+    border-radius: 35px;
+    background-color: var(--green-light);
+    color: var(--green-dark);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+.tags li a:hover {
+    box-shadow: 0px 1px 2px #999;
+}
+
+.tags li:nth-child(2n+2) a {
+    background-color: var(--blue-light);
+    color: var(--blue);
+}
+
+.tags li:nth-child(2n+3) a {
+    background-color: var(--red-light);
+    color: var(--red);
+}
+
+.blog-detail-content ul li {
+    font-size: 24px;
+    font-weight: bold;
+}
+ 
+.blog-detail-content p:empty {
+    display: block;
+    height: 2rem;
+}
+
+.blog-detail-content h2 {
+    font-size: 20px;
+    border-bottom: 1px solid var(--green);
+    font-weight: bold;
+    line-height: 3rem;
+}
+
+@media (max-width: 991px) {
+    .blog-detail-content ul li {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}

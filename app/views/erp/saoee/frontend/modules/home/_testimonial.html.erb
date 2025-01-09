@@ -1,84 +1,34 @@
-<!-- TESTI-->
-<section class="p-t-35 p-b-85">
-    <div class="container">
-        <div class="section-title m-b-80">
-            <h5 class="title-sub">khách hàng nghĩ gì về chúng tôi?</h5>
-            <h2 class="title-1">Ý KIẾN KHÁCH HÀNG</h2>
+<!-- Assessment -->
+<section class="section__assessment">
+    <div class="assessment__container container">
+        <div class="d-flex flex-column align-items-center align-items-sm-center align-items-md-center align-items-lg-start">
+        <h2 class="section__heading">
+            Đánh giá
+        </h2>
+        <h3 class="section__title--2 text-center text-sm-center text-md-center text-lg-start">
+            Niềm tin từ khách hàng <br> là động lực để chúng tôi phát triển
+        </h3>
         </div>
-        <div class="slick-wrap slick-testi js-slick-wrapper" data-slick-xs="1" data-slick-sm="1" data-slick-md="1" data-slick-lg="2" data-slick-xl="2" data-slick-customnav="true" data-slick-autoplay="true">
-            <div class="slick-wrap-content">
-                <div class="slick-content js-slick-content">
-                    <div class="slick-item">
-                        <div class="media-testi">
-                            <p class="media__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.</p>
-                            <div class="media__title">
-                                <span class="ti-quote-left quote"></span>
-                                <h4 class="name">
-                                    <a href="#">Pearl Rivera</a>
-                                </h4>
-                                <span class="job">Au Founder</span>
-                            </div>
-                            <figure class="media__img img--rounded">
-                                <img src="/frontend/images/testi-01.jpg" alt="Pearl Rivera" />
-                            </figure>
+        <div class="assessment__carousel">
+            <div class="carousel__list js-slider">
+                <% (1..4).each do |testi| %>
+                    <div class="carousel__item d-flex flex-column align-items-center justify-content-between shadow-sm">
+                        <div class="icon-24">
+                            <img src="/frontend/images/icon_quote.png" alt="Icon Quote">
+                        </div>
+                        <p class="text-justify fs-6 mb-0">
+                            Năng lượng gió là nguồn tài nguyên kinh doanh có giá trị nhất. Bạn sẽ không hối tiếc
+                            đâu. Tôi sẽ lạc lối nếu không có năng lượng gió. Không cần phải nói chúng tôi vô
+                            cùng hài lòng với kết quả.
+                        </p>
+                        <div>
+                            <p class="fs-5 fw-bold text-black-3 text-center mb-0">Nguyễn Văn A</p>
+                            <p class="text-black-3 fs-6 text-center mb-0">Giám đốc, Công ty Powder Based Factory
+                            </p>
                         </div>
                     </div>
-                    <div class="slick-item">
-                        <div class="media-testi">
-                            <p class="media__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.</p>
-                            <div class="media__title">
-                                <span class="ti-quote-left quote"></span>
-                                <h4 class="name">
-                                    <a href="#">Ray Owens</a>
-                                </h4>
-                                <span class="job">Loco CEO</span>
-                            </div>
-                            <figure class="media__img img--rounded">
-                                <img src="/frontend/images/testi-02.jpg" alt="Ray Owens" />
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="slick-item">
-                        <div class="media-testi">
-                            <p class="media__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.</p>
-                            <div class="media__title">
-                                <span class="ti-quote-left quote"></span>
-                                <h4 class="name">
-                                    <a href="#">Megan Fernandez</a>
-                                </h4>
-                                <span class="job">BigBit Founder</span>
-                            </div>
-                            <figure class="media__img img--rounded">
-                                <img src="/frontend/images/testi-03.jpg" alt="Megan Fernandez" />
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="slick-item">
-                        <div class="media-testi">
-                            <p class="media__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.</p>
-                            <div class="media__title">
-                                <span class="ti-quote-left quote"></span>
-                                <h4 class="name">
-                                    <a href="#">Jack Hopkins</a>
-                                </h4>
-                                <span class="job">Bitbucket CEO</span>
-                            </div>
-                            <figure class="media__img img--rounded">
-                                <img src="/frontend/images/testi-04.jpg" alt="Jack Hopkins" />
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slick__nav arrows-1">
-                <i class="slick-prev slick-arrow js-slick-prev ti-angle-left"></i>
-                <i class="slick-next slick-arrow js-slick-next ti-angle-right"></i>
+                <% end %>
             </div>
         </div>
     </div>
 </section>
-<!-- END TESTI-->

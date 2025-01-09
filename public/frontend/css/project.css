@@ -1,0 +1,93 @@
+/* Import css */
+@import "./lib/variable.css";
+@import "./lib/reset.css";
+@import "./lib/global.css";
+@import "./lib/header.css";
+@import "./lib/footer.css";
+
+.pbox {
+    position: relative;
+    margin-bottom: calc(var(--bs-gutter-x) * 1);
+}
+
+.pbox .pimg {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.pbox .pimg img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    transition: transform .2s;
+}
+
+.pbox:hover .pimg img {
+    transform: scale(1.2);
+}
+
+.pbox .pimg::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(transparent, rgb(0 0 0 / 60%));
+}
+
+.pbox .ptitle {
+    position: absolute;
+    z-index: 1;
+    width: calc(100% - 40px);
+    bottom: 0;
+    left: 20px;
+    color: #fff;
+}
+
+.pd-ul {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.pd-ul li {
+    list-style: none;
+    font-size: 16px;
+}
+
+.pd-ul li:first-child {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+.pd-ul li:first-child::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 15px;
+    display: inline-block;
+    background-color: var(--green);
+    margin-right: 5px;
+}
+
+.slider.slick-slider {
+    margin-bottom: 2rem;
+}
+
+.slider .slick-slide img, .slider-nav .slick-slide img {
+    width: 100%;
+}
+
+.slick-initialized.slider-nav .slick-slide img {
+    opacity: .8;
+}
+
+.slick-initialized.slider-nav .slick-slide > div {
+    margin: 0 10px;
+}
+
+.slick-initialized.slider-nav .slick-slide.slick-current img {
+    opacity: 1;
+}

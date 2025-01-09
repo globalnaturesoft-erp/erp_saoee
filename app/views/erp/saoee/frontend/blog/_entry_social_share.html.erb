@@ -1,0 +1,46 @@
+<div class="col-12 align-items-center justify-content-end pt-4 d-none d-sm-none d-md-none d-lg-flex">
+    <span class="text-uppercase text-black-4"><%= t('share') %>: </span>
+
+    <!-- Facebook -->
+    <a class="d-inline-block ms-2" href="http://www.facebook.com/sharer.php?u=<%= request.url %>" target="_blank">
+        <img src="/frontend/images/f.png" alt="Facebook" title="Share a link to this page on Facebook" />
+    </a>
+
+    <!-- Twitter -->
+    <a class="d-inline-block ms-2" href="https://twitter.com/share?url=<%= request.url %>&amp;text=<%= blog_name %>&amp;hashtags=sao_ee" target="_blank">
+        <img src="/frontend/images/x.png" alt="Twitter" title="Share a link to this page on Twitter" />
+    </a>
+
+    <!-- Google+ -->
+    <a class="d-inline-block ms-2" href="https://plus.google.com/share?url=<%= request.url %>" target="_blank">
+        <img src="/frontend/images/g.png" alt="Google" title="Share a link to this page on Google Plus" />
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="d-inline-block ms-2" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<%= request.url %>" target="_blank">
+        <img src="/frontend/images/in.png" alt="LinkedIn" title="Share a link to this page on LinkedIn" />
+    </a>
+
+    <!-- Email -->
+    <a class="d-inline-block ms-2" href="mailto:?Subject=<%= blog_name %>&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 <%= request.url %>">
+        <img src="/frontend/images/email1.png" alt="Email" title="Share a link to this page on Email" />
+    </a>
+</div>
+<div class="col-12">
+    <nav class="mt-5">
+        <ul class="pagination d-flex justify-content-between cs-pg">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true"><i class="fa-solid fa-arrow-left fa-fw"></i></span>
+                </a>
+                Trước
+            </li>
+            <li class="page-item">
+                Sau
+                <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true"><i class="fa-solid fa-arrow-right fa-fw"></i></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

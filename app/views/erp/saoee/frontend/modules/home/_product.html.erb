@@ -1,0 +1,67 @@
+<!-- Product -->
+<section class="product__service">
+    <div class="section__product">
+        <div class="product__banner py-5">
+        <div class="banner__container container">
+            <div class="d-flex flex-column align-items-center align-items-sm-center align-items-md-center align-items-lg-start m-auto m-sm-auto m-md-auto m-lg-0 py-4">
+            <h2 class="section__heading">
+                Sản phẩm
+            </h2>
+            <h3 class="section__title--2 text-center text-sm-center text-md-center text-lg-start">
+                Sản phẩm chính <br>Chúng tôi đang cung cấp
+            </h3>
+            </div>
+        </div>
+        </div>
+        <div class="product__container py-mx blbg">
+            <div class="container">
+                <div class="product__list row flex-wrap">
+                <% products.each do |product| %>
+                    <%
+                        display_product_name = ''
+                        display_product_desc = ''
+                        if I18n.locale == :vi
+                            display_product_name = product.name
+                            display_product_desc = product.content
+                        elsif I18n.locale == :en
+                            display_product_name = product.en_name
+                            display_product_desc = product.en_content
+                        elsif I18n.locale == :ja
+                            display_product_name = product.ja_name
+                            display_product_desc = product.ja_content
+                        end
+                    %>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                        <div class="product__card d-flex flex-column align-items-center shadow-sm">
+                            <div class="position-relative mb-3">
+                            <div class="card__image rounded-circle">
+                                <%= image_tag product.image.thumb_960_960, class: "img-fluid", alt: product.name %>
+                            </div>
+                            <div class="card__icon position-absolute">
+                                <!--<img class="img-fluid" src="/frontend/images/Icon_Air.png" alt="Icon">-->
+                            </div>
+                            </div>
+                            <div class="d-flex flex-column align-items-center text-center">
+                            <h3 class="fs-5 card__title">
+                                <%= link_to display_product_name, service_link(product) %>
+                            </h3>
+                            <p class="card__desc text-center mb-0">
+                                <%= short_text(display_product_desc, 10) %>...
+                            </p>
+                            </div>
+                            <a href="<%= service_link(product) %>" class="see-more">chi tiết</a>
+                        </div>
+                    </div>
+                <% end %>
+                </div>
+                <a href="<%= erp_saoee.service_path %>">
+                <div class="call-action d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start product__more">
+                    <span>Xem chi tiết</span>
+                    <div class="icon-32 icon-black-6 d-flex justify-content-center align-items-center">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+  </div>

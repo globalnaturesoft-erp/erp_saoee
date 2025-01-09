@@ -1,20 +1,55 @@
-<!-- HEADER-->
+<%
+    if I18n.locale == :en
+        flag = 'us'
+        lang = 'English (US)'
+    elsif I18n.locale == :ja
+        flag = 'jp'
+        lang = '日本語'
+    else
+        flag = 'vn'
+        lang = 'Tiếng Việt'
+    end
+%>
+<!-- Header -->
 <header class="header bg-white z-3 shadow-sm px-4 px-sm-4 px-md-4 px-lg-0">
     <div>
-        <a href="index.html">
+        <a href="<%= erp_saoee.root_path %>">
             <div class="header__logo">
-                <img src="./frontend/images/Logo.png" alt="Logo">
+                <img src="/frontend/images/Logo.png" alt="Logo">
             </div>
         </a>
     </div>
     <nav class="navbar z-3">
         <ul class="nav d-flex flex-column gap-lg-3 gap-sm-0 gap-md-0 gap-0">
             <li class="nav-item">
-                <a href="index.html" class="nav-link active text-uppercase">Trang chủ</a>
+                <a class="nav-link text-uppercase <%= 'active' if params[:controller] == 'erp/saoee/frontend/home' %>"
+                    href="<%= erp_saoee.root_path %>">
+                    <%= t('header.nav.home') %>
+                </a>
             </li>
             <li class="nav-item dropdown">
-                <a href="product.html" class="nav-link text-uppercase d-flex align-items-center justify-content-between">
-                    <span>Sản phẩm</span>
+                <a class="nav-link text-uppercase d-flex align-items-center justify-content-between <%= 'active' if params[:controller] == 'erp/saoee/frontend/about_us' %>"
+                    href="<%= erp_saoee.about_us_path %>">
+                    <span><%= t('header.nav.about_us') %></span>
+                </a>
+                <i class="fa-solid fa-chevron-down d-block d-sm-block d-md-block d-lg-none px-2"></i>
+                <ul class="dropdown-menu shadow-sm">
+                    <li class="dropdown-item">
+                        <a class="text-uppercase" href="goi-dich-vu-tu-van-thiet-ke.html">
+                            Các gói Dịch vụ cho Văn phòng tư vấn thiết kế
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="text-uppercase" href="dich-vu-tu-van-cai-tao-cong-trinh.html">
+                            Tư vấn cải tạo công trình
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-uppercase d-flex align-items-center justify-content-between <%= 'active' if params[:controller] == 'erp/saoee/frontend/project' %>"
+                    href="<%= erp_saoee.service_path %>">
+                    <span><%= t('header.nav.service') %></span>
                 </a>
                 <i class="fa-solid fa-chevron-down d-block d-sm-block d-md-block d-lg-none px-2"></i>
                 <ul class="dropdown-menu shadow-sm">
@@ -35,55 +70,74 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown">
-                <a href="service.html" class="nav-link text-uppercase d-flex align-items-center justify-content-between">
-                    <span>Dịch vụ</span>
+            <li class="nav-item">
+                <a class="nav-link text-uppercase <%= 'active' if params[:controller] == 'erp/saoee/frontend/project' %>"
+                    href="<%= erp_saoee.project_path %>">
+                    <%= t('header.nav.project') %>
                 </a>
-                <i class="fa-solid fa-chevron-down d-block d-sm-block d-md-block d-lg-none px-2"></i>
-                <ul class="dropdown-menu shadow-sm">
-                    <li class="dropdown-item">
-                        <a class="text-uppercase" href="goi-dich-vu-tu-van-thiet-ke.html">
-                            Các gói Dịch vụ cho Văn phòng tư vấn thiết kế
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a class="text-uppercase" href="dich-vu-tu-van-cai-tao-cong-trinh.html">
-                            Tư vấn cải tạo công trình
-                        </a>
-                    </li>
-                </ul>
             </li>
             <li class="nav-item">
-                <a href="project.html" class="nav-link text-uppercase">Dự án</a>
+                <a class="nav-link text-uppercase <%= 'active' if params[:controller] == 'erp/saoee/frontend/blog' %>"
+                    href="<%= erp_saoee.blog_path %>">
+                    <%= t('header.nav.blog') %>
+                </a>
             </li>
             <li class="nav-item">
-                <a href="blog.html" class="nav-link text-uppercase">Tin tức</a>
+                <a class="nav-link text-uppercase <%= 'active' if params[:controller] == 'erp/saoee/frontend/contact_us' %>"
+                    href="<%= erp_saoee.contact_us_path %>">
+                    <%= t('header.nav.contact_us') %>
+                </a>
             </li>
-            <li class="nav-item">
-                <a href="contact.html" class="nav-link text-uppercase">Liên hệ</a>
-            </li>
-            <li class="nav-item d-flex d-md-flex d-sm-flex d-lg-none">
-                <a class="nav-link"><div class="icon-32 p-1">
-                    <img src="./frontend/images/vi-flag.png" alt="Việt Nam">
-                </div></a>
-                <a class="nav-link"><div class="icon-32 p-1">
-                    <img src="./frontend/images/ja-flag.png" alt="Việt Nam">
-                </div></a>
-                <a class="nav-link"><div class="icon-32 p-1">
-                    <img src="./frontend/images/eng-flag.png" alt="Việt Nam">
-                </div></a>
+            <li class="nav-item d-flex d-md-flex d-sm-flex d-lg-none py-0 px-2">
+                <% unless I18n.locale == :vi %>
+                    <a class="nav-link px-2" href="<%= url_for(locale: :vi) %>">
+                        <span class="icon-32">
+                            <img src="/frontend/images/vi-flag.png" alt="Tiếng Việt">
+                        </span>
+                    </a>
+                <% end %>
+                <% unless I18n.locale == :ja %>
+                    <a class="nav-link px-2" href="<%= url_for(locale: :ja) %>">
+                        <span class="icon-32">
+                            <img src="/frontend/images/ja-flag.png" alt="日本語">
+                        </span>
+                    </a>
+                <% end %>
+                <% unless I18n.locale == :en %>
+                    <a class="nav-link px-2" href="<%= url_for(locale: :en) %>">
+                        <span class="icon-32">
+                            <img src="/frontend/images/eng-flag.png" alt="English (US)">
+                        </span>
+                    </a>
+                <% end %>
             </li>
         </ul>
     </nav>
-    <div class="d-lg-flex d-sm-none d-md-none d-none justify-content-between container align-items-center p-0 px-3">
-        <div class="icon-32">
-            <img src="./frontend/images/vietnam 1.png" alt="Việt Nam">
+    <div class="d-lg-flex d-sm-none d-md-none d-none justify-content-between container align-items-center p-0 px-2">
+        <div class="dropdown">
+            <button type="button" id="language" class="btn btn-primary btn-lg dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <span class="flag-icon flag-icon-<%= flag %> me-1"></span> <span><%= lang %></span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="language">
+                <%= link_to "<span class='flag-icon flag-icon-vn me-1'></span> <span>Tiếng Việt</span>".html_safe,
+                    url_for(locale: :vi),
+                    class: "dropdown-item #{ 'active' if I18n.locale == :vi }"
+                %>
+                <%= link_to "<span class='flag-icon flag-icon-us me-1'></span> <span>English (US)</span>".html_safe,
+                    url_for(locale: :en),
+                    class: "dropdown-item #{ 'active' if I18n.locale == :en }"
+                %>
+                <%= link_to "<span class='flag-icon flag-icon-jp me-1'></span> <span>日本語</span>".html_safe,
+                    url_for(locale: :ja),
+                    class: "dropdown-item #{ 'active' if I18n.locale == :ja }"
+                %>
+            </div>
         </div>
-        <i class="fa-solid fa-chevron-down p-1"></i>
     </div>
     <div class="header__menu-icon d-block d-sm-block d-md-block d-lg-none p-3">
         <i class="fa-solid fa-bars"></i>
         <i class="fa-solid fa-xmark d-none"></i>
     </div>
 </header>
-<!-- END HEADER-->

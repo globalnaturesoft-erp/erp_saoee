@@ -10,10 +10,10 @@
 	max-width: 100%;
 	width: 100%;
 	height: 960px;
-	background-image: url(../images/Rectangle\ 1.png);
+	/*background-image: url(../images/Rectangle\ 1.png);
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: center center;*/
 	position: relative;
 	margin-bottom: calc(160px/2);
 }
@@ -66,6 +66,7 @@
     background-repeat: no-repeat;
     padding-bottom: 10rem !important;
 	background-size: 65% auto;
+	background-color: #fff;
 }
 
 /* SECTION PRODUCT */
@@ -120,7 +121,9 @@
 	width: 180px;
 	height: 180px;
 }
-
+.product__card .card__image img {
+	border-radius: 50%;
+}
 .product__card .card__icon {
 	width: 48px;
 	height: 48px;
@@ -253,7 +256,7 @@
 
 /* PARTNER */
 .section__partner {
-	padding: 40px 0;
+	padding: 40px 0 100px;
 }
 
 .partner__container {}
@@ -267,8 +270,55 @@
 .posts__container {
 	margin: 0 auto;
 }
+.banner-sl .slick-slide > div {
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+.banner-sl .slick-slide > div img {
+	width: 100%;
+}
+.banner-sl .slick-slide > div h2 {
+	font-size: 64px;
+	position: absolute;
+	color: #fff;
+	left: calc(50% + 90px);
+	transform: translateX(-50%);
+	text-transform: capitalize;
+	font-weight: bold;
+	top: 50%;
+	white-space: nowrap;
+	text-shadow: 0px 2px 4px #000;
+}
+.partner-sl .slick-track
+{
+    display: flex !important;
+}
+.partner-sl .slick-slide
+{
+    height: inherit !important;
+}
+.partner-sl .slick-slide > div {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.partner-sl .slick-slide img {
+	height: auto;
+	width: auto !important;
+	max-height: 200px;
+}
+.partner-sl .slick-prev, .partner-sl .slick-next {
+	top: calc(100% + 70px);
+}
 
 /* RESPONSIVE */
+@media (max-width: 1500px) {
+	.banner-sl .slick-slide > div h2 {
+		top: 65%;
+	}
+}
 @media (min-width: 992px) {
 	.section__partner .row .col {
 		display: flex;
@@ -462,11 +512,15 @@
 	.call-action .icon-black-6 {
 		background-color: var(--red);
 	}
+
+	.banner-sl .slick-slide > div h2 {
+		font-size: 45px;
+	}
 }
 
 @media (max-width: 579px) {
 	.section__banner {
-		height: 70vh;
+		height: 280px;
 	}
 	.service__container .image__container {
 		bottom: 5%;
@@ -490,4 +544,10 @@
 		margin-left: -8%;
 		height: 60vh;
 	}
+	.banner-sl .slick-slide > div h2 {
+        font-size: 25px;
+        left: 50%;
+		transform: translateX(-20%);
+		top: 55%;
+    }
 }

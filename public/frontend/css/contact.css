@@ -1,0 +1,29 @@
+/* Import css */
+@import "./lib/variable.css";
+@import "./lib/reset.css";
+@import "./lib/global.css";
+@import "./lib/header.css";
+@import "./lib/footer.css";
+
+.bg-black * {
+    color: #fff !important;
+}
+
+.bg-black .company__name {
+    border: none;
+}
+
+.bg-black .footer__text {
+    text-align: left;
+}
+
+@media (max-width: 991px) {
+    form .row.mb-3 {
+        margin-bottom: 0 !important;
+    }
+    form .row .col {
+        width: 100%;
+        flex: auto;
+        margin-bottom: 1rem;
+    }
+}

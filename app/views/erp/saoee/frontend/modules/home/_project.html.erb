@@ -1,43 +1,42 @@
-<% @newest_projects = Erp::Projects::Project.newest_projects(20) %>
-<% if @newest_projects.count >= 4 %>
-<!-- LASTEST PROJECT-->
-<section class="wrap wrap--w1790 p-b-75">
-    <div class="container">
-        <div class="section-title m-b-70">
-            <h5 class="title-sub"><%= t('.project_title_sub') %></h5>
-            <h2 class="title-1"><%= t('.project_title') %></h2>
+<% @newest_projects = Erp::Projects::Project.newest_projects(4) %>
+<!-- Project -->
+<section class="section__project">
+    <div class="project__container container">
+        <div class="d-flex flex-column align-items-center align-items-sm-center align-items-md-center align-items-lg-start">
+        <h2 class="section__heading">
+            <%= t('.project_title') %>
+        </h2>
+        <h3 class="section__title--2 fw-bold fw-lg-normal text-white text-center text-sm-center text-md-center text-lg-start">
+            <%= raw t('.project_title_sub') %>
+        </h3>
         </div>
-        <div class="container-fluid">
-            <div class="slick-wrap slick-project js-slick-wrapper" data-slick-xs="1" data-slick-sm="1" data-slick-md="3" data-slick-lg="4" data-slick-xl="4" data-slick-dots="false" data-slick-customnav="true" data-slick-autoplay="true">
-                <div class="slick-wrap-content">
-                    <div class="slick-content js-slick-content">
-                        <% @newest_projects.each do |project| %>
-                            <div class="slick-item">
-                                <article class="media media-project">
-                                    <figure class="media__img">
-                                        <%= image_tag project.image.thumb_960_600, alt: project.name %>
-                                    </figure>
-                                    <div class="bg-overlay"></div>
-                                    <span class="line"></span>
-                                    <span class="line line--bottom"></span>
-                                    <div class="media__body">
-                                        <h3 class="title">
-                                            <%= link_to project.name, project_link(project) %>
-                                        </h3>
-                                        <div class="address"><%= project.location %></div>
-                                    </div>
-                                </article>
-                            </div>
-                        <% end %>
+        <div class="project__carousel mt-5">
+        <div class="carousel__list slick-light">
+            <% @newest_projects.each do |project| %>
+                <div class="carousel__item">
+                    <div class="carousel__image">
+                        <%= image_tag project.image.thumb_960_600, class: "img-fluid object-fit-cover", alt: project.name %>
+                    </div>
+                    <div class="position-absolute bottom-0 start-0 p-4">
+                        <h3 class="carousel__title fs-5 fw-bold text-white">
+                            <%= link_to project.name, project_link(project), class: "text-white" %>
+                        </h3>
+                        <p class="carousel__address text-white fw-medium">
+                            <%= project.location %>
+                        </p>
                     </div>
                 </div>
-                <div class="slick__nav arrows-1">
-                    <i class="slick-prev slick-arrow js-slick-prev ti-angle-left"></i>
-                    <i class="slick-next slick-arrow js-slick-next ti-angle-right"></i>
-                </div>
+            <% end %>
+        </div>
+        </div>
+        <a href="<%= erp_saoee.project_path %>"
+            class="d-block mt-5 mt-sm-5 mt-md-5 mt-lg-0 pt-5 pt-sm-5 pt-md-5 pt-lg-0">
+        <div class="call-action d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start mt-4">
+            <span>Xem tất cả</span>
+            <div class="icon-32 icon-black-6 d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-arrow-right"></i>
             </div>
         </div>
+        </a>
     </div>
 </section>
-<!-- END LASTEST PROJECT-->
-<% end %>

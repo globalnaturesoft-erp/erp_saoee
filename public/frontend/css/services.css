@@ -1,0 +1,245 @@
+/* Import css */
+@import "./lib/variable.css";
+@import "./lib/reset.css";
+@import "./lib/global.css";
+@import "./lib/header.css";
+@import "./lib/footer.css";
+
+
+/* ADVICE */
+.section__advice {
+	padding-top: 0;
+	padding-bottom: 60px;
+}
+
+.advice__banner {
+	background-color: var(--black-7);
+	background-image: url(../images/Layer_4.png);
+	background-position: 35px 0;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.advice__banner::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 22%;
+	height: 100%;
+	background-image: url(../images/adv_banner.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-size: cover;
+}
+
+.advice__banner .banner__container {
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.service__card {
+	width: 276px;
+	aspect-ratio: 1;
+}
+
+.service__card+.service__card {
+	margin-left: -20px;
+}
+
+.advice__icon {
+	width: 136px;
+}
+
+/* carousel */
+
+.advice__carousel .carousel__list {
+	width: 100%;
+	display: flex;
+	gap: 32px;
+}
+
+.carousel__item {
+	position: relative;
+	width: 284px;
+	flex-shrink: 0;
+}
+
+.carousel__image {
+	width: 100%;
+	height: 410px;
+	position: relative;
+}
+
+.carousel__image::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: linear-gradient(180deg, #00000000, #00000080);
+}
+
+.carousel__image img {
+	width: 100%;
+	height: 100%;
+}
+
+.carousel__address {
+	font-size: 14px;
+	display: -webkit-box;
+	max-width: 200px;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+
+/* SERVICE PACKAGE */
+.section__assessment-solution {
+	padding-top: 110px;
+	position: relative;
+}
+
+.section__assessment-solution::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	width: 100%;
+	height: 50%;
+	background: url(../images/90167fedc88e31f1281424778fff25ec.jpg), linear-gradient(#00000080, #00000080);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-blend-mode: overlay;
+	z-index: -1;
+}
+
+/*  */
+.section__assessment-solution--wind {
+	padding-top: 150px;
+	padding-bottom: 60px;
+}
+
+.container--ventilation-system {
+	display: grid;
+	grid-template: 285px 285px / 240px 240px 80px;
+	gap: 60px 8px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 991px) {
+	.section__banner .banner__container {
+		height: 110px;
+	}
+
+	.section__banner .banner__container .banner__title, .section__title--2 {
+		font-size: 20px;
+	}
+
+	.banner__nav {
+		display: none;
+	}
+
+	.section__assessment-solution {
+		padding-top: 19px;
+		padding-bottom: 19px;
+	}
+
+	.section__assessment-solution::before {
+		height: 100%;
+	}
+
+	.assessment-solution__card {
+		width: 100%;
+	}
+
+	.section__assessment-solution--wind {
+		padding-top: 19px;
+	}
+
+	.container--ventilation-system {
+		display: grid;
+		justify-content: center;
+		grid-template: minmax(0, 215px) minmax(0, 215px) / 135px 135px 45px;
+		gap: 50px 5px;
+	}
+
+	.section__natural-lighting {
+		background-color: transparent;
+		padding-top: 0;
+		padding-bottom: 80px;
+	}
+
+	.section__thermal-comfort {
+		padding-top: 0;
+		padding-bottom: 80px;
+	}
+
+	.advice__banner {
+		height: 160px;
+		background-position: -246px 80%;
+	}
+
+	.advice__banner .banner__container {
+		background-position: calc(100% + 300px) 0;
+		background-size: contain;
+	}
+
+	.section__contact .contact__wrapper {
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+	}
+
+	.section__contact .contact__slogan {
+		font-size: 24px;
+	}
+
+	.slick-prev {
+		left: 50%;
+		margin-left: -60px;
+	}
+
+	.slick-next {
+		left: calc(50% + 25px);
+	}
+
+	.section__partner .row .col {
+		width: 50%;
+		flex: auto;
+	}
+
+	.section__partner .row .col img {
+		height: 250px;
+		object-fit: none;
+	}
+
+	.assessment-solution__list > div {
+		margin-bottom: 1rem;
+	}
+
+	.section__natural-lighting.sub2::before {
+		content: none;
+	}
+}
+
+@media (max-width: 579px) {
+	.advice__icon {
+		text-align: center;
+	}
+	.advice__icon img {
+		width: 70%;
+	}
+	.advice__banner .section__title--2 {
+		text-align: left;
+	}
+	.advice__banner .banner__container {
+		z-index: 2;
+		position: relative;
+	}
+}
