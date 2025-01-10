@@ -3,27 +3,18 @@
 <% end %>
 
 <%
-    project_name = @project.name
-    if @project.name.present? and @project.en_name.present? and @project.ja_name.present?
-        if I18n.locale == :vi
-            project_name = @project.name
-        elsif I18n.locale == :en
-            project_name = @project.en_name
-        elsif I18n.locale == :ja
-            project_name = @project.ja_name
-        end
-    end
-%>
-<%
-    project_location = @project.location
-    if @project.location.present? and @project.en_location.present? and @project.ja_location.present?
-        if I18n.locale == :vi
-            project_location = @project.location
-        elsif I18n.locale == :en
-            project_location = @project.en_location
-        elsif I18n.locale == :ja
-            project_location = @project.ja_location
-        end
+    if I18n.locale == :en
+        project_name = @project.en_name
+        project_location = @project.en_location
+        project_description = @project.en_description
+    elsif I18n.locale == :ja
+        project_name = @project.ja_name
+        project_location = @project.ja_location
+        project_description = @project.ja_description
+    else
+        project_name = @project.name
+        project_location = @project.location
+        project_description = @project.description
     end
 %>
 
@@ -67,153 +58,97 @@
 <% end %>
 
 <!-- PAGE HEADING-->
-<section class="section breadcrumb p-t-65 p-b-35">
-    <div class="container">
-        <div class="page-heading">
-            <h2 class="title-2"><%= t('.project') %></h2>
-            <h4 class="title-sub title-sub--c8 m-b-15">
-                <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
-                <%= link_to t('project'), erp_saoee.service_path %> <i class="ti-angle-double-right"></i>
+<section class="section__banner">
+    <div class="banner__container container-fluid px-0">
+        <div class="banner__image z-0">
+            <img src="/frontend/images/b3cdf315c50cdc2ea383403ddff9f6c1.jpg" alt="">
+        </div>
+        <div class="banner__container container d-flex align-items-center">
+            <h1 class="banner__title fw-bold text-white text-capitalize">
                 <%= project_name %>
-            </h4>
+            </h1>
+        </div>
+    </div>
+    <div class="banner__nav">
+        <div class="nav__container container d-flex align-items-center text-black-4 fs-6 h-100">
+            <%= link_to '<i class="fa-solid fa-house"></i>'.html_safe, erp_saoee.root_path, class: 'text-secondary' %>
+            <i class="fa-solid fa-angle-right"></i>
+            <%= link_to t('project'), erp_saoee.project_path, class: 'fw-semibold text-uppercase text-secondary' %>
+            <i class="fa-solid fa-angle-right"></i>
+            <span class="fw-semibold text-uppercase text-red"><%= project_name %></span>
         </div>
     </div>
 </section>
 <!-- END PAGE HEADING-->
 
 <!-- PROJECT DETAIL-->
-<div class="container p-b-30">
-    <h2 class="title-1 p-t-20"><%= project_name %></h2>
-    <article class="project-style-4 p-t-10">
-        <div class="row m-t-20 m-b-20">
-            <div class="col-lg-5">
-                <div class="entry-meta">
-                    <div class="row">
-                        <% if false %>
-                            <div class="col-sm-4">
-                                <div class="entry-meta__item">
-                                    <h4 class="key"><%= t('.client_name') %>:</h4>
-                                    <span class="value">N/A</span>
-                                </div>
-                            </div>
-                        <% end %>
-                        <div class="col-sm-6">
-                            <div class="entry-meta__item">
-                                <h4 class="key"><%= t('.location') %>:</h4>
-                                <span class="value"><%= project_location %></span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="entry-meta__item">
-                                <h4 class="key"><%= t('.area') %>:</h4>
-                                <span class="value"><%= @project.area.present? ? "#{@project.area}m<sup>2</sup>".html_safe : "N/A" %></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="entry-meta__item">
-                                <h4 class="key"><%= t('.start_date') %>:</h4>
-                                <span class="value"><%= @project.start_date.present? ? @project.start_date.strftime('%d/%m/%Y') : "N/A" %></span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="entry-meta__item">
-                                <h4 class="key"><%= t('.completion_date') %>:</h4>
-                                <span class="value"><%= @project.completion_date.present? ? @project.completion_date.strftime('%d/%m/%Y') : "N/A" %></span>
-                            </div>
-                        </div>
-                        <% if false %>
-                            <div class="col-sm-4">
-                                <div class="entry-meta__item">
-                                    <h4 class="key"><%= t('.status') %>:</h4>
-                                    <span class="value">Hoàn thành</span>
-                                </div>
-                            </div>
-                        <% end %>
-                    </div>
-                </div>
+<section class="glbg py-0 py-sm-0 py-md-0 py-lg-5">
+    <div class="container">
+        <div class="row row-sp-stretch bg-black-7 py-4 px-4 px-sm-4 px-md-4 px-lg-5">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-5 pb-3 pb-sm-3 pb-md-3 pb-lg-0">
+                <label class="text-black-4 text-uppercase"><%= t('.location') %></label>
+                <p class="fw-bold fs-20 mb-0"><%= project_location %></p>
             </div>
-            <div class="col-lg-7">
-                <div class="entry-content">
-                    <%
-                        project_description = @project.description
-                        if @project.description.present? and @project.en_description.present? and @project.ja_description.present?
-                            if I18n.locale == :vi
-                                project_description = @project.description
-                            elsif I18n.locale == :en
-                                project_description = @project.en_description
-                            elsif I18n.locale == :ja
-                                project_description = @project.ja_description
-                            end
-                        end
-                    %>
-                    <%= project_description.html_safe %>
-                </div>
-                <div class="entry-share">
-                    <span class="key"><%= t('share') %>:</span>
-
-                    <div id="share-buttons" class="list-social list-social--md">
-
-                        <!-- Facebook -->
-                        <a href="http://www.facebook.com/sharer.php?u=<%= request.url %>" target="_blank">
-                            <img src="/frontend/images/icon/socials/facebook.png" alt="Facebook" title="Share a link to this page on Facebook" />
-                        </a>
-
-                        <!-- Twitter -->
-                        <a href="https://twitter.com/share?url=<%= request.url %>&amp;text=<%= project_name %>&amp;hashtags=sao_ee" target="_blank">
-                            <img src="/frontend/images/icon/socials/twitter.png" alt="Twitter" title="Share a link to this page on Twitter" />
-                        </a>
-
-                        <!-- Google+ -->
-                        <a href="https://plus.google.com/share?url=<%= request.url %>" target="_blank">
-                            <img src="/frontend/images/icon/socials/google.png" alt="Google" title="Share a link to this page on Google Plus" />
-                        </a>
-
-                        <!-- LinkedIn -->
-                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<%= request.url %>" target="_blank">
-                            <img src="/frontend/images/icon/socials/linkedin.png" alt="LinkedIn" title="Share a link to this page on LinkedIn" />
-                        </a>
-
-                        <!-- Email -->
-                        <a href="mailto:?Subject=<%= project_name %>&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 <%= request.url %>">
-                            <img src="/frontend/images/icon/socials/email.png" alt="Email" title="Share a link to this page on Email" />
-                        </a>
-
-                    </div>
-                </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-2 pb-3 pb-sm-3 pb-md-3 pb-lg-0">
+                <label class="text-black-4 text-uppercase"><%= t('.area') %></label>
+                <p class="fw-bold fs-20 mb-0"><%= @project.area.present? ? "#{@project.area}m<sup>2</sup>".html_safe : "N/A" %></p>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <label class="text-black-4 text-uppercase"><%= t('.start_date') %></label>
+                <p class="fw-bold fs-20 mb-0"><%= @project.start_date.present? ? @project.start_date.strftime('%d/%m/%Y') : "N/A" %></p>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-2">
+                <label class="text-black-4 text-uppercase"><%= t('.completion_date') %></label>
+                <p class="fw-bold fs-20 mb-0"><%= @project.completion_date.present? ? @project.completion_date.strftime('%d/%m/%Y') : "N/A" %></p>
             </div>
         </div>
-        <% if !@project.project_images.empty? %>
-            <div class="masonry-row js-isotope-wrapper">
-                <div class="row isotope-content">
-                    <% @project.project_images.each do |project_image| %>
-                        <%
-                            project_image_name = project_image.name
-                            if project_image.name.present? and project_image.en_name.present? and project_image.ja_name.present?
-                                if I18n.locale == :vi
-                                    project_image_name = project_image.name
-                                elsif I18n.locale == :en
-                                    project_image_name = project_image.en_name
-                                elsif I18n.locale == :ja
-                                    project_image_name = project_image.ja_name
-                                end
-                            end
-                        %>
-                        <div class="col-md-6 col-lg-4 isotope-item isotope-item-sizer">
-                            <a href="<%= project_image.image_url %>" data-fancybox="images" data-caption="<%= project_image_name %>">
-                                <%= image_tag(project_image.image_url.thumb_640_467, alt: project_image_name, class: 'wp-post-image') %>
-                            </a>
-                        </div>
-                    <% end %>
-                </div>
+
+        <div class="row py-5">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-4 mb-sm-5 mb-md-5 mb-lg-0">
+                <%= project_description.html_safe %>
             </div>
-        <% end %>
-    </article>
-</div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <% if !@project.project_images.empty? %>
+                    <div class="masonry-row js-isotope-wrapper">
+                        <div class="row isotope-content">
+                            <% @project.project_images.each do |project_image| %>
+                                <%
+                                    project_image_name = project_image.name
+                                    if project_image.name.present? and project_image.en_name.present? and project_image.ja_name.present?
+                                        if I18n.locale == :vi
+                                            project_image_name = project_image.name
+                                        elsif I18n.locale == :en
+                                            project_image_name = project_image.en_name
+                                        elsif I18n.locale == :ja
+                                            project_image_name = project_image.ja_name
+                                        end
+                                    end
+                                %>
+                                <div class="col-md-6 col-lg-4 isotope-item isotope-item-sizer py-2">
+                                    <a href="<%= project_image.image_url %>" data-fancybox="images" data-caption="<%= project_image_name %>">
+                                        <%= image_tag(project_image.image_url.thumb_640_467, alt: project_image_name, class: 'wp-post-image border') %>
+                                    </a>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="container pb-5">
+        <div class="row">
+            <%= render 'erp/saoee/frontend/project/entry_social_share', project_name: project_name %>
+            <%#= render 'erp/saoee/frontend/project/other_projects' %>
+        </div>
+    </div>
+</section>
 <!-- END PROJECT DETAIL-->
 
 <!-- LASTEST PROJECT-->
+<% if false %>
 <section class="wrap wrap--w1790 p-b-75">
     <div class="container">
         <div class="section-title m-b-30">
@@ -313,4 +248,5 @@
         <% end %>
     </div>
 </section>
+<% end %>
 <!-- END LASTEST PROJECT-->

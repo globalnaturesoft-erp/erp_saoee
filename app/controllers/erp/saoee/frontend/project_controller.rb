@@ -3,9 +3,9 @@ module Erp
     module Frontend
       class ProjectController < Erp::Frontend::FrontendController
         def index
-          @projects = Erp::Projects::Project.all.order('erp_projects_projects.created_at DESC')
+          @projects = Erp::Projects::Project.all.order('erp_projects_projects.created_at DESC').paginate(:page => params[:page], :per_page => 24)
         end
-        
+
         def detail
           @project = Erp::Projects::Project.find(params[:project_id])
           #@meta_keywords = @project.meta_keywords
