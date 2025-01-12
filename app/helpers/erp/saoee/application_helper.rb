@@ -5,7 +5,7 @@ module Erp
       def title(page_title)
         content_for :title, page_title.to_s
       end
-      
+
       # display full address
       def full_address(contact)
         str = []
@@ -20,27 +20,32 @@ module Erp
         #str << contact.state_name if contact.state_name.present?
         str.join(", ")
       end
-      
+
       # article link
       def service_link(service)
         erp_saoee.service_detail_path(service.id, title: url_friendly(service.name))
       end
-      
+
+      # product link
+      def product_link(product)
+        erp_saoee.product_detail_path(product.id, title: url_friendly(product.name))
+      end
+
       # blog link
       def blog_link(blog)
         erp_saoee.blog_detail_path(blog.id, title: url_friendly(blog.name))
       end
-      
+
       # recruitment link
       def recruitment_link(recruitment)
         erp_saoee.recruitment_detail_path(recruitment.id, title: url_friendly(recruitment.name))
       end
-      
+
       # project link
       def project_link(project)
         erp_saoee.project_detail_path(project.id, title: url_friendly(project.name))
       end
-      
+
       # article image
       def article_image(thumb, size)
         if size == '960_960'

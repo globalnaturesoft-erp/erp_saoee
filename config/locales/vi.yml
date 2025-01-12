@@ -1,7 +1,8 @@
 vi:
   home: "Trang chủ"
   about_us: "Dịch vụ"
-  service: "Sản phẩm"
+  service: "Dịch vụ"
+  product: "Sản phẩm"
   project: "Dự án"
   blog: "Tin tức"
   recruitment: "Tuyển dụng"
@@ -15,7 +16,8 @@ vi:
     nav:
       home: "Trang chủ"
       about_us: "Dịch vụ"
-      service: "Sản phẩm"
+      service: "Dịch vụ"
+      product: "Sản phẩm"
       project: "Dự án"
       blog: "Tin tức"
       recruitment: "Tuyển dụng"
@@ -40,11 +42,19 @@ vi:
             no_matching_records_found: "Nội dung đang được cập nhật"
         service:
           index:
-            service: "Sản phẩm"
-            our_services_title: "Các sản phẩm của chúng tôi"
+            service: "Dịch vụ"
+            our_services_title: "Các dịch vụ của chúng tôi"
             our_services_title_sub: "Chúng tôi có thể giúp gì cho bạn?"
           detail:
-            service: "Sản phẩm"
+            service: "Dịch vụ"
+            no_matching_records_found: "Nội dung đang được cập nhật"
+        product:
+          index:
+            product: "Sản phẩm"
+            our_products_title: "Các sản phẩm của chúng tôi"
+            our_products_title_sub: "Chúng tôi có thể giúp gì cho bạn?"
+          detail:
+            product: "Sản phẩm"
             no_matching_records_found: "Nội dung đang được cập nhật"
         project:
           index:
@@ -137,7 +147,7 @@ vi:
             hotline: "Hotline"
             email: "Email"
             tax_code: "Mã số thuế"
-            service: "Sản phẩm"
+            service: "Dịch vụ"
             link: "Liên kết"
             socials: "Kết nối"
             about_us: "Dịch vụ"

@@ -1,0 +1,71 @@
+<%
+    display_service_name = ''
+    if I18n.locale == :vi
+        display_service_name = @current_menu.name
+    elsif I18n.locale == :en
+        display_service_name = @current_menu.en_name
+    elsif I18n.locale == :ja
+        display_service_name = @current_menu.ja_name
+    end
+%>
+
+<% title display_service_name %>
+<!-- PAGE HEADING-->
+<section class="section breadcrumb p-t-65 p-b-35">
+    <div class="container">
+        <div class="page-heading">
+            <h2 class="title-2"><%= t('.service') %></h2>
+            <h4 class="title-sub title-sub--c8 m-b-15">
+                <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= link_to t('service'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
+                <%= display_service_name %>
+            </h4>
+        </div>
+    </div>
+</section>
+<!-- END PAGE HEADING-->
+
+<!-- SERVICE DETAI-->
+<section class="section p-t-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9">
+                <% if @service.present? %>
+                    <article class="blog-detail-1">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <% if I18n.locale == :vi %>
+                                    <%= @service.name %>
+                                <% elsif I18n.locale == :en %>
+                                    <%= @service.en_name %>
+                                <% elsif I18n.locale == :ja %>
+                                    <%= @service.ja_name %>
+                                <% end %>
+                            </h2>
+                        </header>
+                        <div class="entry-content">
+                            <% if I18n.locale == :vi %>
+                                <%= (image_tag @service.image.thumb_870_489, alt: @service.name, class: 'wp-post-image') if @service.image.thumb_870_489.present? %>
+                                <%= @service.content.html_safe if @service.content.present? %>
+                            <% elsif I18n.locale == :en %>
+                                <%= (image_tag @service.en_image.thumb_870_489, alt: @service.en_name, class: 'wp-post-image') if @service.en_image.thumb_870_489.present? %>
+                                <%= @service.en_content.html_safe if @service.en_content.present? %>
+                            <% elsif I18n.locale == :ja %>
+                                <%= (image_tag @service.ja_image.thumb_870_489, alt: @service.ja_name, class: 'wp-post-image') if @service.ja_image.thumb_870_489.present? %>
+                                <%= @service.ja_content.html_safe if @service.ja_content.present? %>
+                            <% end %>
+                        </div>
+                    </article>
+                <% else %>
+                    <div class="alert alert-warning">
+                        <i class="fa fa-warning"></i> <%= t('.no_matching_records_found') %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <%= render "erp/saoee/frontend/modules/service/sidebar" %>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SERVICE DETAIL-->

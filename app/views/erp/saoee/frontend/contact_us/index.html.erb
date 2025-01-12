@@ -1,20 +1,125 @@
+<% content_for :page_style do %>
+    <link rel="stylesheet" href="/frontend/css/contact.css" />
+<% end %>
+
 <% title t('.contact_us') %>
 
 <!-- PAGE HEADING-->
-<section class="section breadcrumb p-t-65 p-b-35">
-    <div class="container">
-        <div class="page-heading">
-            <h2 class="title-2"><%= t('.contact_us') %></h2>
-            <h4 class="title-sub title-sub--c8 m-b-15">
-                <%= link_to t('home'), erp_saoee.root_path %> <i class="ti-angle-double-right"></i>
-                <%= t('contact_us') %>
-            </h4>
+<section class="section__banner">
+    <div class="banner__container container-fluid px-0">
+        <div class="banner__image z-0">
+            <img src="/frontend/images/b3cdf315c50cdc2ea383403ddff9f6c1.jpg" alt="">
+        </div>
+        <div class="banner__container container d-flex align-items-center">
+            <h1 class="banner__title fw-bold text-white text-capitalize">
+                <%= t('.contact_us') %>
+            </h1>
+        </div>
+    </div>
+    <div class="banner__nav">
+        <div class="nav__container container d-flex align-items-center text-black-4 fs-6 h-100">
+            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-angle-right"></i>
+            <span class="fw-semibold text-uppercase text-red"><%= t('contact_us') %></span>
         </div>
     </div>
 </section>
 <!-- END PAGE HEADING-->
 
 <!-- CONTACT-->
+<section class="glbg sub3 py-0 py-sm-0 py-md-0 py-lg-mx">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 mb-4">
+                <h2>Hãy liên hệ với chúng tôi để được tư vấn giải pháp phù hợp nhất!</h2>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                <form action="#">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formGroupExampleInput" class="form-label">Họ và tên</label>
+                            <input type="text" class="form-control" placeholder="Họ và tên" aria-label="Họ và tên">
+                        </div>
+                        <div class="col">
+                            <label for="formGroupExampleInput" class="form-label">Công ty/Tổ chức/Cá nhân</label>
+                            <input type="text" class="form-control" placeholder="Tên công ty" aria-label="Tên công ty">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="formGroupExampleInput" class="form-label">Email</label>
+                            <input type="text" class="form-control" placeholder="Địa chỉ email" aria-label="Địa chỉ email">
+                        </div>
+                        <div class="col">
+                            <label for="formGroupExampleInput" class="form-label">Số điện thoại</label>
+                            <input type="text" class="form-control" placeholder="09xx" aria-label="09xx">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Lời nhắn</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="Vui lòng để lại lời nhắn"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-end">Gửi tin nhắn <i class="fa-solid fa-arrow-right fa-fw"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section__contact_foot">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                <img src="/frontend/images/map.png" alt="" class="w-100 h-100">
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 py-5 px-4 px-sm-4 px-md-4 px-lg-5 bg-black">
+                <div class="d-flex flex-column gap-4 flex-grow-0 w-100">
+                    <h2 class="fs-5 text-capitalize d-inline-block w-fit-content fw-bold company__name">
+                        Công ty Cổ phần Tư vấn Thiết kế SAO
+                    </h2>
+                    <div class="d-flex flex-column gap-2 flex-wrap flex-lg-nowrap gap-14">
+                        <div class="d-flex gap-2 align-items-center w-100 w-lg-auto">
+                            <div class="icon-20">
+                                <img src="/frontend/images/add_location.png" alt="">
+                            </div>
+                            <p class="footer__text">
+                                L17-11, Vincom Center Buildings, 72 Lê Thánh Tôn, P. Bến Nghé, Quận 1, TP. Hồ Chí
+                                Minh, Việt Nam
+                            </p>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="icon-20">
+                                <img src="/frontend/images/drafts.png" alt="">
+                            </div>
+                            <p class="footer__text">
+                                info@sao-ee.vn
+                            </p>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="icon-20">
+                                <img src="/frontend/images/add_ic_call.png" alt="">
+                            </div>
+                            <p class="footer__text">
+                                (+84) 28 6682 2233
+                            </p>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="icon-20">
+                                <img src="/frontend/images/margin.png" alt="">
+                            </div>
+                            <p class="footer__text">
+                                MST: 0313639154
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<% if false %>
 <section class="section p-b-80">
     <div class="container">
         <div class="row m-t-60">
@@ -28,4 +133,5 @@
         <%= render "erp/saoee/frontend/modules/contact_us/google_map" %>
     </div>
 </section>
+<% end %>
 <!-- END CONTACT-->

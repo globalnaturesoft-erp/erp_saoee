@@ -6,20 +6,15 @@ module Erp
           @service_menus = Erp::Articles::Category.get_categories_by_alias_service
             .where(parent_id: nil)
             .order('erp_articles_categories.custom_order ASC')
+          @services = Erp::Articles::Article.where(category_id: @service_menus.pluck(:id))
         end
-        
+
         def detail
-          if params[:cat_id].present?
-            @current_menu = Erp::Articles::Category.find(params[:cat_id])
-            @services = Erp::Articles::Article.where(category_id: @current_menu.id)
-            @service = @services.last
-            @meta_keywords = @service.meta_keywords if @service.present?
-            @meta_description = @service.meta_description if @service.present?
-            
-            @categories = Erp::Articles::Category.get_categories_by_alias_service
-                  .where.not(id: @current_menu.id)
-                  .order('erp_articles_categories.custom_order ASC')
-          end
+          @service = Erp::Articles::Article.find(params[:service_id])
+          @service = @service
+          @meta_keywords = @service.meta_keywords if @service.present?
+          @meta_description = @service.meta_description if @service.present?
+          @categories = Erp::Articles::Category.get_categories_by_alias_service
         end
       end
     end
