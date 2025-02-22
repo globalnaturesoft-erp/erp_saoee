@@ -9,6 +9,18 @@
         flag = 'vn'
         lang = 'Tiếng Việt'
     end
+
+    @service_menus = Erp::Articles::Category.get_categories_by_alias_service
+        .where(parent_id: nil)
+        .order('erp_articles_categories.custom_order ASC')
+    @services = Erp::Articles::Article.where(category_id: @service_menus.pluck(:id))
+        .order('erp_articles_articles.custom_order ASC')
+
+    @product_menus = Erp::Articles::Category.get_categories_by_alias_product
+        .where(parent_id: nil)
+        .order('erp_articles_categories.custom_order ASC')
+    @products = Erp::Articles::Article.where(category_id: @product_menus.pluck(:id))
+        .order('erp_articles_articles.custom_order ASC')
 %>
 <!-- Header -->
 <header class="header bg-white z-3 shadow-sm px-4 px-sm-4 px-md-4 px-lg-0">
@@ -34,16 +46,11 @@
                 </a>
                 <i class="fa-solid fa-chevron-down d-block d-sm-block d-md-block d-lg-none px-2"></i>
                 <ul class="dropdown-menu shadow-sm">
-                    <li class="dropdown-item">
-                        <a class="text-uppercase" href="goi-dich-vu-tu-van-thiet-ke.html">
-                            Các gói Dịch vụ cho Văn phòng tư vấn thiết kế
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a class="text-uppercase" href="dich-vu-tu-van-cai-tao-cong-trinh.html">
-                            Tư vấn cải tạo công trình
-                        </a>
-                    </li>
+                    <% @services.each do |service| %>
+                        <li class="dropdown-item">
+                            <%= link_to service.name, service_link(service), class: 'text-uppercase' %>
+                        </li>
+                    <% end %>
                 </ul>
             </li>
             <li class="nav-item dropdown">
@@ -53,21 +60,11 @@
                 </a>
                 <i class="fa-solid fa-chevron-down d-block d-sm-block d-md-block d-lg-none px-2"></i>
                 <ul class="dropdown-menu shadow-sm">
-                    <li class="dropdown-item">
-                        <a class="text-uppercase" href="mo-phong-chay-thoat-hiem.html">
-                        Mô phỏng Cháy thoát hiểm
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a class="text-uppercase" href="tien-nghi-trong-cong-trinh.html">
-                        Mô phỏng Tiện nghi trong Công trình
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a class="text-uppercase" href="ban-do-gio.html">
-                        Ứng dụng Thông gió cho Nhà xưởng
-                        </a>
-                    </li>
+                    <% @products.each do |product| %>
+                        <li class="dropdown-item">
+                            <%= link_to product.name, product_link(product), class: 'text-uppercase' %>
+                        </li>
+                    <% end %>
                 </ul>
             </li>
             <li class="nav-item">
